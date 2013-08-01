@@ -1,0 +1,43 @@
+
+<video controls>
+
+	<f:if condition="{video.webM}">
+		<source type="video/webm" src="{video.webM.originalResource.publicUrl}" />
+	</f:if>
+
+	<f:if condition="{video.h264}">
+		<source type="video/mp4" src="{video.h264.originalResource.publicUrl}" />
+	</f:if>
+
+	<f:if condition="{video.ogv}">
+		<source type="video/ogg" src="{video.ogv.originalResource.publicUrl}" />
+	</f:if>
+
+	<div class="tx-html5mediakit-video-fallbacktext">
+
+		<p>Ihr Browser unterstützt leider das <code>video</code> Element nicht.</p>
+
+		<f:if condition="{video.webM}">
+			<p>
+				Sie können das Video im WebM Format hier herunterladen:
+				<a href="{video.webM.originalResource.publicUrl}">{video.webM.name}</a>
+			</p>
+		</f:if>
+
+		<f:if condition="{video.h264}">
+			<p>
+				Sie können das Video im h.264 Format hier herunterladen:
+				<a href="{video.h264.originalResource.publicUrl}">{video.h264.name}</a>
+			</p>
+		</f:if>
+
+		<f:if condition="{video.ogv}">
+			<p>
+				Sie können das Video im OGG Theora Format hier herunterladen:
+				<a href="{video.ogv.originalResource.publicUrl}">{video.ogv.name}</a>
+			</p>
+		</f:if>
+
+	</div>
+
+</video>

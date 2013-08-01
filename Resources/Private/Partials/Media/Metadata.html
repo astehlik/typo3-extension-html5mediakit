@@ -1,0 +1,20 @@
+
+<f:if condition="{media.hasMetadata}">
+
+	<div class="tx-html5mediakit-media-metadata">
+
+		<f:if condition="{media.caption}">
+			<div class="tx-html5mediakit-media-caption">
+				{media.caption}
+			</div>
+		</f:if>
+
+		<f:if condition="{media.description}">
+			<div class="tx-html5mediakit-media-description">
+				<f:format.html>{media.description}</f:format.html>
+			</div>
+		</f:if>
+
+	</div>
+
+</f:if>
