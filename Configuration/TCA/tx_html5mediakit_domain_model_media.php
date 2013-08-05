@@ -81,7 +81,8 @@ return array(
 				'type' => 'text',
 				'rows' => 5,
 				'cols' => 30
-			)
+			),
+			'defaultExtras' => 'richtext[]:rte_transform[mode=ts_css]'
 		),
 		'mp3' => array(
 			'label' => 'MP3 Datei',
