@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2011-10-17T20:22:32Z" product-name="html5mediakit">
+		<header/>
+		<body>
+			<trans-unit id=".description" xml:space="preserve">
+				<target>Mediendatei (Video / Audio)</target>
+			</trans-unit>
+			<trans-unit id=".details" xml:space="preserve">
+				<target>Das Medium, das in die Seite eingebunden werden soll. Kann entweder ein Video oder eine Audiodatei sein.</target>
+			</trans-unit>
+			<trans-unit id="type.description" xml:space="preserve">
+				<target>Der Typ des Mediums, entweder Video oder Audio.</target>
+			</trans-unit>
+			<trans-unit id="caption.description" xml:space="preserve">
+				<target>Eine optionale Beschriftung des Mediums</target>
+			</trans-unit>
+			<trans-unit id="description.description" xml:space="preserve">
+				<target>Eine optionale erweiterte Beschreibung der Mediendatei, kann z.B. dafür verwendet werden um Quellenangaben zu hinterlegen.</target>
+			</trans-unit>
+			<trans-unit id="mp3.description" xml:space="preserve">
+				<target>Die MP3 Version des einzubindenden Audio-Mediums. Optional kann auch eine OGG Version hinterlegt werden, um die Kompatiblität mit verschiedenen Browsern zu erhöhen.</target>
+			</trans-unit>
+			<trans-unit id="ogg.description" xml:space="preserve">
+				<target>Die optionale OGG Version des einzubindenden Audio-Mediums. Diese sollte den gleichen Inhalt haben wie die MP3 Version. Damit wird die Kompatiblität mit verschiedenen Browsern verbessert.</target>
+			</trans-unit>
+			<trans-unit id="h264.description" xml:space="preserve">
+				<target>Die h.264 Version des einzubindenden Videos. Optional kann auch eine OGV oder eine WebM Version hinterlegt werden, um die Kompatiblität mit verschiedenen Browsern zu erhöhen.</target>
+			</trans-unit>
+			<trans-unit id="ogv.description" xml:space="preserve">
+				<target>Die optionale OGV Version des einzubindenden Videos. Diese sollte den gleichen Inhalt haben wie die h.264 Version. Damit wird die Kompatiblität mit verschiedenen Browsern verbessert.</target>
+			</trans-unit>
+			<trans-unit id="web_m.description" xml:space="preserve">
+				<target>Die optionale WebM Version des einzubindenden Videos. Diese sollte den gleichen Inhalt haben wie die h.264 Version. Damit wird die Kompatiblität mit verschiedenen Browsern verbessert.</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
