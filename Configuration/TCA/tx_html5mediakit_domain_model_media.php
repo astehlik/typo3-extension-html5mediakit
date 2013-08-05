@@ -86,7 +86,7 @@ return array(
 		),
 		'mp3' => array(
 			'label' => 'MP3 Datei',
-			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig('mp3', $customFileTcaFieldSettings, 'mp3'),
+			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig('mp3', array_merge($customFileTcaFieldSettings, array('minitems' => 1)), 'mp3'),
 		),
 		'ogg' => array(
 			'label' => 'OGG Datei',
@@ -94,7 +94,7 @@ return array(
 		),
 		'h264' => array(
 			'label' => 'h.264 Datei',
-			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig('h264', $customFileTcaFieldSettings, 'mp4'),
+			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig('h264', array_merge($customFileTcaFieldSettings, array('minitems' => 1)), 'mp4'),
 		),
 		'ogv' => array(
 			'label' => 'OGV Datei',
