@@ -1,32 +1,42 @@
 
-<audio controls>
+<f:layout name="Media" />
 
-	<f:if condition="{audio.mp3}">
-		<source type="audio/mpeg" src="{audio.mp3.originalResource.publicUrl}" />
-	</f:if>
+<f:section name="media">
 
-	<f:if condition="{audio.ogg}">
-		<source type="audio/ogg" src="{audio.ogg.originalResource.publicUrl}" />
-	</f:if>
-
-	<div class="tx-html5mediakit-video-fallbacktext">
-
-		<p>Ihr Browser unterstützt leider das <code>audio</code> Element nicht.</p>
+	<audio controls>
 
 		<f:if condition="{audio.mp3}">
-			<p>
-				ie können die Audiodatei im MP3 Format hier herunterladen:
-				<a href="{audio.mp3.originalResource.publicUrl}">{audio.mp3.name}</a>
-			</p>
+			<source type="audio/mpeg" src="{audio.mp3.originalResource.publicUrl}" />
 		</f:if>
 
 		<f:if condition="{audio.ogg}">
-			<p>
-				Sie können die Audiodatei im OGG / Vorbis Format hier herunterladen:
-				<a href="{audio.ogg.originalResource.publicUrl}">{audio.ogg.name}</a>
-			</p>
+			<source type="audio/ogg" src="{audio.ogg.originalResource.publicUrl}" />
 		</f:if>
 
-	</div>
+		<div class="tx-html5mediakit-video-fallbacktext">
 
-</audio>
+			<p>Ihr Browser unterstützt leider das <code>audio</code> Element nicht.</p>
+
+			<f:if condition="{audio.mp3}">
+				<p>
+					ie können die Audiodatei im MP3 Format hier herunterladen:
+					<a href="{audio.mp3.originalResource.publicUrl}">{audio.mp3.name}</a>
+				</p>
+			</f:if>
+
+			<f:if condition="{audio.ogg}">
+				<p>
+					Sie können die Audiodatei im OGG / Vorbis Format hier herunterladen:
+					<a href="{audio.ogg.originalResource.publicUrl}">{audio.ogg.name}</a>
+				</p>
+			</f:if>
+
+		</div>
+
+	</audio>
+
+</f:section>
+
+<f:section name="metadata">
+	<f:render partial="Media/Metadata" arguments="{media: audio}" />
+</f:section>
