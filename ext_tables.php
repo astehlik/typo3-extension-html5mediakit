@@ -36,8 +36,12 @@ $columns = array(
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $columns);
 
 $GLOBALS['TCA']['tt_content']['types'][$_EXTKEY . '_mediarenderer']['showitem'] = '
-	--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
-	--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.header;header,
-	tx_html5mediakit_media';
-
-?>
+		--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
+		--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.header;header,
+		tx_html5mediakit_media,
+	--div--;LLL:EXT:cms/locallang_ttc.xml:tabs.appearance,
+		--palette--;LLL:EXT:cms/locallang_ttc.xml:palette.frames;frames,
+	--div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access,
+		--palette--;LLL:EXT:cms/locallang_ttc.xml:palette.visibility;visibility,
+		--palette--;LLL:EXT:cms/locallang_ttc.xml:palette.access;access,
+	--div--;LLL:EXT:cms/locallang_ttc.xml:tabs.extended';
