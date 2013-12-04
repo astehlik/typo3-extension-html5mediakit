@@ -1,7 +1,19 @@
 <?php
 namespace Sto\Html5mediakit\Controller;
 
+/*                                                                        *
+ * This script belongs to the TYPO3 Extension "html5mediakit".            *
+ *                                                                        *
+ * It is free software; you can redistribute it and/or modify it under    *
+ * the terms of the GNU General Public License, either version 3 of the   *
+ * License, or (at your option) any later version.                        *
+ *                                                                        *
+ * The TYPO3 project - inspiring people to share!                         *
+ *                                                                        */
 
+/**
+ * Controller for rendering media
+ */
 class MediaController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
 
 	/**
@@ -10,6 +22,11 @@ class MediaController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	 */
 	protected $mediaRepository;
 
+	/**
+	 * Renders the media depending on the type.
+	 *
+	 * @throws \TYPO3\CMS\Core\FormProtection\Exception
+	 */
 	public function renderMediaAction() {
 
 		$contentObject = $this->configurationManager->getContentObject();
