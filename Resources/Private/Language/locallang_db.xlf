@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2011-10-17T20:22:32Z" product-name="html5mediakit">
+		<header/>
+		<body>
+			<trans-unit id="tt_content.CType.I.html5mediakit_mediarenderer" xml:space="preserve">
+				<source>Video / Audio</source>
+			</trans-unit>
+			<trans-unit id="new_content_element_wizard_html5mediakitmediarenderer_description" xml:space="preserve">
+				<source>Embed a video or audio file from the file list.</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

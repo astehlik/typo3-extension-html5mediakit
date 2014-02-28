@@ -53,8 +53,8 @@ mod.wizards.newContentElement {
 		special.elements {
 			html5mediakit_mediarenderer {
 				icon = gfx/c_wiz/multimedia.gif
-				title = Video / Audio
-				description = Video / Audio Datei aus der Dateiliste einbinden
+				title = LLL:EXT:html5mediakit/Resources/Private/Language/locallang_db.xlf:tt_content.CType.I.html5mediakit_mediarenderer
+				description = LLL:EXT:html5mediakit/Resources/Private/Language/locallang_db.xlf:new_content_element_wizard_html5mediakitmediarenderer_description
 				tt_content_defValues {
 					CType = html5mediakit_mediarenderer
 				}
@@ -69,5 +69,3 @@ mod.wizards.newContentElement {
 mod.web_list.table.tx_html5mediakit_domain_model_media.hideTable = 1
 
 ');
-
-?>

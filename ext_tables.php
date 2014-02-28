@@ -8,7 +8,7 @@ if (!defined('TYPO3_MODE')) {
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
 	$_EXTKEY,
 	'mediarenderer',
-	'HTML5 media'
+	'LLL:EXT:html5mediakit/Resources/Private/Language/locallang_db.xlf:tt_content.CType.I.html5mediakit_mediarenderer'
 );
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr(
@@ -45,3 +45,6 @@ $GLOBALS['TCA']['tt_content']['types'][$_EXTKEY . '_mediarenderer']['showitem'] 
 		--palette--;LLL:EXT:cms/locallang_ttc.xml:palette.visibility;visibility,
 		--palette--;LLL:EXT:cms/locallang_ttc.xml:palette.access;access,
 	--div--;LLL:EXT:cms/locallang_ttc.xml:tabs.extended';
+
+\TYPO3\CMS\Backend\Sprite\SpriteManager::addSingleIcons(array('extension-icon' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'ext_icon.gif'), $_EXTKEY);
+$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['html5mediakit_mediarenderer'] = 'extensions-html5mediakit-extension-icon';
