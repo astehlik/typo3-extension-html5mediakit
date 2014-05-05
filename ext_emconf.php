@@ -36,7 +36,7 @@ $EM_CONF[$_EXTKEY] = array(
 	'_md5_values_when_last_written' => '',
 	'constraints' => array(
 		'depends' => array(
-			'cms' => '6.2.0-6.2.99',
+			'cms' => '6.2.1-6.2.99',
 			'extbase' => '',
 		),
 		'conflicts' => array(
