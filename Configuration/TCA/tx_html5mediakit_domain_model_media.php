@@ -84,25 +84,82 @@ return array(
 			),
 			'defaultExtras' => 'richtext[]:rte_transform[mode=ts_css]'
 		),
+		'l10n_diffsource' => array(
+			'config' => array(
+				'type' => 'passthrough'
+			)
+		),
+		'l10n_parent' => array(
+			'config' => array(
+				'type' => 'passthrough'
+			)
+		),
 		'mp3' => array(
 			'label' => 'MP3 Datei',
-			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig('mp3', array_merge($customFileTcaFieldSettings, array('minitems' => 1)), 'mp3'),
+			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+					'mp3',
+					array_merge(
+						$customFileTcaFieldSettings,
+						array( //'minitems' => 1
+						)
+					),
+					'mp3'
+				),
 		),
 		'ogg' => array(
 			'label' => 'OGG Datei',
-			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig('ogg', $customFileTcaFieldSettings, 'ogg'),
+			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+					'ogg',
+					$customFileTcaFieldSettings,
+					'ogg'
+				),
 		),
 		'h264' => array(
 			'label' => 'h.264 Datei',
-			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig('h264', array_merge($customFileTcaFieldSettings, array('minitems' => 1)), 'mp4'),
+			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+					'h264',
+					array_merge(
+						$customFileTcaFieldSettings,
+						array(//'minitems' => 1
+						)
+					),
+					'mp4'
+				),
 		),
 		'ogv' => array(
 			'label' => 'OGV Datei',
-			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig('ogv', $customFileTcaFieldSettings, 'ogv'),
+			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+					'ogv',
+					$customFileTcaFieldSettings,
+					'ogv'
+				),
+		),
+		'sys_language_uid' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.language',
+			'config' => array(
+				'type' => 'select',
+				'foreign_table' => 'sys_language',
+				'foreign_table_where' => 'ORDER BY sys_language.title',
+				'items' => array(
+					array(
+						'LLL:EXT:lang/locallang_general.xlf:LGL.allLanguages',
+						-1
+					),
+					array(
+						'LLL:EXT:lang/locallang_general.xlf:LGL.default_value',
+						0
+					)
+				)
+			)
 		),
 		'web_m' => array(
 			'label' => 'WebM Datei',
-			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig('web_m', $customFileTcaFieldSettings, 'webm'),
+			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+					'web_m',
+					$customFileTcaFieldSettings,
+					'webm'
+				),
 		),
 		'content_element' => array(
 			'config' => array(
@@ -112,13 +169,13 @@ return array(
 	),
 	'types' => array(
 		'0' => array(
-			'showitem' => 'type',
+			'showitem' => 'type,--palette--;;hiddenFields',
 		),
 		'video' => array(
-			'showitem' => 'type, h264, web_m, ogv, --palette--;Metadaten;metadata,'
+			'showitem' => 'type, h264, web_m, ogv, --palette--;Metadaten;metadata,--palette--;;hiddenFields'
 		),
 		'audio' => array(
-			'showitem' => 'type, mp3, ogg, --palette--;Metadaten;metadata,'
+			'showitem' => 'type, mp3, ogg, --palette--;Metadaten;metadata,--palette--;;hiddenFields'
 		),
 	),
 	'palettes' => array(
@@ -126,6 +183,9 @@ return array(
 			'showitem' => 'caption, --linebreak--, description',
 			'canNotCollapse' => 1
 		),
+		'hiddenFields' => array(
+			'showitem' => 'sys_language_uid, l10n_parent',
+			'isHiddenPalette' => TRUE
+		)
 	),
 );
-?>

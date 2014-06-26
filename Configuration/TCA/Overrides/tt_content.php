@@ -14,7 +14,10 @@ $columns = array(
 			'minitems' => 1,
 			'maxitems' => 1,
 			'appearance' => array(
-				'collapseAll' => FALSE
+				'showSynchronizationLink' => 1,
+				'showAllLocalizationLink' => 1,
+				'showPossibleLocalizationRecords' => 1,
+				'showRemovedLocalizationRecords' => 1,
 			),
 		)
 	),
