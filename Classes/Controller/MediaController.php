@@ -34,6 +34,12 @@ class MediaController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		$media = $this->mediaRepository->findOneByContentElementUid($contentObject->data['uid']);
 		$mediaType = $media->getType();
 
+		// We update the last changed register when a media record has changed because
+		// the content element will not get this information if no properties in the
+		// content element are changed.
+		$contentObject = $this->configurationManager->getContentObject();
+		$contentObject->lastChanged($media->getTstamp());
+
 		if ($mediaType == 'video') {
 			$this->forward('video', NULL, NULL, array('video' => $media));
 		} elseif ($mediaType == 'audio') {
@@ -56,5 +62,4 @@ class MediaController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	public function audioAction($audio) {
 		$this->view->assign('audio', $audio);
 	}
-
 }

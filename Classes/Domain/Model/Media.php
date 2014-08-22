@@ -11,11 +11,13 @@ namespace Sto\Html5mediakit\Domain\Model;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
+use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+
 /**
  * Overall media class containing common media properties like
  * captions.
  */
-class Media extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
+class Media extends AbstractEntity {
 
 	/**
 	 * Caption for the media file
@@ -37,6 +39,11 @@ class Media extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @var string
 	 */
 	protected $description;
+
+	/**
+	 * @var int
+	 */
+	protected $tstamp;
 
 	/**
 	 * The type of the media element (can be audio or video)
@@ -77,6 +84,13 @@ class Media extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		} else {
 			return FALSE;
 		}
+	}
+
+	/**
+	 * @return int
+	 */
+	public function getTstamp() {
+		return $this->tstamp;
 	}
 
 	/**

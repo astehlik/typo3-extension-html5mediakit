@@ -166,6 +166,11 @@ return array(
 				'type' => 'passthrough'
 			),
 		),
+		'tstamp' => array(
+			'config' => array(
+				'type' => 'passthrough'
+			),
+		),
 	),
 	'types' => array(
 		'0' => array(
