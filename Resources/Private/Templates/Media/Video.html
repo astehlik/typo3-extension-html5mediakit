@@ -19,25 +19,25 @@
 
 		<div class="tx-html5mediakit-video-fallbacktext">
 
-			<p>Ihr Browser unterstützt leider das <code>video</code> Element nicht.</p>
+			<p><f:translate key="media_video_tag_not_supported" /></p>
 
 			<f:if condition="{video.webM}">
 				<p>
-					Sie können das Video im WebM Format hier herunterladen:
+					<f:translate key="media_video_download_hint_webm" />
 					<a href="{video.webM.originalResource.publicUrl}">{video.webM.name}</a>
 				</p>
 			</f:if>
 
 			<f:if condition="{video.h264}">
 				<p>
-					Sie können das Video im h.264 Format hier herunterladen:
+					<f:translate key="media_video_download_hint_h265" />
 					<a href="{video.h264.originalResource.publicUrl}">{video.h264.name}</a>
 				</p>
 			</f:if>
 
 			<f:if condition="{video.ogv}">
 				<p>
-					Sie können das Video im OGG Theora Format hier herunterladen:
+					<f:translate key="media_video_download_hint_ogv" />
 					<a href="{video.ogv.originalResource.publicUrl}">{video.ogv.name}</a>
 				</p>
 			</f:if>

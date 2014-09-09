@@ -15,18 +15,18 @@
 
 		<div class="tx-html5mediakit-video-fallbacktext">
 
-			<p>Ihr Browser unterstützt leider das <code>audio</code> Element nicht.</p>
+			<p><f:translate key="media_audio_tag_not_supported" /></p>
 
 			<f:if condition="{audio.mp3}">
 				<p>
-					ie können die Audiodatei im MP3 Format hier herunterladen:
+					<f:translate key="media_audio_download_hint_mp3" />
 					<a href="{audio.mp3.originalResource.publicUrl}">{audio.mp3.name}</a>
 				</p>
 			</f:if>
 
 			<f:if condition="{audio.ogg}">
 				<p>
-					Sie können die Audiodatei im OGG / Vorbis Format hier herunterladen:
+					<f:translate key="media_audio_download_hint_ogg" />
 					<a href="{audio.ogg.originalResource.publicUrl}">{audio.ogg.name}</a>
 				</p>
 			</f:if>

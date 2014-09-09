@@ -9,6 +9,45 @@
 			<trans-unit id="new_content_element_wizard_html5mediakitmediarenderer_description" xml:space="preserve">
 				<source>Embed a video or audio file from the file list.</source>
 			</trans-unit>
+			<trans-unit id="choose_file" xml:space="preserve">
+				<source>Choose file</source>
+			</trans-unit>
+			<trans-unit id="tx_html5mediakit_domain_model_media" xml:space="preserve">
+				<source>Media</source>
+			</trans-unit>
+			<trans-unit id="tx_html5mediakit_domain_model_media.type" xml:space="preserve">
+				<source>Type</source>
+			</trans-unit>
+			<trans-unit id="tx_html5mediakit_domain_model_media.type.I.video" xml:space="preserve">
+				<source>Video</source>
+			</trans-unit>
+			<trans-unit id="tx_html5mediakit_domain_model_media.type.I.audio" xml:space="preserve">
+				<source>Audio</source>
+			</trans-unit>
+			<trans-unit id="tx_html5mediakit_domain_model_media.caption" xml:space="preserve">
+				<source>Caption</source>
+			</trans-unit>
+			<trans-unit id="tx_html5mediakit_domain_model_media.description" xml:space="preserve">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_html5mediakit_domain_model_media.mp3" xml:space="preserve">
+				<source>MP3 file</source>
+			</trans-unit>
+			<trans-unit id="tx_html5mediakit_domain_model_media.ogg" xml:space="preserve">
+				<source>OGG file</source>
+			</trans-unit>
+			<trans-unit id="tx_html5mediakit_domain_model_media.h264" xml:space="preserve">
+				<source>h.264 file</source>
+			</trans-unit>
+			<trans-unit id="tx_html5mediakit_domain_model_media.ogv" xml:space="preserve">
+				<source>OGV file</source>
+			</trans-unit>
+			<trans-unit id="tx_html5mediakit_domain_model_media.web_m" xml:space="preserve">
+				<source>WebM file</source>
+			</trans-unit>
+			<trans-unit id="tx_html5mediakit_domain_model_media.palette.metadata" xml:space="preserve">
+				<source>Metadata</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

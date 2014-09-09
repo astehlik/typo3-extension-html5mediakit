@@ -1,8 +1,11 @@
 <?php
 
+$languagePrefix = 'LLL:EXT:html5mediakit/Resources/Private/Language/locallang_db.xlf:';
+$languagePrefixColumn = $languagePrefix . 'tx_html5mediakit_domain_model_media.';
+
 $customFileTcaFieldSettings = array(
 	'appearance' => array(
-		'createNewRelationLinkTitle' => 'Datei auswählen',
+		'createNewRelationLinkTitle' => $languagePrefix . 'choose_file',
 		'useSortable' => FALSE,
 		'headerThumbnail' => array(
 			'field' => '',
@@ -43,7 +46,7 @@ return array(
 		'crdate' => 'crdate',
 		'cruser_id' => 'cruser_id',
 		'delete' => 'deleted',
-		'title' => 'Media',
+		'title' => $languagePrefix . 'tx_html5mediakit_domain_model_media',
 		'type' => 'type',
 		'iconfile' => 'tt_content_mm.gif',
 		'prependAtCopy' => 'LLL:EXT:lang/locallang_general.php:LGL.prependAtCopy',
@@ -57,12 +60,18 @@ return array(
 	),
 	'columns' => array(
 		'type' => array(
-			'label' => 'Typ',
+			'label' => $languagePrefixColumn . 'type',
 			'config' => array(
 				'type' => 'select',
 				'items' => array(
-					array('Video', 'video'),
-					array('Audio', 'audio'),
+					array(
+						$languagePrefixColumn . 'type.I.video',
+						'video'
+					),
+					array(
+						$languagePrefixColumn . 'type.I.audio',
+						'audio'
+					),
 				),
 				'default' => 'video',
 				'size' => 1,
@@ -70,13 +79,13 @@ return array(
 			)
 		),
 		'caption' => array(
-			'label' => 'Beschriftung',
+			'label' => $languagePrefixColumn . 'caption',
 			'config' => array(
 				'type' => 'input',
 			)
 		),
 		'description' => array(
-			'label' => 'LLL:EXT:lang/locallang_general.xml:LGL.description',
+			'label' => $languagePrefixColumn . 'description',
 			'config' => array(
 				'type' => 'text',
 				'rows' => 5,
@@ -95,7 +104,7 @@ return array(
 			)
 		),
 		'mp3' => array(
-			'label' => 'MP3 Datei',
+			'label' => $languagePrefixColumn . 'mp3',
 			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
 					'mp3',
 					array_merge(
@@ -107,7 +116,7 @@ return array(
 				),
 		),
 		'ogg' => array(
-			'label' => 'OGG Datei',
+			'label' => $languagePrefixColumn . 'ogg',
 			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
 					'ogg',
 					$customFileTcaFieldSettings,
@@ -115,7 +124,7 @@ return array(
 				),
 		),
 		'h264' => array(
-			'label' => 'h.264 Datei',
+			'label' => $languagePrefixColumn . 'h264',
 			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
 					'h264',
 					array_merge(
@@ -127,7 +136,7 @@ return array(
 				),
 		),
 		'ogv' => array(
-			'label' => 'OGV Datei',
+			'label' => $languagePrefixColumn . 'ogv',
 			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
 					'ogv',
 					$customFileTcaFieldSettings,
@@ -154,7 +163,7 @@ return array(
 			)
 		),
 		'web_m' => array(
-			'label' => 'WebM Datei',
+			'label' => $languagePrefixColumn . 'web_m',
 			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
 					'web_m',
 					$customFileTcaFieldSettings,
@@ -177,10 +186,10 @@ return array(
 			'showitem' => 'type,--palette--;;hiddenFields',
 		),
 		'video' => array(
-			'showitem' => 'type, h264, web_m, ogv, --palette--;Metadaten;metadata,--palette--;;hiddenFields'
+			'showitem' => 'type, h264, web_m, ogv, --palette--;' . $languagePrefixColumn . 'palette.metadata;metadata,--palette--;;hiddenFields'
 		),
 		'audio' => array(
-			'showitem' => 'type, mp3, ogg, --palette--;Metadaten;metadata,--palette--;;hiddenFields'
+			'showitem' => 'type, mp3, ogg, --palette--;' . $languagePrefixColumn . 'palette.metadata;metadata,--palette--;;hiddenFields'
 		),
 	),
 	'palettes' => array(
