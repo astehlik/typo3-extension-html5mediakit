@@ -1,8 +1,12 @@
 {
-	"name": "astehlik-typo3-extension/html5mediakit",
+	"name": "de-swebhosting-typo3-extension/html5mediakit",
 	"description": "Allows easy embedding of HTML5 video and audio elements.",
 	"type": "typo3-cms-extension",
 	"version": "1.0.0",
+	"license": "GPL-3.0+",
+	"replace": {
+		"html5mediakit": "self.version"
+	},
 	"autoload": {
 		"psr-4": {
 			"Sto\\Html5mediakit\\": "Classes/"
