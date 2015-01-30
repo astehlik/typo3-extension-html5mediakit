@@ -60,6 +60,13 @@ class Media extends AbstractEntity {
 	}
 
 	/**
+	 * @return int
+	 */
+	public function getContentElement() {
+		return $this->contentElement;
+	}
+
+	/**
 	 * @return mixed
 	 */
 	public function getDescription() {
@@ -99,4 +106,13 @@ class Media extends AbstractEntity {
 	public function getType() {
 		return $this->type;
 	}
+
+	/**
+	 * @param int $contentElement
+	 */
+	public function setContentElement($contentElement) {
+		$this->contentElement = $contentElement;
+	}
+
+
 }
