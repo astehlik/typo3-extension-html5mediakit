@@ -99,4 +99,20 @@ class Media extends AbstractEntity {
 	public function getType() {
 		return $this->type;
 	}
+
+	/**
+	 * @return int
+	 */
+	public function getContentElement() {
+		return $this->contentElement;
+	}
+
+	/**
+	 * @param int $contentElement
+	 */
+	public function setContentElement($contentElement) {
+		$this->contentElement = $contentElement;
+	}
+
+
 }
