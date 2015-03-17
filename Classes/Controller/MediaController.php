@@ -32,6 +32,11 @@ class MediaController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		$contentObject = $this->configurationManager->getContentObject();
 
 		$media = $this->mediaRepository->findOneByContentElementUid($contentObject->data['uid']);
+
+		if (!isset($media)) {
+			return 'No media element was found in the current content element.';
+		}
+
 		$mediaType = $media->getType();
 
 		// We update the last changed register when a media record has changed because
