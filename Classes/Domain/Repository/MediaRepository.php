@@ -27,6 +27,11 @@ class MediaRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 
 		$query = $this->createQuery();
 		$query->getQuerySettings()->setRespectStoragePage(FALSE);
+
+		// We do not want to do any language overlay in our query because the content element UID
+		// is already the UID of the translated content element.
+		$query->getQuerySettings()->setLanguageMode(NULL);
+
 		$query->matching($query->equals('contentElement', $contentElementUid));
 		return $query->execute()->getFirst();
 	}
