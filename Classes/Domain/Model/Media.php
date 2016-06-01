@@ -119,4 +119,37 @@ class Media extends AbstractEntity
     {
         $this->contentElement = $contentElement;
     }
+
+    /**
+     * @param string $caption
+     */
+    public function setCaption($caption)
+    {
+        $this->caption = $caption;
+    }
+
+    /**
+     * @param string $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * @param string $type
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
+
+    /**
+     * @param int $tstamp
+     */
+    public function setTstamp($tstamp)
+    {
+        $this->tstamp = $tstamp;
+    }
+    
 }
