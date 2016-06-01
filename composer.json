@@ -1,15 +1,45 @@
 {
-	"name": "de-swebhosting-typo3-extension/html5mediakit",
-	"description": "Allows easy embedding of HTML5 video and audio elements.",
-	"type": "typo3-cms-extension",
-	"version": "1.0.0",
-	"license": "GPL-3.0+",
-	"replace": {
-		"html5mediakit": "self.version"
-	},
-	"autoload": {
-		"psr-4": {
-			"Sto\\Html5mediakit\\": "Classes/"
-		}
-	}
+    "name": "de-swebhosting-typo3-extension/html5mediakit",
+    "description": "Allows easy embedding of HTML5 video and audio elements.",
+    "type": "typo3-cms-extension",
+    "license": "GPL-3.0+",
+    "require": {
+        "php": ">=5.5.0",
+        "typo3/cms-core": "^6.2 || ^7.6 || ^8.0",
+        "typo3/cms": "6.2.25"
+    },
+    "require-dev": {
+        "namelesscoder/typo3-repository-client": "1.1.x-dev",
+        "phpunit/phpunit": "~4.8.0",
+        "squizlabs/php_codesniffer": "^2.6",
+        "de-swebhosting/php-codestyle": "dev-master"
+    },
+    "replace": {
+        "html5mediakit": "self.version",
+        "typo3-ter/html5mediakit": "self.version"
+    },
+    "autoload": {
+        "psr-4": {
+            "Sto\\Html5mediakit\\": "Classes/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Sto\\Html5mediakit\\Tests\\": "Tests",
+            "TYPO3\\CMS\\Core\\Tests\\": ".Build/vendor/typo3/cms/typo3/sysext/core/Tests/"
+        }
+    },
+    "config": {
+        "vendor-dir": ".Build/vendor",
+        "bin-dir": ".Build/bin"
+    },
+    "extra": {
+        "typo3/cms": {
+            "cms-package-dir": "{$vendor-dir}/typo3/cms",
+            "web-dir": ".Build/Web",
+            "Package": {
+                "partOfMinimalUsableSystem": true
+            }
+        }
+    }
 }
