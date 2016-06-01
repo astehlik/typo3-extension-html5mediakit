@@ -15,6 +15,8 @@ matrix:
   allow_failures:
     - env: TYPO3_VERSION=dev-master
   exclude:
+    - php: 7
+      env: TYPO3_VERSION=^6.2.0
     - php: 5.5
       env: TYPO3_VERSION=^8.0.0
     - php: 5.6
