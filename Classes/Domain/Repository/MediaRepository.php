@@ -11,28 +11,30 @@ namespace Sto\Html5mediakit\Domain\Repository;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
+use TYPO3\CMS\Extbase\Persistence\Repository;
+
 /**
  * Repository for retrieving media files from the database.
  */
-class MediaRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
+class MediaRepository extends Repository
+{
+    /**
+     * Returns the first media element that was found for the given
+     * content element UID (there should only be one)
+     *
+     * @param int $contentElementUid
+     * @return \Sto\Html5mediakit\Domain\Model\Media
+     */
+    public function findOneByContentElementUid($contentElementUid)
+    {
+        $query = $this->createQuery();
+        $query->getQuerySettings()->setRespectStoragePage(false);
 
-	/**
-	 * Returns the first media element that was found for the given
-	 * content element UID (there should only be one)
-	 *
-	 * @param int $contentElementUid
-	 * @return \Sto\Html5mediakit\Domain\Model\Media
-	 */
-	public function findOneByContentElementUid($contentElementUid) {
+        // We do not want to do any language overlay in our query because the content element UID
+        // is already the UID of the translated content element.
+        $query->getQuerySettings()->setLanguageMode(null);
 
-		$query = $this->createQuery();
-		$query->getQuerySettings()->setRespectStoragePage(FALSE);
-
-		// We do not want to do any language overlay in our query because the content element UID
-		// is already the UID of the translated content element.
-		$query->getQuerySettings()->setLanguageMode(NULL);
-
-		$query->matching($query->equals('contentElement', $contentElementUid));
-		return $query->execute()->getFirst();
-	}
+        $query->matching($query->equals('contentElement', $contentElementUid));
+        return $query->execute()->getFirst();
+    }
 }

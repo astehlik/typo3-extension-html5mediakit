@@ -1,18 +1,20 @@
 <?php
 
-if (!defined ('TYPO3_MODE')) {
-	die ('Access denied.');
+if (!defined('TYPO3_MODE')) {
+    die('Access denied.');
 }
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-	'Sto.Html5mediakit',
-	'mediarenderer',
-	array(
-		'Media' => 'renderMedia',
-	),
-	array(),
-	\TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+    'Sto.Html5mediakit',
+    'mediarenderer',
+    array(
+        'Media' => 'renderMedia',
+    ),
+    array(),
+    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
+
+$languagePrefix = 'LLL:EXT:html5mediakit/Resources/Private/Language/locallang_db.xlf:';
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('
 
@@ -53,8 +55,8 @@ mod.wizards.newContentElement {
 		special.elements {
 			html5mediakit_mediarenderer {
 				icon = gfx/c_wiz/multimedia.gif
-				title = LLL:EXT:html5mediakit/Resources/Private/Language/locallang_db.xlf:tt_content.CType.I.html5mediakit_mediarenderer
-				description = LLL:EXT:html5mediakit/Resources/Private/Language/locallang_db.xlf:new_content_element_wizard_html5mediakitmediarenderer_description
+				title = ' . $languagePrefix . 'tt_content.CType.I.html5mediakit_mediarenderer
+				description = ' . $languagePrefix . 'new_content_element_wizard_html5mediakitmediarenderer_description
 				tt_content_defValues {
 					CType = html5mediakit_mediarenderer
 				}

@@ -17,102 +17,106 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
  * Overall media class containing common media properties like
  * captions.
  */
-class Media extends AbstractEntity {
+class Media extends AbstractEntity
+{
+    /**
+     * Caption for the media file
+     *
+     * @var string
+     */
+    protected $caption;
 
-	/**
-	 * Caption for the media file
-	 *
-	 * @var string
-	 */
-	protected $caption;
+    /**
+     * UID of the content element to which this media element belongs
+     *
+     * @var int
+     */
+    protected $contentElement;
 
-	/**
-	 * UID of the content element to which this media element belongs
-	 *
-	 * @var int
-	 */
-	protected $contentElement;
+    /**
+     * The (Richtext) description of the media element
+     *
+     * @var string
+     */
+    protected $description;
 
-	/**
-	 * The (Richtext) description of the media element
-	 *
-	 * @var string
-	 */
-	protected $description;
+    /**
+     * @var int
+     */
+    protected $tstamp;
 
-	/**
-	 * @var int
-	 */
-	protected $tstamp;
+    /**
+     * The type of the media element (can be audio or video)
+     *
+     * @var string
+     */
+    protected $type;
 
-	/**
-	 * The type of the media element (can be audio or video)
-	 *
-	 * @var string
-	 */
-	protected $type;
+    /**
+     * @return mixed
+     */
+    public function getCaption()
+    {
+        return $this->caption;
+    }
 
-	/**
-	 * @return mixed
-	 */
-	public function getCaption() {
-		return $this->caption;
-	}
+    /**
+     * @return int
+     */
+    public function getContentElement()
+    {
+        return $this->contentElement;
+    }
 
-	/**
-	 * @return int
-	 */
-	public function getContentElement() {
-		return $this->contentElement;
-	}
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
 
-	/**
-	 * @return mixed
-	 */
-	public function getDescription() {
-		return $this->description;
-	}
+    /**
+     * Returns TRUE if the media element has a teaser and / or
+     * a description.
+     *
+     * @return bool
+     */
+    public function getHasMetadata()
+    {
+        $metadata = $this->getCaption();
+        $metadata .= $this->getDescription();
 
-	/**
-	 * Returns TRUE if the media element has a teaser and / or
-	 * a description.
-	 *
-	 * @return bool
-	 */
-	public function getHasMetadata() {
+        $metadata = trim($metadata);
 
-		$metadata = $this->getCaption();
-		$metadata .= $this->getDescription();
+        if (!empty($metadata)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-		$metadata = trim($metadata);
+    /**
+     * @return int
+     */
+    public function getTstamp()
+    {
+        return $this->tstamp;
+    }
 
-		if (!empty($metadata)) {
-			return TRUE;
-		} else {
-			return FALSE;
-		}
-	}
+    /**
+     * @return mixed
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
 
-	/**
-	 * @return int
-	 */
-	public function getTstamp() {
-		return $this->tstamp;
-	}
-
-	/**
-	 * @return mixed
-	 */
-	public function getType() {
-		return $this->type;
-	}
-
-	/**
-	 * @param int $contentElement
-	 */
-	public function setContentElement($contentElement) {
-		$this->contentElement = $contentElement;
-	}
-
-
+    /**
+     * @param int $contentElement
+     */
+    public function setContentElement($contentElement)
+    {
+        $this->contentElement = $contentElement;
+    }
 }
