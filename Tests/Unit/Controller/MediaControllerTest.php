@@ -1,5 +1,5 @@
 <?php
-namespace Sto\Html5mediakit\Tests\Unit\Domain\Model;
+namespace Sto\Html5mediakit\Tests\Unit\Controller;
 
 /*                                                                        *
  * This script belongs to the TYPO3 Extension "html5mediakit".            *
@@ -11,44 +11,31 @@ namespace Sto\Html5mediakit\Tests\Unit\Domain\Model;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
-use Sto\Html5mediakit\Domain\Model\Media;
+use Sto\Html5mediakit\Domain\Model\Video;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Mvc\View\ViewInterface;
 
-class MediaTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
+class MediaControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
 {
     /**
-     * @var Media
+     * @var MediaControllerMock
      */
-    protected $media;
+    protected $mediaController;
 
     public function setUp()
     {
-        $this->media = GeneralUtility::makeInstance(Media::class);
+        $this->mediaController = GeneralUtility::makeInstance(MediaControllerMock::class);
     }
 
     /**
      * @test
      */
-    public function getHasMetadataReturnsTrueIfCaptionPresent()
+    public function videoActionAssignsVideoToView()
     {
-        $this->media->setCaption('not empty');
-        $this->assertTrue($this->media->getHasMetadata());
-    }
-
-    /**
-     * @test
-     */
-    public function getHasMetadataReturnsTrueIfDescriptionPresent()
-    {
-        $this->media->setDescription('not empty');
-        $this->assertTrue($this->media->getHasMetadata());
-    }
-
-    /**
-     * @test
-     */
-    public function getHasMetadataReturnsFalseIfNoTeaserOrDescriptionPresent()
-    {
-        $this->assertFalse($this->media->getHasMetadata());
+        $dummyVideo = GeneralUtility::makeInstance(Video::class);
+        $viewProphecy = $this->prophesize(ViewInterface::class);
+        $viewProphecy->assign('video', $dummyVideo)->shouldBeCalled();
+        $this->mediaController->setView($viewProphecy->reveal());
+        $this->mediaController->videoAction($dummyVideo);
     }
 }

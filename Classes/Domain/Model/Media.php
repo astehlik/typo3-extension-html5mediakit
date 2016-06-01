@@ -151,5 +151,4 @@ class Media extends AbstractEntity
     {
         $this->tstamp = $tstamp;
     }
-    
 }
