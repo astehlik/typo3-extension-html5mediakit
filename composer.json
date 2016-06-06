@@ -5,7 +5,7 @@
     "license": "GPL-3.0+",
     "require": {
         "php": ">=5.5.0",
-        "typo3/cms-core": "^6.2 || ^7.6 || ^8.0",
+        "typo3/cms-core": "^6.2 || ^7.6 || ^8.0"
     },
     "require-dev": {
         "namelesscoder/typo3-repository-client": "1.1.x-dev",
