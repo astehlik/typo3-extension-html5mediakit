@@ -25,8 +25,8 @@ if (!defined('TYPO3_MODE')) {
 );
 
 \TYPO3\CMS\Backend\Sprite\SpriteManager::addSingleIcons(
-    array(
+    [
         'extension-icon' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'ext_icon.gif'
-    ),
+    ],
     $_EXTKEY
 );

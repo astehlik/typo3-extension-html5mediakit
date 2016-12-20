@@ -56,9 +56,9 @@ class MediaController extends ActionController
         $contentObject->lastChanged($media->getTstamp());
 
         if ($mediaType == 'video') {
-            $this->forward('video', null, null, array('video' => $media));
+            $this->forward('video', null, null, ['video' => $media]);
         } elseif ($mediaType == 'audio') {
-            $this->forward('audio', null, null, array('audio' => $media));
+            $this->forward('audio', null, null, ['audio' => $media]);
         }
 
         throw new \TYPO3\CMS\Core\FormProtection\Exception('Invalid media type.');

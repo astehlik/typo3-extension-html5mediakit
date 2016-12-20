@@ -7,10 +7,8 @@ if (!defined('TYPO3_MODE')) {
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
     'Sto.Html5mediakit',
     'mediarenderer',
-    array(
-        'Media' => 'renderMedia',
-    ),
-    array(),
+    ['Media' => 'renderMedia'],
+    [],
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
 
