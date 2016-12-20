@@ -58,7 +58,8 @@ script:
   - >
     echo;
     echo "Running php code sniffer";
-    php .Build/bin/phpcs --standard=.Build/vendor/de-swebhosting/php-codestyle/PhpCodeSniffer/PSRDefault Classes Tests ext_*.php
+    php .Build/bin/phpcs --config-set installed_paths ${PWD}/.Build/vendor/de-swebhosting/php-codestyle/PhpCodeSniffer/
+    php .Build/bin/phpcs --standard=PSRDefault Classes Tests ext_*.php
 
 after_script:
   - >
