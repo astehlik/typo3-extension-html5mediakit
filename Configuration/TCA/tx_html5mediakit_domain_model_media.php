@@ -99,8 +99,21 @@ return array(
             )
         ),
         'l10n_parent' => array(
+            'exclude' => 1,
+            'displayCond' => 'FIELD:sys_language_uid:>:0',
+            'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.l18n_parent',
             'config' => array(
-                'type' => 'passthrough'
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'items' => array(
+                    array(
+                        '',
+                        0
+                    )
+                ),
+                'foreign_table' => 'tx_html5mediakit_domain_model_media',
+                'foreign_table_where' => 'AND tx_html5mediakit_domain_model_media.pid=###CURRENT_PID### AND tx_html5mediakit_domain_model_media.sys_language_uid IN (-1,0)',
+                'default' => 0
             )
         ),
         'mp3' => array(
