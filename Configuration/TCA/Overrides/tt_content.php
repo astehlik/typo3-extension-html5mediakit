@@ -1,7 +1,14 @@
 <?php
-if (!defined('TYPO3_MODE')) {
-    die ('Access denied.');
-}
+declare(strict_types = 1);
+
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+    'Html5mediakit',
+    'mediarenderer',
+    'LLL:EXT:html5mediakit/Resources/Private/Language/locallang_db.xlf:tt_content.CType.I.html5mediakit_mediarenderer',
+    'mimetypes-x-content-multimedia'
+);
+
+$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['html5mediakit_mediarenderer'] = 'mimetypes-x-content-multimedia';
 
 $columns = array(
     'tx_html5mediakit_media' => array(
@@ -25,15 +32,22 @@ $columns = array(
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $columns);
 
-$GLOBALS['TCA']['tt_content']['types']['html5mediakit_mediarenderer']['showitem'] = '
-        --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
-        --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.header;header,
+$GLOBALS['TCA']['tt_content']['types']['html5mediakit_mediarenderer']['showitem'] = '--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+        --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
+        --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.header;header,
         tx_html5mediakit_media,
-    --div--;LLL:EXT:cms/locallang_ttc.xml:tabs.appearance,
-        --palette--;LLL:EXT:cms/locallang_ttc.xml:palette.frames;frames,
-    --div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access,
-        --palette--;LLL:EXT:cms/locallang_ttc.xml:palette.visibility;visibility,
-        --palette--;LLL:EXT:cms/locallang_ttc.xml:palette.access;access,
-    --div--;LLL:EXT:cms/locallang_ttc.xml:tabs.extended';
+    --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
+        layout;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:layout_formlabel,
+        --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.appearanceLinks;appearanceLinks,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
+        --palette--;;language,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
+        --palette--;;hidden,
+        --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:categories,
+        categories,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:notes,
+        rowDescription,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended';
 
-$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['html5mediakit_mediarenderer'] = 'extensions-html5mediakit-extension-icon';
+

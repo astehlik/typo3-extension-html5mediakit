@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dataset>
+    <pages>
+        <uid>1</uid>
+        <pid>0</pid>
+        <title>Page with video</title>
+    </pages>
+
+    <tt_content>
+        <uid>1</uid>
+        <pid>1</pid>
+        <header>Video content</header>
+        <CType>html5mediakit_mediarenderer</CType>
+        <deleted>0</deleted>
+        <t3ver_oid>0</t3ver_oid>
+        <t3ver_wsid>0</t3ver_wsid>
+    </tt_content>
+
+    <tx_html5mediakit_domain_model_media>
+        <uid>1</uid>
+        <pid>1</pid>
+        <content_element>1</content_element>
+        <type>video</type>
+        <caption>Testcaption</caption>
+        <description>Testdescription</description>
+        <h264>1</h264>
+        <ogv>1</ogv>
+        <web_m>1</web_m>
+        <deleted>0</deleted>
+    </tx_html5mediakit_domain_model_media>
+
+    <sys_file_reference>
+        <uid>1</uid>
+        <pid>0</pid>
+        <table_local>file</table_local>
+        <uid_local>1</uid_local>
+        <uid_foreign>1</uid_foreign>
+        <tablenames>tx_html5mediakit_domain_model_media</tablenames>
+        <fieldname>h264</fieldname>
+        <l10n_diffsource/>
+    </sys_file_reference>
+
+    <sys_file_reference>
+        <uid>2</uid>
+        <pid>0</pid>
+        <table_local>file</table_local>
+        <uid_local>2</uid_local>
+        <uid_foreign>1</uid_foreign>
+        <tablenames>tx_html5mediakit_domain_model_media</tablenames>
+        <fieldname>ogv</fieldname>
+        <l10n_diffsource/>
+    </sys_file_reference>
+
+    <sys_file_reference>
+        <uid>3</uid>
+        <pid>0</pid>
+        <table_local>file</table_local>
+        <uid_local>3</uid_local>
+        <uid_foreign>1</uid_foreign>
+        <tablenames>tx_html5mediakit_domain_model_media</tablenames>
+        <fieldname>web_m</fieldname>
+        <l10n_diffsource/>
+    </sys_file_reference>
+
+    <sys_file>
+        <uid>1</uid>
+        <pid>0</pid>
+        <storage>0</storage>
+        <identifier>video/h264.mp4</identifier>
+        <name>h264.mp4</name>
+        <type>4</type>
+    </sys_file>
+
+    <sys_file>
+        <uid>2</uid>
+        <pid>0</pid>
+        <storage>0</storage>
+        <identifier>video/ovg.ogv</identifier>
+        <name>h264.mp4</name>
+        <type>4</type>
+    </sys_file>
+
+    <sys_file>
+        <uid>3</uid>
+        <pid>0</pid>
+        <storage>0</storage>
+        <identifier>video/webm.webm</identifier>
+        <name>h264.mp4</name>
+        <type>4</type>
+    </sys_file>
+</dataset>

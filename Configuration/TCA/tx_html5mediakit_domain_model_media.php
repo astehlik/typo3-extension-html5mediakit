@@ -1,4 +1,9 @@
 <?php
+declare(strict_types = 1);
+
+use Sto\Html5mediakit\Domain\Model\Enumeration\MediaType;
+use TYPO3\CMS\Core\Resource\File;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
 $languagePrefix = 'LLL:EXT:html5mediakit/Resources/Private/Language/locallang_db.xlf:';
 $languagePrefixColumn = $languagePrefix . 'tx_html5mediakit_domain_model_media.';
@@ -26,13 +31,13 @@ $customFileTcaFieldSettings = array(
         '0' => array(
             'showitem' => '--palette--;;filePalette'
         ),
-        \TYPO3\CMS\Core\Resource\File::FILETYPE_AUDIO => array(
+        File::FILETYPE_AUDIO => array(
             'showitem' => '--palette--;;filePalette'
         ),
-        \TYPO3\CMS\Core\Resource\File::FILETYPE_VIDEO => array(
+        File::FILETYPE_VIDEO => array(
             'showitem' => '--palette--;;filePalette'
         ),
-        \TYPO3\CMS\Core\Resource\File::FILETYPE_APPLICATION => array(
+        File::FILETYPE_APPLICATION => array(
             'showitem' => '--palette--;;filePalette'
         )
     ),
@@ -48,7 +53,12 @@ return array(
         'delete' => 'deleted',
         'title' => $languagePrefix . 'tx_html5mediakit_domain_model_media',
         'type' => 'type',
-        'iconfile' => 'tt_content_mm.gif',
+        'typeicon_column' => 'type',
+        'typeicon_classes' => [
+            MediaType::VIDEO => 'mimetypes-media-video',
+            MediaType::AUDIO => 'mimetypes-media-audio',
+        ],
+        'hideTable' => true,
         'prependAtCopy' => 'LLL:EXT:lang/locallang_general.php:LGL.prependAtCopy',
         'hideAtCopy' => true,
         'languageField' => 'sys_language_uid',
@@ -66,14 +76,14 @@ return array(
                 'items' => array(
                     array(
                         $languagePrefixColumn . 'type.I.video',
-                        'video'
+                        MediaType::VIDEO
                     ),
                     array(
                         $languagePrefixColumn . 'type.I.audio',
-                        'audio'
+                        MediaType::AUDIO
                     ),
                 ),
-                'default' => 'video',
+                'default' => MediaType::VIDEO,
                 'size' => 1,
                 'maxitems' => 1,
             )
@@ -118,7 +128,7 @@ return array(
         ),
         'mp3' => array(
             'label' => $languagePrefixColumn . 'mp3',
-            'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+            'config' => ExtensionManagementUtility::getFileFieldTCAConfig(
                 'mp3',
                 array_merge(
                     $customFileTcaFieldSettings,
@@ -130,7 +140,7 @@ return array(
         ),
         'ogg' => array(
             'label' => $languagePrefixColumn . 'ogg',
-            'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+            'config' => ExtensionManagementUtility::getFileFieldTCAConfig(
                 'ogg',
                 $customFileTcaFieldSettings,
                 'ogg'
@@ -138,7 +148,7 @@ return array(
         ),
         'h264' => array(
             'label' => $languagePrefixColumn . 'h264',
-            'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+            'config' => ExtensionManagementUtility::getFileFieldTCAConfig(
                 'h264',
                 array_merge(
                     $customFileTcaFieldSettings,
@@ -150,7 +160,7 @@ return array(
         ),
         'ogv' => array(
             'label' => $languagePrefixColumn . 'ogv',
-            'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+            'config' => ExtensionManagementUtility::getFileFieldTCAConfig(
                 'ogv',
                 $customFileTcaFieldSettings,
                 'ogv'
@@ -177,7 +187,7 @@ return array(
         ),
         'web_m' => array(
             'label' => $languagePrefixColumn . 'web_m',
-            'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+            'config' => ExtensionManagementUtility::getFileFieldTCAConfig(
                 'web_m',
                 $customFileTcaFieldSettings,
                 'webm'

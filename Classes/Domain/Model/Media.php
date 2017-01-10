@@ -1,4 +1,5 @@
 <?php
+declare(strict_types = 1);
 namespace Sto\Html5mediakit\Domain\Model;
 
 /*                                                                        *
@@ -11,6 +12,7 @@ namespace Sto\Html5mediakit\Domain\Model;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
+use Sto\Html5mediakit\Domain\Model\Enumeration\MediaType;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 /**
@@ -48,14 +50,14 @@ class Media extends AbstractEntity
     /**
      * The type of the media element (can be audio or video)
      *
-     * @var string
+     * @var \Sto\Html5mediakit\Domain\Model\Enumeration\MediaType
      */
     protected $type;
 
     /**
-     * @return mixed
+     * @return string
      */
-    public function getCaption()
+    public function getCaption(): string
     {
         return $this->caption;
     }
@@ -63,7 +65,7 @@ class Media extends AbstractEntity
     /**
      * @return int
      */
-    public function getContentElement()
+    public function getContentElement(): int
     {
         return $this->contentElement;
     }
@@ -71,7 +73,7 @@ class Media extends AbstractEntity
     /**
      * @return mixed
      */
-    public function getDescription()
+    public function getDescription(): string
     {
         return $this->description;
     }
@@ -82,7 +84,7 @@ class Media extends AbstractEntity
      *
      * @return bool
      */
-    public function getHasMetadata()
+    public function getHasMetadata(): bool
     {
         $metadata = $this->getCaption();
         $metadata .= $this->getDescription();
@@ -99,56 +101,56 @@ class Media extends AbstractEntity
     /**
      * @return int
      */
-    public function getTstamp()
+    public function getTstamp(): int
     {
         return $this->tstamp;
     }
 
     /**
-     * @return mixed
+     * @return MediaType
      */
-    public function getType()
+    public function getType(): MediaType
     {
         return $this->type;
     }
 
     /**
-     * @param int $contentElement
-     */
-    public function setContentElement($contentElement)
-    {
-        $this->contentElement = $contentElement;
-    }
-
-    /**
      * @param string $caption
      */
-    public function setCaption($caption)
+    public function setCaption(string $caption)
     {
         $this->caption = $caption;
     }
 
     /**
+     * @param int $contentElement
+     */
+    public function setContentElement(int $contentElement)
+    {
+        $this->contentElement = $contentElement;
+    }
+
+    /**
      * @param string $description
      */
-    public function setDescription($description)
+    public function setDescription(string $description)
     {
         $this->description = $description;
     }
 
     /**
-     * @param string $type
+     * @param int $tstamp
      */
-    public function setType($type)
+    public function setTstamp(int $tstamp)
     {
-        $this->type = $type;
+        $this->tstamp = $tstamp;
     }
 
     /**
-     * @param int $tstamp
+     * @param MediaType $type
      */
-    public function setTstamp($tstamp)
+    public function setType(MediaType $type)
     {
-        $this->tstamp = $tstamp;
+        $this->type = $type;
     }
 }

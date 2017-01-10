@@ -1,6 +1,6 @@
 <?php
 declare(strict_types = 1);
-namespace Sto\Html5mediakit\Tests\Unit\Controller;
+namespace Sto\Html5mediakit\Domain\Model\Enumeration;
 
 /*                                                                        *
  * This script belongs to the TYPO3 Extension "html5mediakit".            *
@@ -12,12 +12,24 @@ namespace Sto\Html5mediakit\Tests\Unit\Controller;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
-use Sto\Html5mediakit\Controller\MediaController;
+use TYPO3\CMS\Core\Type\Enumeration;
 
-class MediaControllerMock extends MediaController
+/**
+ * Enumeration of allowed media types.
+ */
+class MediaType extends Enumeration
 {
-    public function setView($view)
-    {
-        $this->view = $view;
-    }
+    /**
+     * Media type "audio" for MP3 / OGG files.
+     *
+     * @const
+     */
+    const AUDIO = 'audio';
+
+    /**
+     * Media type "video" for MP4 / OGV files.
+     *
+     * @const
+     */
+    const VIDEO = 'video';
 }

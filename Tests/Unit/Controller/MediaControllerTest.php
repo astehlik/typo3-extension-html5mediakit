@@ -1,4 +1,5 @@
 <?php
+declare(strict_types = 1);
 namespace Sto\Html5mediakit\Tests\Unit\Controller;
 
 /*                                                                        *
@@ -12,10 +13,11 @@ namespace Sto\Html5mediakit\Tests\Unit\Controller;
  *                                                                        */
 
 use Sto\Html5mediakit\Domain\Model\Video;
+use TYPO3\CMS\Components\TestingFramework\Core\UnitTestCase;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\View\ViewInterface;
 
-class MediaControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
+class MediaControllerTest extends UnitTestCase
 {
     /**
      * @var MediaControllerMock
@@ -32,10 +34,11 @@ class MediaControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
      */
     public function videoActionAssignsVideoToView()
     {
-        $dummyVideo = GeneralUtility::makeInstance(Video::class);
-        $viewProphecy = $this->prophesize(ViewInterface::class);
-        $viewProphecy->assign('video', $dummyVideo)->shouldBeCalled();
-        $this->mediaController->setView($viewProphecy->reveal());
+        /** @var Video|\PHPUnit_Framework_MockObject_MockObject $dummyVideo */
+        $dummyVideo = $this->createMock(Video::class);
+        $viewMock = $this->createMock(ViewInterface::class);
+        $viewMock->expects($this->once())->method('assign')->with('video', $dummyVideo);
+        $this->mediaController->setView($viewMock);
         $this->mediaController->videoAction($dummyVideo);
     }
 }

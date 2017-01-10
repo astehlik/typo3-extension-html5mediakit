@@ -1,0 +1,42 @@
+<video controls="controls">
+
+	<f:if condition="{video.hasWebM}">
+		<source type="video/webm" src="{video.webM.originalResource.publicUrl}" />
+	</f:if>
+
+	<f:if condition="{video.hasH264}">
+		<source type="video/mp4" src="{video.h264.originalResource.publicUrl}" />
+	</f:if>
+
+	<f:if condition="{video.hasOgv}">
+		<source type="video/ogg" src="{video.ogv.originalResource.publicUrl}" />
+	</f:if>
+
+	<div class="tx-html5mediakit-video-fallbacktext">
+
+		<p><f:translate key="media_video_tag_not_supported" /></p>
+
+		<f:if condition="{video.hasWebM}">
+			<p>
+				<f:translate key="media_video_download_hint_webm" />
+				<a href="{video.webM.originalResource.publicUrl}">{video.webM.name}</a>
+			</p>
+		</f:if>
+
+		<f:if condition="{video.hasH264}">
+			<p>
+				<f:translate key="media_video_download_hint_h265" />
+				<a href="{video.h264.originalResource.publicUrl}">{video.h264.name}</a>
+			</p>
+		</f:if>
+
+		<f:if condition="{video.hasOgv}">
+			<p>
+				<f:translate key="media_video_download_hint_ogv" />
+				<a href="{video.ogv.originalResource.publicUrl}">{video.ogv.name}</a>
+			</p>
+		</f:if>
+
+	</div>
+
+</video>

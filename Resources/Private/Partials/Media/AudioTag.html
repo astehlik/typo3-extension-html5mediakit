@@ -1,0 +1,33 @@
+<audio controls="controls">
+
+	<f:if condition="{audio.hasMp3}">
+		<source type="audio/mpeg" src="{audio.mp3.originalResource.publicUrl}"/>
+	</f:if>
+
+	<f:if condition="{audio.hasOgg}">
+		<source type="audio/ogg" src="{audio.ogg.originalResource.publicUrl}"/>
+	</f:if>
+
+	<div class="tx-html5mediakit-video-fallbacktext">
+
+		<p>
+			<f:translate key="media_audio_tag_not_supported"/>
+		</p>
+
+		<f:if condition="{audio.hasMp3}">
+			<p>
+				<f:translate key="media_audio_download_hint_mp3"/>
+				<a href="{audio.mp3.originalResource.publicUrl}">{audio.mp3.name}</a>
+			</p>
+		</f:if>
+
+		<f:if condition="{audio.hasOgg}">
+			<p>
+				<f:translate key="media_audio_download_hint_ogg"/>
+				<a href="{audio.ogg.originalResource.publicUrl}">{audio.ogg.name}</a>
+			</p>
+		</f:if>
+
+	</div>
+
+</audio>

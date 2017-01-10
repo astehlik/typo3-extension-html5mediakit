@@ -1,4 +1,5 @@
 <?php
+declare(strict_types = 1);
 namespace Sto\Html5mediakit\Tests\Unit\Domain\Model;
 
 /*                                                                        *
@@ -12,9 +13,10 @@ namespace Sto\Html5mediakit\Tests\Unit\Domain\Model;
  *                                                                        */
 
 use Sto\Html5mediakit\Domain\Model\Media;
+use TYPO3\CMS\Components\TestingFramework\Core\UnitTestCase;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
-class MediaTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
+class MediaTest extends UnitTestCase
 {
     /**
      * @var Media
@@ -29,9 +31,20 @@ class MediaTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
     /**
      * @test
      */
+    public function getHasMetadataReturnsFalseIfNoTeaserOrDescriptionPresent()
+    {
+        $this->media->setCaption('');
+        $this->media->setDescription('');
+        $this->assertFalse($this->media->getHasMetadata());
+    }
+
+    /**
+     * @test
+     */
     public function getHasMetadataReturnsTrueIfCaptionPresent()
     {
         $this->media->setCaption('not empty');
+        $this->media->setDescription('');
         $this->assertTrue($this->media->getHasMetadata());
     }
 
@@ -40,15 +53,8 @@ class MediaTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
      */
     public function getHasMetadataReturnsTrueIfDescriptionPresent()
     {
+        $this->media->setCaption('');
         $this->media->setDescription('not empty');
         $this->assertTrue($this->media->getHasMetadata());
-    }
-
-    /**
-     * @test
-     */
-    public function getHasMetadataReturnsFalseIfNoTeaserOrDescriptionPresent()
-    {
-        $this->assertFalse($this->media->getHasMetadata());
     }
 }

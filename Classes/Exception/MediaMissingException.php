@@ -1,6 +1,6 @@
 <?php
 declare(strict_types = 1);
-namespace Sto\Html5mediakit\Tests\Unit\Controller;
+namespace Sto\Html5mediakit\Exception;
 
 /*                                                                        *
  * This script belongs to the TYPO3 Extension "html5mediakit".            *
@@ -12,12 +12,21 @@ namespace Sto\Html5mediakit\Tests\Unit\Controller;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
-use Sto\Html5mediakit\Controller\MediaController;
+use Exception;
 
-class MediaControllerMock extends MediaController
+/**
+ * Exception if no media record is found for the current content element.
+ */
+class MediaMissingException extends MediaException
 {
-    public function setView($view)
+    public function __construct($message = '', $code = 0, Exception $previous = null)
     {
-        $this->view = $view;
+        if ($message === '') {
+            $message = 'No media exists in the current content element.';
+        }
+        if ($code === 0) {
+            $code = 1483385454;
+        }
+        parent::__construct($message, $code, $previous);
     }
 }

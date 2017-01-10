@@ -1,6 +1,6 @@
 <?php
 declare(strict_types = 1);
-namespace Sto\Html5mediakit\Tests\Unit\Controller;
+namespace Sto\Html5mediakit\Exception;
 
 /*                                                                        *
  * This script belongs to the TYPO3 Extension "html5mediakit".            *
@@ -12,12 +12,11 @@ namespace Sto\Html5mediakit\Tests\Unit\Controller;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
-use Sto\Html5mediakit\Controller\MediaController;
+use RuntimeException;
 
-class MediaControllerMock extends MediaController
+/**
+ * Generic media related Exception. Translations should be available for the Exception code.
+ */
+class MediaException extends RuntimeException
 {
-    public function setView($view)
-    {
-        $this->view = $view;
-    }
 }

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types = 1);
 namespace Sto\Html5mediakit\Domain\Repository;
 
 /*                                                                        *
@@ -11,6 +12,8 @@ namespace Sto\Html5mediakit\Domain\Repository;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
+use Sto\Html5mediakit\Domain\Model\Media;
+use Sto\Html5mediakit\Exception\MediaMissingException;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
@@ -25,7 +28,7 @@ class MediaRepository extends Repository
      * @param int $contentElementUid
      * @return \Sto\Html5mediakit\Domain\Model\Media
      */
-    public function findOneByContentElementUid($contentElementUid)
+    public function findOneByContentElementUid($contentElementUid): Media
     {
         $query = $this->createQuery();
         $query->getQuerySettings()->setRespectStoragePage(false);
@@ -35,6 +38,12 @@ class MediaRepository extends Repository
         $query->getQuerySettings()->setLanguageMode(null);
 
         $query->matching($query->equals('contentElement', $contentElementUid));
-        return $query->execute()->getFirst();
+        $media = $query->execute()->getFirst();
+
+        if (!$media instanceof Media) {
+            throw new MediaMissingException();
+        }
+
+        return $media;
     }
 }
