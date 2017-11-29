@@ -143,7 +143,7 @@ return array(
             'config' => ExtensionManagementUtility::getFileFieldTCAConfig(
                 'ogg',
                 $customFileTcaFieldSettings,
-                'ogg'
+                'ogg,ogx'
             ),
         ),
         'h264' => array(
