@@ -1,5 +1,6 @@
 <?php
-declare(strict_types = 1);
+declare(strict_types=1);
+
 namespace Sto\Html5mediakit\Domain\Model;
 
 /*                                                                        *
@@ -101,11 +102,7 @@ class Media extends AbstractEntity
 
         $metadata = trim($metadata);
 
-        if (!empty($metadata)) {
-            return true;
-        } else {
-            return false;
-        }
+        return !empty($metadata);
     }
 
     public function getParentRecord(): int
@@ -118,41 +115,26 @@ class Media extends AbstractEntity
         return $this->parentTable;
     }
 
-    /**
-     * @return int
-     */
     public function getTstamp(): int
     {
         return $this->tstamp;
     }
 
-    /**
-     * @return MediaType
-     */
     public function getType(): MediaType
     {
         return $this->type;
     }
 
-    /**
-     * @param string $caption
-     */
     public function setCaption(string $caption)
     {
         $this->caption = $caption;
     }
 
-    /**
-     * @param int $contentElement
-     */
     public function setContentElement(int $contentElement)
     {
         $this->contentElement = $contentElement;
     }
 
-    /**
-     * @param string $description
-     */
     public function setDescription(string $description)
     {
         $this->description = $description;
@@ -168,17 +150,11 @@ class Media extends AbstractEntity
         $this->parentTable = $parentTable;
     }
 
-    /**
-     * @param int $tstamp
-     */
     public function setTstamp(int $tstamp)
     {
         $this->tstamp = $tstamp;
     }
 
-    /**
-     * @param MediaType $type
-     */
     public function setType(MediaType $type)
     {
         $this->type = $type;
