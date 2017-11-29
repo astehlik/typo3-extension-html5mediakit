@@ -15,6 +15,7 @@ namespace Sto\Html5mediakit\Controller;
 
 use Sto\Html5mediakit\Domain\Model\Audio;
 use Sto\Html5mediakit\Domain\Model\Enumeration\MediaType;
+use Sto\Html5mediakit\Domain\Model\Media;
 use Sto\Html5mediakit\Domain\Model\Video;
 use Sto\Html5mediakit\Domain\Repository\MediaRepository;
 use Sto\Html5mediakit\Exception\MediaException;
@@ -59,6 +60,35 @@ class MediaController extends ActionController
             return $this->translate('exception.' . $mediaException->getCode());
         }
 
+        $this->renderMedia($media);
+
+        throw new \RuntimeException('An invalid media type is used.');
+    }
+
+    public function renderMediaForRelatedTableAction()
+    {
+        $contentObject = $this->configurationManager->getContentObject();
+        try {
+            $media = $this->mediaRepository->findOneByParentRecord($contentObject->data);
+        } catch (MediaException $mediaException) {
+            return $this->translate('exception.' . $mediaException->getCode());
+        }
+
+        $this->renderMedia($media);
+
+        throw new \RuntimeException('An invalid media type is used.');
+    }
+
+    /**
+     * @param \Sto\Html5mediakit\Domain\Model\Video $video
+     */
+    public function videoAction(Video $video)
+    {
+        $this->view->assign('video', $video);
+    }
+
+    private function renderMedia(Media $media)
+    {
         $mediaType = $media->getType();
 
         // We update the last changed register when a media record has changed because
@@ -72,16 +102,6 @@ class MediaController extends ActionController
         } elseif ($mediaType->equals(MediaType::AUDIO)) {
             $this->forward('audio', null, null, ['audio' => $media]);
         }
-
-        throw new \RuntimeException('An invalid media type is used.');
-    }
-
-    /**
-     * @param \Sto\Html5mediakit\Domain\Model\Video $video
-     */
-    public function videoAction(Video $video)
-    {
-        $this->view->assign('video', $video);
     }
 
     /**

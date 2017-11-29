@@ -45,6 +45,16 @@ class Media extends AbstractEntity
     /**
      * @var int
      */
+    protected $parentRecord;
+
+    /**
+     * @var string
+     */
+    protected $parentTable;
+
+    /**
+     * @var int
+     */
     protected $tstamp;
 
     /**
@@ -98,6 +108,16 @@ class Media extends AbstractEntity
         }
     }
 
+    public function getParentRecord(): int
+    {
+        return $this->parentRecord;
+    }
+
+    public function getParentTable(): string
+    {
+        return $this->parentTable;
+    }
+
     /**
      * @return int
      */
@@ -136,6 +156,16 @@ class Media extends AbstractEntity
     public function setDescription(string $description)
     {
         $this->description = $description;
+    }
+
+    public function setParentRecord(int $parentRecord)
+    {
+        $this->parentRecord = $parentRecord;
+    }
+
+    public function setParentTable(string $parentTable)
+    {
+        $this->parentTable = $parentTable;
     }
 
     /**

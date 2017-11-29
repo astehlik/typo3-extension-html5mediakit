@@ -15,7 +15,11 @@ CREATE TABLE tx_html5mediakit_domain_model_media (
 	crdate int(11) DEFAULT '0' NOT NULL,
 	cruser_id int(11) DEFAULT '0' NOT NULL,
 	deleted tinyint(4) DEFAULT '0' NOT NULL,
+
 	content_element int(11) DEFAULT '0' NOT NULL,
+	parent_record int(11) DEFAULT '0' NOT NULL,
+	parent_table varchar(255) DEFAULT '' NOT NULL,
+
 	type varchar(100) DEFAULT '' NOT NULL,
 	caption varchar(255) DEFAULT '' NOT NULL,
 	description text,
