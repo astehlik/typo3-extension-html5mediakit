@@ -1,5 +1,6 @@
 <?php
-declare(strict_types = 1);
+declare(strict_types=1);
+
 namespace Sto\Html5mediakit\Controller;
 
 /*                                                                        *
@@ -15,6 +16,7 @@ namespace Sto\Html5mediakit\Controller;
 use Sto\Html5mediakit\Domain\Model\Audio;
 use Sto\Html5mediakit\Domain\Model\Enumeration\MediaType;
 use Sto\Html5mediakit\Domain\Model\Video;
+use Sto\Html5mediakit\Domain\Repository\MediaRepository;
 use Sto\Html5mediakit\Exception\MediaException;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
@@ -25,10 +27,14 @@ use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 class MediaController extends ActionController
 {
     /**
-     * @var \Sto\Html5mediakit\Domain\Repository\MediaRepository
-     * @inject
+     * @var MediaRepository
      */
     protected $mediaRepository;
+
+    public function injectMediaRepository(MediaRepository $mediaRepository)
+    {
+        $this->mediaRepository = $mediaRepository;
+    }
 
     /**
      * @param \Sto\Html5mediakit\Domain\Model\Audio $audio
