@@ -2,7 +2,7 @@
 mod.wizards.newContentElement.wizardItems {
 	common.elements {
 		html5mediakit_mediarenderer {
-			iconIdentifier = content-textmedia
+			iconIdentifier = content-special-media
 			title = LLL:EXT:html5mediakit/Resources/Private/Language/locallang_db.xlf:tt_content.CType.I.html5mediakit_mediarenderer
 			description = LLL:EXT:html5mediakit/Resources/Private/Language/locallang_db.xlf:new_content_element_wizard_html5mediakitmediarenderer_description
 			tt_content_defValues {
