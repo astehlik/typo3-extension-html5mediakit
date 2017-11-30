@@ -22,7 +22,7 @@ CREATE TABLE tx_html5mediakit_domain_model_media (
 
 	type varchar(100) DEFAULT '' NOT NULL,
 	caption varchar(255) DEFAULT '' NOT NULL,
-	description text,
+	description text NOT NULL,
 	mp3 int(11) DEFAULT '0' NOT NULL,
 	ogg int(11) DEFAULT '0' NOT NULL,
 	h264 int(11) DEFAULT '0' NOT NULL,
