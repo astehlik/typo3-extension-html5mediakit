@@ -66,8 +66,8 @@
         <uid>1</uid>
         <pid>0</pid>
         <storage>0</storage>
-        <identifier>video/h264.mp4</identifier>
-        <name>h264.mp4</name>
+        <identifier>video/media.mp4</identifier>
+        <name>media.mp4</name>
         <type>4</type>
     </sys_file>
 
@@ -75,8 +75,8 @@
         <uid>2</uid>
         <pid>0</pid>
         <storage>0</storage>
-        <identifier>video/ovg.ogv</identifier>
-        <name>h264.mp4</name>
+        <identifier>video/media.ogv</identifier>
+        <name>media.ogv</name>
         <type>4</type>
     </sys_file>
 
@@ -84,8 +84,8 @@
         <uid>3</uid>
         <pid>0</pid>
         <storage>0</storage>
-        <identifier>video/webm.webm</identifier>
-        <name>h264.mp4</name>
+        <identifier>video/media.webm</identifier>
+        <name>media.webm</name>
         <type>4</type>
     </sys_file>
 </dataset>
