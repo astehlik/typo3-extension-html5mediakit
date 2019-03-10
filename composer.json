@@ -10,7 +10,7 @@
 	"require-dev": {
 		"namelesscoder/typo3-repository-client": "^1.1.0",
 		"phpunit/phpunit": "^7.5",
-		"squizlabs/php_codesniffer": "^2.6",
+		"squizlabs/php_codesniffer": "^3.1",
 		"de-swebhosting/php-codestyle": "dev-master",
 		"typo3/testing-framework": "^4.11",
 		"composer/composer": "^1.8"
