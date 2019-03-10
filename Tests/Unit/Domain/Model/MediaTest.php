@@ -12,11 +12,11 @@ namespace Sto\Html5mediakit\Tests\Unit\Domain\Model;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
+use PHPUnit\Framework\TestCase;
 use Sto\Html5mediakit\Domain\Model\Media;
-use TYPO3\CMS\Components\TestingFramework\Core\UnitTestCase;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
-class MediaTest extends UnitTestCase
+class MediaTest extends TestCase
 {
     /**
      * @var Media

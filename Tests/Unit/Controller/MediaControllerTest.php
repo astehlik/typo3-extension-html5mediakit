@@ -12,12 +12,12 @@ namespace Sto\Html5mediakit\Tests\Unit\Controller;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
+use PHPUnit\Framework\TestCase;
 use Sto\Html5mediakit\Domain\Model\Video;
-use TYPO3\CMS\Components\TestingFramework\Core\UnitTestCase;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\View\ViewInterface;
 
-class MediaControllerTest extends UnitTestCase
+class MediaControllerTest extends TestCase
 {
     /**
      * @var MediaControllerMock
