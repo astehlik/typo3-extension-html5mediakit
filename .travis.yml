@@ -14,37 +14,26 @@ before_script:
   - if [ "$GITHUB_COMPOSER_AUTH" ]; then composer config -g github-oauth.github.com $GITHUB_COMPOSER_AUTH; fi
   - Build/Scripts/runTests.sh -s composerInstall -p $TRAVIS_PHP_VERSION
 
-script:
-  - >
-    echo "Running composer validate"
-    Build/Scripts/runTests.sh -s composerValidate -p $TRAVIS_PHP_VERSION
-  - >
-    echo "Running unit tests";
-    Build/Scripts/runTests.sh -s unit -p $TRAVIS_PHP_VERSION
-  - >
-    echo "Running functional tests on MySQL";
-    Build/Scripts/runTests.sh -s functional -p $TRAVIS_PHP_VERSION
-  - >
-    echo "Running php lint";
-    Build/Scripts/runTests.sh -s lint -p $TRAVIS_PHP_VERSION
-  - >
-    echo;
-    echo "Running php code sniffer";
-    php .Build/bin/phpcs --config-set installed_paths ${PWD}/.Build/vendor/de-swebhosting/php-codestyle/PhpCodeSniffer/
-    php .Build/bin/phpcs --standard=PSRDefault Classes Tests ext_*.php
+stages:
+  - test
+  - name: deploy
+    if: tag
 
+jobs:
+  include:
+  - stage: "test"
+    name: "Composer validate"
+    script: Build/Scripts/runTests.sh -s composerValidate -p $TRAVIS_PHP_VERSION
+  - name: "Unit Tests"
+    script: Build/Scripts/runTests.sh -s unit -p $TRAVIS_PHP_VERSION
+  - name: "Functional test on MySQL"
+    script: Build/Scripts/runTests.sh -s functional -p $TRAVIS_PHP_VERSION
+  - name: "PHP linting"
+    script: Build/Scripts/runTests.sh -s lint -p $TRAVIS_PHP_VERSION
+  - name: "PHP code sniffer"
+    php: 7.3
+    script: Build/Scripts/runCodeStyleChecks.sh
 
-after_script:
-  - >
-    if [ -n "$TRAVIS_TAG" ] && [ -n "$TYPO3_ORG_USERNAME" ] && [ -n "$TYPO3_ORG_PASSWORD" ]; then
-      echo -e "Preparing upload of release ${TRAVIS_TAG} to TER\n"
-      curl -sSL https://raw.githubusercontent.com/alrra/travis-after-all/1.4.4/lib/travis-after-all.js | node
-      if [ $? -eq 0 ]; then
-        # Cleanup before we upload
-        git reset --hard HEAD && git clean -fx
-
-        TAG_MESSAGE=`git tag -n10 -l $TRAVIS_TAG | sed 's/^[0-9.]*[ ]*//g'`
-        echo "Uploading release ${TRAVIS_TAG} to TER"
-        .Build/bin/upload . "$TYPO3_ORG_USERNAME" "$TYPO3_ORG_PASSWORD" "$TAG_MESSAGE"
-      fi;
-    fi;
+  - stage: "deploy"
+    name: "Deploy to TER"
+    script: Build/Scripts/deployToTer.sh
