@@ -3,7 +3,7 @@
 echo "Cleanup Git repository..."
 git reset --hard HEAD && git clean -fx
 
-TAG_MESSAGE=`git tag -n10 -l $TRAVIS_TAG | sed 's/^[0-9.]*[ ]*//g'`
+TAG_MESSAGE=`git tag -n10 -l $TRAVIS_TAG | sed 's/^v[0-9.]*[ ]*//g'`
 echo "Extracted tag message: $TAG_MESSAGE"
 
 echo "Renaming repository folder to match extension key..."
