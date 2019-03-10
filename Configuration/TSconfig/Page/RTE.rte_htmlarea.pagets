@@ -1,14 +1,12 @@
 // configure a minimal RTE for the description field that
 // only allows basic formatting and links
 RTE.config.tx_html5mediakit_domain_model_media.description {
-
     showButtons = bold,italic,link,chMode,removeformat,undo,redo
     contextMenu.showButtons = insertparagraphbefore,insertparagraphafter
 
     proc {
-
         allowTags = i,em,b,strong,br,p,a
-        denyTags = u,img,div,center,pre,font,hr,sub,sup,li,ul,ol,blo ckquote,strike,span
+        denyTags = u,img,div,center,pre,font,hr,sub,sup,li,ul,ol,blockquote,strike,span
         dontProtectUnknownTags_rte = 1
         preserveDIVSections = 0
 
