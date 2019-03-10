@@ -1,9 +1,5 @@
 language: php
 
-php:
-  - 7.2
-  - 7.3
-
 sudo: true
 
 cache:
@@ -23,12 +19,23 @@ jobs:
   include:
   - stage: "test"
     name: "Composer validate"
+    php:
+      - 7.3
     script: Build/Scripts/runTests.sh -s composerValidate -p $TRAVIS_PHP_VERSION
   - name: "Unit Tests"
+    php:
+      - 7.2
+      - 7.3
     script: Build/Scripts/runTests.sh -s unit -p $TRAVIS_PHP_VERSION
   - name: "Functional test on MySQL"
+    php:
+      - 7.2
+      - 7.3
     script: Build/Scripts/runTests.sh -s functional -p $TRAVIS_PHP_VERSION
   - name: "PHP linting"
+    php:
+      - 7.2
+      - 7.3
     script: Build/Scripts/runTests.sh -s lint -p $TRAVIS_PHP_VERSION
   - name: "PHP code sniffer"
     php: 7.3
@@ -36,4 +43,5 @@ jobs:
 
   - stage: "deploy"
     name: "Deploy to TER"
+    php: 7.3
     script: Build/Scripts/deployToTer.sh
