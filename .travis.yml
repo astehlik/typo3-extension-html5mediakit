@@ -19,27 +19,32 @@ jobs:
   include:
   - stage: "test"
     name: "Composer validate"
-    php:
-      - 7.3
+    php: 7.3
     script: Build/Scripts/runTests.sh -s composerValidate -p $TRAVIS_PHP_VERSION
-  - name: "Unit Tests"
-    php:
-      - 7.2
-      - 7.3
-    script: Build/Scripts/runTests.sh -s unit -p $TRAVIS_PHP_VERSION
-  - name: "Functional test on MySQL"
-    php:
-      - 7.2
-      - 7.3
-    script: Build/Scripts/runTests.sh -s functional -p $TRAVIS_PHP_VERSION
-  - name: "PHP linting"
-    php:
-      - 7.2
-      - 7.3
-    script: Build/Scripts/runTests.sh -s lint -p $TRAVIS_PHP_VERSION
   - name: "PHP code sniffer"
     php: 7.3
     script: Build/Scripts/runCodeStyleChecks.sh
+
+  - name: "Unit tests PHP 7.2"
+    php: 7.2
+    script: Build/Scripts/runTests.sh -s unit -p $TRAVIS_PHP_VERSION
+  - name: "Unit tests PHP 7.3"
+    php: 7.3
+    script: Build/Scripts/runTests.sh -s unit -p $TRAVIS_PHP_VERSION
+
+  - name: "Functional test on MySQL PHP 7.2"
+    php: 7.2
+    script: Build/Scripts/runTests.sh -s functional -p $TRAVIS_PHP_VERSION
+  - name: "Functional test on MySQL PHP 7.3"
+    php: 7.3
+    script: Build/Scripts/runTests.sh -s functional -p $TRAVIS_PHP_VERSION
+
+  - name: "PHP linting PHP 7.2"
+    php: 7.2
+    script: Build/Scripts/runTests.sh -s lint -p $TRAVIS_PHP_VERSION
+  - name: "PHP linting PHP 7.3"
+    php: 7.3
+    script: Build/Scripts/runTests.sh -s lint -p $TRAVIS_PHP_VERSION
 
   - stage: "deploy"
     name: "Deploy to TER"
