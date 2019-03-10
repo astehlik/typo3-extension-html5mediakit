@@ -59,8 +59,6 @@ return array(
             MediaType::AUDIO => 'mimetypes-media-audio',
         ],
         'hideTable' => true,
-        'prependAtCopy' => 'LLL:EXT:lang/locallang_general.php:LGL.prependAtCopy',
-        'hideAtCopy' => true,
         'languageField' => 'sys_language_uid',
         'transOrigPointerField' => 'l10n_parent',
         'transOrigDiffSourceField' => 'l10n_diffsource',
