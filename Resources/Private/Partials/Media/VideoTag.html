@@ -16,22 +16,22 @@
 
 		<f:if condition="{video.hasWebM}">
 			<p>
-				<a href="{video.webM.originalResource.publicUrl}">{video.webM.name}</a>
 				<f:translate key="media_video_download_hint_webm"/>
+				<a href="{video.webM.originalResource.publicUrl}">{video.webM.originalResource.name}</a>
 			</p>
 		</f:if>
 
 		<f:if condition="{video.hasH264}">
 			<p>
-				<a href="{video.h264.originalResource.publicUrl}">{video.h264.name}</a>
 				<f:translate key="media_video_download_hint_h265"/>
+				<a href="{video.h264.originalResource.publicUrl}">{video.h264.originalResource.name}</a>
 			</p>
 		</f:if>
 
 		<f:if condition="{video.hasOgv}">
 			<p>
-				<a href="{video.ogv.originalResource.publicUrl}">{video.ogv.name}</a>
 				<f:translate key="media_video_download_hint_ogv"/>
+				<a href="{video.ogv.originalResource.publicUrl}">{video.ogv.originalResource.name}</a>
 			</p>
 		</f:if>
 	</div>

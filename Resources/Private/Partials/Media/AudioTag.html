@@ -15,14 +15,14 @@
 		<f:if condition="{audio.hasMp3}">
 			<p>
 				<f:translate key="media_audio_download_hint_mp3"/>
-				<a href="{audio.mp3.originalResource.publicUrl}">{audio.mp3.name}</a>
+				<a href="{audio.mp3.originalResource.publicUrl}">{audio.mp3.originalResource.name}</a>
 			</p>
 		</f:if>
 
 		<f:if condition="{audio.hasOgg}">
 			<p>
 				<f:translate key="media_audio_download_hint_ogg"/>
-				<a href="{audio.ogg.originalResource.publicUrl}">{audio.ogg.name}</a>
+				<a href="{audio.ogg.originalResource.publicUrl}">{audio.ogg.originalResource.name}</a>
 			</p>
 		</f:if>
 	</div>
