@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace Sto\Html5mediakit\Domain\Model;
 
 /*                                                                        *
@@ -11,6 +13,7 @@ namespace Sto\Html5mediakit\Domain\Model;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
+use Sto\Html5mediakit\Domain\Model\Enumeration\MediaType;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 /**
@@ -43,19 +46,29 @@ class Media extends AbstractEntity
     /**
      * @var int
      */
+    protected $parentRecord;
+
+    /**
+     * @var string
+     */
+    protected $parentTable;
+
+    /**
+     * @var int
+     */
     protected $tstamp;
 
     /**
      * The type of the media element (can be audio or video)
      *
-     * @var string
+     * @var \Sto\Html5mediakit\Domain\Model\Enumeration\MediaType
      */
     protected $type;
 
     /**
-     * @return mixed
+     * @return string
      */
-    public function getCaption()
+    public function getCaption(): string
     {
         return $this->caption;
     }
@@ -63,7 +76,7 @@ class Media extends AbstractEntity
     /**
      * @return int
      */
-    public function getContentElement()
+    public function getContentElement(): int
     {
         return $this->contentElement;
     }
@@ -71,7 +84,7 @@ class Media extends AbstractEntity
     /**
      * @return mixed
      */
-    public function getDescription()
+    public function getDescription(): string
     {
         return $this->description;
     }
@@ -82,73 +95,68 @@ class Media extends AbstractEntity
      *
      * @return bool
      */
-    public function getHasMetadata()
+    public function getHasMetadata(): bool
     {
         $metadata = $this->getCaption();
         $metadata .= $this->getDescription();
 
         $metadata = trim($metadata);
 
-        if (!empty($metadata)) {
-            return true;
-        } else {
-            return false;
-        }
+        return !empty($metadata);
     }
 
-    /**
-     * @return int
-     */
-    public function getTstamp()
+    public function getParentRecord(): int
+    {
+        return $this->parentRecord;
+    }
+
+    public function getParentTable(): string
+    {
+        return $this->parentTable;
+    }
+
+    public function getTstamp(): int
     {
         return $this->tstamp;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getType()
+    public function getType(): MediaType
     {
         return $this->type;
     }
 
-    /**
-     * @param int $contentElement
-     */
-    public function setContentElement($contentElement)
-    {
-        $this->contentElement = $contentElement;
-    }
-
-    /**
-     * @param string $caption
-     */
-    public function setCaption($caption)
+    public function setCaption(string $caption)
     {
         $this->caption = $caption;
     }
 
-    /**
-     * @param string $description
-     */
-    public function setDescription($description)
+    public function setContentElement(int $contentElement)
+    {
+        $this->contentElement = $contentElement;
+    }
+
+    public function setDescription(string $description)
     {
         $this->description = $description;
     }
 
-    /**
-     * @param string $type
-     */
-    public function setType($type)
+    public function setParentRecord(int $parentRecord)
     {
-        $this->type = $type;
+        $this->parentRecord = $parentRecord;
     }
 
-    /**
-     * @param int $tstamp
-     */
-    public function setTstamp($tstamp)
+    public function setParentTable(string $parentTable)
+    {
+        $this->parentTable = $parentTable;
+    }
+
+    public function setTstamp(int $tstamp)
     {
         $this->tstamp = $tstamp;
+    }
+
+    public function setType(MediaType $type)
+    {
+        $this->type = $type;
     }
 }

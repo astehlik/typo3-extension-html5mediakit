@@ -10,10 +10,10 @@ $EM_CONF[$_EXTKEY] = [
     'author' => 'Alexander Stehlik',
     'author_email' => 'alexander.stehlik.deleteme@gmail.com',
     'author_company' => '',
-    'version' => '2.0.0-dev',
+    'version' => '9.0.0',
     'constraints' => [
         'depends' => [
-            'typo3' => '6.2.1-8.99.99',
+            'typo3' => '9.5.0-9.5.99',
             'extbase' => '',
         ],
         'conflicts' => [],

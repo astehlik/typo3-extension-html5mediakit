@@ -1,4 +1,5 @@
 <?php
+declare(strict_types = 1);
 namespace Sto\Html5mediakit\Tests\Unit\Controller;
 
 /*                                                                        *
@@ -12,7 +13,6 @@ namespace Sto\Html5mediakit\Tests\Unit\Controller;
  *                                                                        */
 
 use Sto\Html5mediakit\Controller\MediaController;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class MediaControllerMock extends MediaController
 {

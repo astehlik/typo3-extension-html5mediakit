@@ -24,6 +24,9 @@
 			<trans-unit id="media_video_download_hint_ogv" xml:space="preserve">
 				<source>You can download the video file in the OGG Theora format using this URL:</source>
 			</trans-unit>
+			<trans-unit id="exception.1483385454" xml:space="preserve">
+				<source>No media element was found in the current content element.</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

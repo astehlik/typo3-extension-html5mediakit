@@ -1,4 +1,5 @@
 <?php
+declare(strict_types = 1);
 namespace Sto\Html5mediakit\Domain\Model;
 
 /*                                                                        *
@@ -10,6 +11,8 @@ namespace Sto\Html5mediakit\Domain\Model;
  *                                                                        *
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
+
+use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 
 /**
  * Audio media containing different audio formats.
@@ -24,24 +27,54 @@ class Audio extends Media
     protected $mp3;
 
     /**
-     * Reference to the OGA/OGG    Vorbis version of the audio
+     * Reference to the OGA/OGG Vorbis version of the audio
      *
      * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
      */
     protected $ogg;
 
     /**
-     * @return \TYPO3\CMS\Extbase\Domain\Model\File
+     * Returns true if an audio file of any type is available.
+     *
+     * @return bool
      */
-    public function getMp3()
+    public function getAudioFileAvailable(): bool
+    {
+        return $this->getHasMp3() || $this->getHasOgg();
+    }
+
+    /**
+     * Returns true if a MP3 file is available.
+     *
+     * @return bool
+     */
+    public function getHasMp3(): bool
+    {
+        return $this->mp3 instanceof FileReference;
+    }
+
+    /**
+     * Returns true if an OGG file is available.
+     *
+     * @return bool
+     */
+    public function getHasOgg(): bool
+    {
+        return $this->ogg instanceof FileReference;
+    }
+
+    /**
+     * @return FileReference
+     */
+    public function getMp3(): FileReference
     {
         return $this->mp3;
     }
 
     /**
-     * @return \TYPO3\CMS\Extbase\Domain\Model\File
+     * @return FileReference
      */
-    public function getOgg()
+    public function getOgg(): FileReference
     {
         return $this->ogg;
     }
