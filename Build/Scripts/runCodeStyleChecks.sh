@@ -9,4 +9,4 @@ cd ../..
 
 php .Build/bin/phpcs --config-set installed_paths ${PWD}/.Build/vendor/de-swebhosting/php-codestyle/PhpCodeSniffer/
 
-php .Build/bin/phpcs --standard=PSRDefault Classes Tests ext_*.php
+php .Build/bin/phpcs --standard=PSRDefault Classes Configuration/TCA Tests ext_*.php
