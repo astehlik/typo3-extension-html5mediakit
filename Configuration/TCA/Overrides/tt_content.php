@@ -1,6 +1,9 @@
 <?php
 declare(strict_types=1);
 
+$languagePrefix = 'LLL:EXT:html5mediakit/Resources/Private/Language/locallang_db.xlf:';
+$languagePrefixColumn = $languagePrefix . 'tt_content.';
+
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
     'Html5mediakit',
     'mediarenderer',
@@ -13,7 +16,7 @@ $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['html5mediakit_mediare
 
 $columns = [
     'tx_html5mediakit_media' => [
-        'label' => 'Mediendatei',
+        'label' => $languagePrefixColumn . 'tx_html5mediakit_media',
         'config' => [
             'type' => 'inline',
             'allowed' => 'tx_html5mediakit_domain_model_media',
