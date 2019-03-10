@@ -1,20 +1,21 @@
 <f:layout name="Media"/>
 
 <f:section name="media">
-	<f:if condition="{audio.audioFileAvailable}">
-		<f:then>
-			<f:render partial="Media/AudioTag" arguments="{_all}"/>
-		</f:then>
-		<f:else>
-			<f:render section="noAudioAvailable" arguments="{_all}"/>
-		</f:else>
-	</f:if>
+<f:if condition="{audio.audioFileAvailable}">
+	<f:then>
+		<f:render partial="Media/AudioTag" arguments="{_all}"/>
+	</f:then>
+
+	<f:else>
+		<f:render section="noAudioAvailable" arguments="{_all}"/>
+	</f:else>
+</f:if>
 </f:section>
 
 <f:section name="noAudioAvailable">
-	<p>No audio file is available in any format.</p>
+<p>No audio file is available in any format.</p>
 </f:section>
 
 <f:section name="metadata">
-	<f:render partial="Media/Metadata" arguments="{media: audio}"/>
+<f:render partial="Media/Metadata" arguments="{media: audio}"/>
 </f:section>

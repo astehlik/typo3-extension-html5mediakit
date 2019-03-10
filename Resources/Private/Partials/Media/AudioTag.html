@@ -1,15 +1,13 @@
 <audio controls="controls">
-
 	<f:if condition="{audio.hasMp3}">
-		<source type="audio/mpeg" src="{audio.mp3.originalResource.publicUrl}"/>
+		<source src="{audio.mp3.originalResource.publicUrl}" type="audio/mpeg"/>
 	</f:if>
 
 	<f:if condition="{audio.hasOgg}">
-		<source type="audio/ogg" src="{audio.ogg.originalResource.publicUrl}"/>
+		<source src="{audio.ogg.originalResource.publicUrl}" type="audio/ogg"/>
 	</f:if>
 
 	<div class="tx-html5mediakit-video-fallbacktext">
-
 		<p>
 			<f:translate key="media_audio_tag_not_supported"/>
 		</p>
@@ -27,7 +25,5 @@
 				<a href="{audio.ogg.originalResource.publicUrl}">{audio.ogg.name}</a>
 			</p>
 		</f:if>
-
 	</div>
-
 </audio>
