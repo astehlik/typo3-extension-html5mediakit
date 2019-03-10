@@ -22,8 +22,8 @@ script:
     echo "Running unit tests";
     Build/Scripts/runTests.sh -s unit -p $TRAVIS_PHP_VERSION
   - >
-    echo "Running unit tests";
-    Build/Scripts/runTests.sh -s unit -p $TRAVIS_PHP_VERSION
+    echo "Running functional tests on MySQL";
+    Build/Scripts/runTests.sh -s functional -p $TRAVIS_PHP_VERSION
   - >
     echo "Running php lint";
     Build/Scripts/runTests.sh -s lint -p $TRAVIS_PHP_VERSION
