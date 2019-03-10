@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+declare(strict_types=1);
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
     'Html5mediakit',
@@ -8,27 +8,28 @@ declare(strict_types = 1);
     'mimetypes-x-content-multimedia'
 );
 
-$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['html5mediakit_mediarenderer'] = 'mimetypes-x-content-multimedia';
+$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['html5mediakit_mediarenderer'] =
+    'mimetypes-x-content-multimedia';
 
-$columns = array(
-    'tx_html5mediakit_media' => array(
+$columns = [
+    'tx_html5mediakit_media' => [
         'label' => 'Mediendatei',
-        'config' => array(
+        'config' => [
             'type' => 'inline',
             'allowed' => 'tx_html5mediakit_domain_model_media',
             'foreign_table' => 'tx_html5mediakit_domain_model_media',
             'foreign_field' => 'content_element',
             'minitems' => 1,
             'maxitems' => 1,
-            'appearance' => array(
+            'appearance' => [
                 'showSynchronizationLink' => 1,
                 'showAllLocalizationLink' => 1,
                 'showPossibleLocalizationRecords' => 1,
                 'showRemovedLocalizationRecords' => 1,
-            ),
-        )
-    ),
-);
+            ],
+        ],
+    ],
+];
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $columns);
 
