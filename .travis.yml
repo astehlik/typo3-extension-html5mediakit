@@ -1,52 +1,53 @@
 language: php
 
-sudo: true
-
 cache:
   directories:
     - $HOME/.composer/cache
+    - $HOME/.cache/composer
 
-before_script:
-  - if [ "$GITHUB_COMPOSER_AUTH" ]; then composer config -g github-oauth.github.com $GITHUB_COMPOSER_AUTH; fi
-  - bash Build/Scripts/runTests.sh -s composerInstall -p $TRAVIS_PHP_VERSION
+sudo: true
 
 stages:
   - test
   - name: deploy
     if: tag
 
+before_script:
+  - if [ "$GITHUB_COMPOSER_AUTH" ]; then composer config -g github-oauth.github.com $GITHUB_COMPOSER_AUTH; fi
+  - bash Build/Scripts/runTests.sh -s composerInstall -p $TRAVIS_PHP_VERSION
+
 jobs:
   include:
-  - stage: "test"
-    name: "Composer validate"
-    php: 7.3
-    script: bash Build/Scripts/runTests.sh -s composerValidate -p $TRAVIS_PHP_VERSION
-  - name: "PHP code sniffer"
-    php: 7.3
-    script: bash Build/Scripts/runCodeStyleChecks.sh
+    - stage: test
+      name: "Composer validate"
+      php: "7.3"
+      script: bash Build/Scripts/runTests.sh -s composerValidate -p $TRAVIS_PHP_VERSION
+    - name: "PHP code sniffer"
+      php: "7.3"
+      script: bash Build/Scripts/runCodeStyleChecks.sh
 
-  - name: "Unit tests PHP 7.2"
-    php: 7.2
-    script: bash Build/Scripts/runTests.sh -s unit -p $TRAVIS_PHP_VERSION
-  - name: "Unit tests PHP 7.3"
-    php: 7.3
-    script: bash Build/Scripts/runTests.sh -s unit -p $TRAVIS_PHP_VERSION
+    - name: "Unit tests PHP 7.2"
+      php: "7.2"
+      script: bash Build/Scripts/runTests.sh -s unit -p $TRAVIS_PHP_VERSION
+    - name: "Unit tests PHP 7.3"
+      php: "7.3"
+      script: bash Build/Scripts/runTests.sh -s unit -p $TRAVIS_PHP_VERSION
 
-  - name: "Functional test on MySQL PHP 7.2"
-    php: 7.2
-    script: bash Build/Scripts/runTests.sh -s functional -p $TRAVIS_PHP_VERSION
-  - name: "Functional test on MySQL PHP 7.3"
-    php: 7.3
-    script: bash Build/Scripts/runTests.sh -s functional -p $TRAVIS_PHP_VERSION
+    - name: "Functional tests on MySQL PHP 7.2"
+      php: "7.2"
+      script: bash Build/Scripts/runTests.sh -s functional -p $TRAVIS_PHP_VERSION
+    - name: "Functional tests on MySQL PHP 7.3"
+      php: "7.3"
+      script: bash Build/Scripts/runTests.sh -s functional -p $TRAVIS_PHP_VERSION
 
-  - name: "PHP linting PHP 7.2"
-    php: 7.2
-    script: bash Build/Scripts/runTests.sh -s lint -p $TRAVIS_PHP_VERSION
-  - name: "PHP linting PHP 7.3"
-    php: 7.3
-    script: bash Build/Scripts/runTests.sh -s lint -p $TRAVIS_PHP_VERSION
+    - name: "PHP linting PHP 7.2"
+      php: "7.2"
+      script: bash Build/Scripts/runTests.sh -s lint -p $TRAVIS_PHP_VERSION
+    - name: "PHP linting PHP 7.3"
+      php: "7.3"
+      script: bash Build/Scripts/runTests.sh -s lint -p $TRAVIS_PHP_VERSION
 
-  - stage: "deploy"
-    name: "Deploy to TER"
-    php: 7.3
-    script: bash Build/Scripts/deployToTer.sh
+    - stage: deploy
+      name: "Deploy to TER"
+      php: "7.3"
+      script: bash Build/Scripts/deployToTer.sh
