@@ -159,8 +159,8 @@ return [
                         'LLL:EXT:lang/locallang_general.xlf:LGL.default_value',
                         0,
                     ],
-                    'default' => 0,
                 ],
+                'default' => 0,
             ],
         ],
         'web_m' => [
