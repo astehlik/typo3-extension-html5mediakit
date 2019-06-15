@@ -47,6 +47,13 @@ jobs:
       php: "7.3"
       script: bash Build/Scripts/runTests.sh -s lint -p $TRAVIS_PHP_VERSION
 
+    - name: "Acceptance tests PHP 7.2"
+      php: "7.2"
+      script: bash Build/Scripts/runTests.sh -s acceptance -p $TRAVIS_PHP_VERSION
+    - name: "Acceptance tests PHP 7.3"
+      php: "7.3"
+      script: bash Build/Scripts/runTests.sh -s acceptance -p $TRAVIS_PHP_VERSION
+
     - stage: deploy
       name: "Deploy to TER"
       php: "7.3"

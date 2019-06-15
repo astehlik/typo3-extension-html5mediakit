@@ -4,14 +4,14 @@
 # TYPO3 core test runner based on docker and docker-compose.
 #
 
-# Function to write a .env file in Build/testing-docker/local
+# Function to write a .env file in Build/testing-docker
 # This is read by docker-compose and vars defined here are
-# used in Build/testing-docker/local/docker-compose.yml
+# used in Build/testing-docker/docker-compose.yml
 setUpDockerComposeDotEnv() {
     # Delete possibly existing local .env file if exists
     [ -e .env ] && rm .env
     # Set up a new .env file for docker-compose
-    echo "COMPOSE_PROJECT_NAME=local" >> .env
+    echo "COMPOSE_PROJECT_NAME=html5mediakit" >> .env
     # To prevent access rights of files created by the testing, the docker image later
     # runs with the same user that is currently executing the script. docker-compose can't
     # use $UID directly itself since it is a shell variable and not an env variable, so
@@ -32,18 +32,26 @@ setUpDockerComposeDotEnv() {
 
 # Load help text into $HELP
 read -r -d '' HELP <<EOF
-html5mediakit test runner. Execute unit test suite and some other details.
-Also used by travis-ci for test execution.
+html5mediakit test runner. Execute acceptance, unit, functional and other test suites in
+a docker based test environment. Handles execution of single test files, sending
+xdebug information to a local IDE and more.
+
 Successfully tested with docker version 18.06.1-ce and docker-compose 1.21.2.
+
 Usage: $0 [options] [file]
+
 No arguments: Run all unit tests with PHP 7.2
+
 Options:
     -s <...>
         Specifies which test suite to run
+            - acceptance: backend acceptance tests
             - composerInstall: "composer install", handy if host has no PHP, uses composer cache of users home
             - composerValidate: "composer validate"
+            - functional: functional tests
             - lint: PHP linting
             - unit (default): PHP unit tests
+
     -d <mariadb|mssql|postgres|sqlite>
         Only with -s install|functional
         Specifies on which DBMS tests are performed
@@ -51,40 +59,60 @@ Options:
             - mssql: use mssql microsoft sql server
             - postgres: use postgres
             - sqlite: use sqlite
+
     -p <7.2|7.3>
         Specifies the PHP minor version to be used
             - 7.2 (default): use PHP 7.2
             - 7.3: use PHP 7.3
-    -e "<phpunit options>"
-        Only with -s unit
-        Additional options to send to phpunit tests.
-        For phpunit, options starting with "--" must be added after options starting with "-".
+
+    -e "<phpunit or codeception options>"
+        Only with -s functional|unit
+        Additional options to send to phpunit (unit & functional tests) or codeception (acceptance
+        tests). For phpunit, options starting with "--" must be added after options starting with "-".
         Example -e "-v --filter canRetrieveValueWithGP" to enable verbose output AND filter tests
         named "canRetrieveValueWithGP"
+
     -x
-        Only with -s unit
+        Only with -s functional|unit
         Send information to host instance for test or system under test break points. This is especially
         useful if a local PhpStorm instance is listening on default xdebug port 9000. A different port
         can be selected with -y
+
     -y <port>
         Send xdebug information to a different port than default 9000 if an IDE like PhpStorm
         is not listening on default port.
+
     -u
         Update existing typo3gmbh/phpXY:latest docker images. Maintenance call to docker pull latest
         versions of the main php images. The images are updated once in a while and only the youngest
         ones are supported by core testing. Use this if weird test errors occur. Also removes obsolete
         image versions of typo3gmbh/phpXY.
+
     -v
         Enable verbose script output. Shows variables and docker commands.
+
     -h
         Show this help.
+
 Examples:
-    # Run unit tests using PHP 7.2
+    # Run all core unit tests using PHP 7.2
     ./Build/Scripts/runTests.sh
-    # Run unit tests using PHP 7.3
-    ./Build/Scripts/runTests.sh -p 7.3
+    ./Build/Scripts/runTests.sh -s unit
+
+    # Run all core units tests and enable xdebug (have a PhpStorm listening on port 9000!)
+    ./Build/Scripts/runTests.sh -x
+
+    # Run unit tests in phpunit verbose mode with xdebug on PHP 7.3 and filter for test canRetrieveValueWithGP
+    ./Build/Scripts/runTests.sh -x -p 7.3 -e "-v --filter canRetrieveValueWithGP"
+
+    # Run unit tests with PHP 7.3 and have xdebug enabled
+    ./Build/Scripts/runTests.sh -x -p 7.3
+
     # Run functional tests on postgres with xdebug, php 7.3 and execute a restricted set of tests
     ./Build/Scripts/runTests.sh -x -p 7.3 -s functional -d postgres typo3/sysext/core/Tests/Functional/Authentication
+
+    # Run restricted set of backend acceptance tests
+    ./Build/Scripts/runTests.sh -s acceptance typo3/sysext/core/Tests/Acceptance/Backend/Login/BackendLoginCest.php
 EOF
 
 # Test if docker-compose exists, else exit out with error
@@ -191,6 +219,12 @@ fi
 
 # Suite execution
 case ${TEST_SUITE} in
+    acceptance)
+        setUpDockerComposeDotEnv
+        docker-compose run acceptance_backend_mariadb10
+        SUITE_EXIT_CODE=$?
+        docker-compose down
+        ;;
     composerInstall)
         setUpDockerComposeDotEnv
         docker-compose run composer_install
