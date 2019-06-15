@@ -1,38 +1,44 @@
+<html
+    data-namespace-typo3-fluid="true"
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+
 <video controls="controls">
-	<f:if condition="{video.hasWebM}">
-		<source src="{video.webM.originalResource.publicUrl}" type="video/webm"/>
-	</f:if>
+    <f:if condition="{video.hasWebM}">
+        <source src="{video.webM.originalResource.publicUrl}" type="video/webm"/>
+    </f:if>
 
-	<f:if condition="{video.hasH264}">
-		<source src="{video.h264.originalResource.publicUrl}" type="video/mp4"/>
-	</f:if>
+    <f:if condition="{video.hasH264}">
+        <source src="{video.h264.originalResource.publicUrl}" type="video/mp4"/>
+    </f:if>
 
-	<f:if condition="{video.hasOgv}">
-		<source src="{video.ogv.originalResource.publicUrl}" type="video/ogg"/>
-	</f:if>
+    <f:if condition="{video.hasOgv}">
+        <source src="{video.ogv.originalResource.publicUrl}" type="video/ogg"/>
+    </f:if>
 
-	<div class="tx-html5mediakit-video-fallbacktext">
-		<p><f:translate key="media_video_tag_not_supported"/></p>
+    <div class="tx-html5mediakit-video-fallbacktext">
+        <p><f:translate key="media_video_tag_not_supported"/></p>
 
-		<f:if condition="{video.hasWebM}">
-			<p>
-				<f:translate key="media_video_download_hint_webm"/>
-				<a href="{video.webM.originalResource.publicUrl}">{video.webM.originalResource.name}</a>
-			</p>
-		</f:if>
+        <f:if condition="{video.hasWebM}">
+            <p>
+                <f:translate key="media_video_download_hint_webm"/>
+                <a href="{video.webM.originalResource.publicUrl}">{video.webM.originalResource.name}</a>
+            </p>
+        </f:if>
 
-		<f:if condition="{video.hasH264}">
-			<p>
-				<f:translate key="media_video_download_hint_h265"/>
-				<a href="{video.h264.originalResource.publicUrl}">{video.h264.originalResource.name}</a>
-			</p>
-		</f:if>
+        <f:if condition="{video.hasH264}">
+            <p>
+                <f:translate key="media_video_download_hint_h265"/>
+                <a href="{video.h264.originalResource.publicUrl}">{video.h264.originalResource.name}</a>
+            </p>
+        </f:if>
 
-		<f:if condition="{video.hasOgv}">
-			<p>
-				<f:translate key="media_video_download_hint_ogv"/>
-				<a href="{video.ogv.originalResource.publicUrl}">{video.ogv.originalResource.name}</a>
-			</p>
-		</f:if>
-	</div>
+        <f:if condition="{video.hasOgv}">
+            <p>
+                <f:translate key="media_video_download_hint_ogv"/>
+                <a href="{video.ogv.originalResource.publicUrl}">{video.ogv.originalResource.name}</a>
+            </p>
+        </f:if>
+    </div>
 </video>
+
+</html>
