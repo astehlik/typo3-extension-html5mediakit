@@ -25,9 +25,7 @@ class BackendHtml5mediakitEnvironment extends BackendEnvironment
             'recordlist',
             'fluid_styled_content',
         ],
-        'testExtensionsToLoad' => [
-            'typo3conf/ext/html5mediakit',
-        ],
+        'testExtensionsToLoad' => ['typo3conf/ext/html5mediakit'],
         'xmlDatabaseFixtures' => [
             'PACKAGE:typo3/testing-framework/Resources/Core/Acceptance/Fixtures/be_users.xml',
             'PACKAGE:typo3/testing-framework/Resources/Core/Acceptance/Fixtures/be_sessions.xml',

@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<ruleset name="Inttpl">
+	<description>Based on PSRDefault. Adjust only if REALLY neccessary!</description>
+	<rule ref="PSRDefault"/>
+	<rule ref="PSR2.Methods.MethodDeclaration.Underscore">
+		<exclude-pattern>Tests/Acceptance/*/*Cest.php</exclude-pattern>
+	</rule>
+</ruleset>
