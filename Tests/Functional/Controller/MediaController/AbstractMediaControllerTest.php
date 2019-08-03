@@ -15,6 +15,9 @@ namespace Sto\Html5mediakit\Tests\Functional\Controller\MediaController;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
+use Symfony\Component\Yaml\Yaml;
+use TYPO3\CMS\Core\Cache\CacheManager;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\TestingFramework\Core\Functional\Framework\Frontend\InternalRequest;
 use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
 
@@ -35,10 +38,54 @@ abstract class AbstractMediaControllerTest extends FunctionalTestCase
                 ],
             ]
         );
+        $this->setUpFrontendSite(1);
 
         $request = (new InternalRequest())->withPageId(1);
         $response = $this->executeFrontendRequest($request);
 
         return (string)$response->getBody();
+    }
+
+    /**
+     * Create a simple site config for the tests that
+     * call a frontend page.
+     *
+     * @param int $pageId
+     * @param array $additionalLanguages
+     */
+    protected function setUpFrontendSite(int $pageId, array $additionalLanguages = [])
+    {
+        $languages = [
+            0 => [
+                'title' => 'English',
+                'enabled' => true,
+                'languageId' => 0,
+                'base' => '/',
+                'typo3Language' => 'default',
+                'locale' => 'en_US.UTF-8',
+                'iso-639-1' => 'en',
+                'navigationTitle' => '',
+                'hreflang' => '',
+                'direction' => '',
+                'flag' => 'us',
+            ],
+        ];
+        $languages = array_merge($languages, $additionalLanguages);
+        $configuration = [
+            'rootPageId' => $pageId,
+            'base' => '/',
+            'languages' => $languages,
+            'errorHandling' => [],
+            'routes' => [],
+        ];
+        GeneralUtility::mkdir_deep($this->instancePath . '/typo3conf/sites/testing/');
+        $yamlFileContents = Yaml::dump($configuration, 99, 2);
+        $fileName = $this->instancePath . '/typo3conf/sites/testing/config.yaml';
+        GeneralUtility::writeFile($fileName, $yamlFileContents);
+        // Ensure that no other site configuration was cached before
+        $cache = GeneralUtility::makeInstance(CacheManager::class)->getCache('core');
+        if ($cache->has('site-configuration')) {
+            $cache->remove('site-configuration');
+        }
     }
 }
