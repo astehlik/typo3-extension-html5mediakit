@@ -61,6 +61,7 @@ return [
             'label' => $languagePrefixColumn . 'type',
             'config' => [
                 'type' => 'select',
+                'renderType' => 'selectSingle',
                 'items' => [
                     [
                         $languagePrefixColumn . 'type.I.video',
