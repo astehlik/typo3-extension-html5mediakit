@@ -1,5 +1,6 @@
 <?php
-declare(strict_types = 1);
+declare(strict_types=1);
+
 namespace Sto\Html5mediakit\Tests\Unit\Controller;
 
 /*                                                                        *
@@ -24,7 +25,7 @@ class MediaControllerTest extends TestCase
      */
     protected $mediaController;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->mediaController = GeneralUtility::makeInstance(MediaControllerMock::class);
     }
@@ -34,7 +35,7 @@ class MediaControllerTest extends TestCase
      */
     public function videoActionAssignsVideoToView()
     {
-        /** @var Video|\PHPUnit_Framework_MockObject_MockObject $dummyVideo */
+        /** @var Video|\PHPUnit\Framework\MockObject\MockObject $dummyVideo */
         $dummyVideo = $this->createMock(Video::class);
         $viewMock = $this->createMock(ViewInterface::class);
         $viewMock->expects($this->once())->method('assign')->with('video', $dummyVideo);
