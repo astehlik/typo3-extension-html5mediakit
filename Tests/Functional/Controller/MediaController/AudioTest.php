@@ -18,15 +18,15 @@ class AudioTest extends AbstractMediaControllerTest
 
         $this->assertResponseContainsSources($responseBody);
         $this->assertResponseContainsFallbackLinks($responseBody);
-        $this->assertContains('Testcaption', $responseBody);
-        $this->assertContains('Testdescription', $responseBody);
+        $this->assertStringContainsString('Testcaption', $responseBody);
+        $this->assertStringContainsString('Testdescription', $responseBody);
     }
 
     private function assertResponseContainsFallbackLinks(string $responseBody)
     {
         foreach ($this->formats as $extension) {
             $expectedSource = sprintf('<a href="audio/media.%s">media.%1$s</a>', $extension);
-            $this->assertContains($expectedSource, $responseBody);
+            $this->assertStringContainsString($expectedSource, $responseBody);
         }
     }
 
@@ -34,7 +34,7 @@ class AudioTest extends AbstractMediaControllerTest
     {
         foreach ($this->formats as $mimeType => $extension) {
             $expectedSource = sprintf('<source src="audio/media.%s" type="audio/%s"/>', $extension, $mimeType);
-            $this->assertContains($expectedSource, $responseBody);
+            $this->assertStringContainsString($expectedSource, $responseBody);
         }
     }
 }
