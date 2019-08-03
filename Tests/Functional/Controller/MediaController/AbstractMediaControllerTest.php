@@ -30,8 +30,8 @@ abstract class AbstractMediaControllerTest extends FunctionalTestCase
             1,
             [
                 'setup' => [
-                    'EXT:html5mediakit/Configuration/TypoScript/setup.txt',
-                    'EXT:html5mediakit/Tests/Functional/Fixtures/setup.txt',
+                    'EXT:html5mediakit/Configuration/TypoScript/setup.typoscript',
+                    'EXT:html5mediakit/Tests/Functional/Fixtures/setup.typoscript',
                 ],
             ]
         );
