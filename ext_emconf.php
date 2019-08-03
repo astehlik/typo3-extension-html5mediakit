@@ -1,4 +1,5 @@
 <?php
+/** @var string $_EXTKEY */
 $EM_CONF[$_EXTKEY] = [
     'title' => 'HTML5 media kit',
     'description' => 'Allows easy embedding of HTML5 video and audio elements.',
@@ -10,10 +11,10 @@ $EM_CONF[$_EXTKEY] = [
     'author' => 'Alexander Stehlik',
     'author_email' => 'alexander.stehlik.deleteme@gmail.com',
     'author_company' => '',
-    'version' => '9.0.1',
+    'version' => '10.0.0-dev',
     'constraints' => [
         'depends' => [
-            'typo3' => '9.5.0-9.5.99',
+            'typo3' => '10.0.0-10.0.99',
             'extbase' => '',
         ],
         'conflicts' => [],
