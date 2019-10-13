@@ -87,8 +87,8 @@ return [
                 'type' => 'text',
                 'rows' => 5,
                 'cols' => 30,
+                'enableRichtext' => true,
             ],
-            'defaultExtras' => 'richtext[]:rte_transform[mode=ts_css]',
         ],
         'l10n_diffsource' => [
             'config' => ['type' => 'passthrough'],

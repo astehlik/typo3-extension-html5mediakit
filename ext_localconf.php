@@ -1,4 +1,6 @@
 <?php
+/** @noinspection PhpFullyQualifiedNameUsageInspection */
+
 defined('TYPO3_MODE') or die();
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
@@ -22,10 +24,6 @@ defined('TYPO3_MODE') or die();
 );
 
 if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('rte_ckeditor')) {
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
-        '<INCLUDE_TYPOSCRIPT: source="FILE: EXT:html5mediakit/Configuration/TSconfig/Page/RTE.rte_ckeditor.pagets">'
-    );
-
     $GLOBALS['TYPO3_CONF_VARS']['RTE']['Presets']['tx_html5mediakit_description'] =
         'EXT:html5mediakit/Configuration/RTE/Description.yaml';
 }
