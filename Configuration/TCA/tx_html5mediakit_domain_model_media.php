@@ -27,11 +27,13 @@ $customFileTcaFieldSettings = [
             'localize' => false,
         ],
     ],
-    'foreign_types' => [
-        '0' => ['showitem' => '--palette--;;filePalette'],
-        File::FILETYPE_AUDIO => ['showitem' => '--palette--;;filePalette'],
-        File::FILETYPE_VIDEO => ['showitem' => '--palette--;;filePalette'],
-        File::FILETYPE_APPLICATION => ['showitem' => '--palette--;;filePalette'],
+    'overrideChildTca' => [
+        'types' => [
+            '0' => ['showitem' => '--palette--;;filePalette'],
+            File::FILETYPE_AUDIO => ['showitem' => '--palette--;;filePalette'],
+            File::FILETYPE_VIDEO => ['showitem' => '--palette--;;filePalette'],
+            File::FILETYPE_APPLICATION => ['showitem' => '--palette--;;filePalette'],
+        ],
     ],
     'maxitems' => 1,
 ];
