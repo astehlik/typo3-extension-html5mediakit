@@ -14,7 +14,6 @@
 		"de-swebhosting/php-codestyle": "dev-master"
 	},
 	"replace": {
-		"html5mediakit": "self.version",
 		"typo3-ter/html5mediakit": "self.version"
 	},
 	"autoload": {
