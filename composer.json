@@ -20,7 +20,6 @@
 		"codeception/codeception": "^2.5.4 || ^3"
 	},
 	"replace": {
-		"html5mediakit": "self.version",
 		"typo3-ter/html5mediakit": "self.version"
 	},
 	"autoload": {
