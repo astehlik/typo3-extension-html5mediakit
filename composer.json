@@ -8,7 +8,6 @@
 		"typo3/cms-core": "^10.0"
 	},
 	"require-dev": {
-		"typo3/cms-core": "*",
 		"typo3/cms-install": "*",
 		"typo3/cms-about": "*",
 		"typo3/cms-filelist": "*",
