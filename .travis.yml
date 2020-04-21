@@ -1,14 +1,13 @@
 language: php
 
 env:
-  - TYPO3_EXTENSION_KEY=html5mediakit
+  global:
+    - TYPO3_EXTENSION_KEY=html5mediakit
 
 cache:
   directories:
     - $HOME/.composer/cache
     - $HOME/.cache/composer
-
-sudo: true
 
 stages:
   - test
