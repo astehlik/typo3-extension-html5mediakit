@@ -26,7 +26,6 @@
 	"autoload-dev": {
 		"psr-4": {
 			"TYPO3\\JsonResponse\\": ".Build/vendor/typo3/testing-framework/Resources/Core/Functional/Extensions/json_response/Classes",
-			"TYPO3\\CMS\\Core\\Tests\\": ".Build/Web/typo3/sysext/core/Tests/",
 			"Sto\\Html5mediakit\\Tests\\": "Tests"
 		}
 	},
