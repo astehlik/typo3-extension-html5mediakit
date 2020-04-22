@@ -1,5 +1,6 @@
 <?php
-declare(strict_types = 1);
+declare(strict_types=1);
+
 namespace Sto\Html5mediakit\Tests\Unit\Domain\Model;
 
 /*                                                                        *
@@ -23,7 +24,7 @@ class MediaTest extends TestCase
      */
     protected $media;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->media = GeneralUtility::makeInstance(Media::class);
     }

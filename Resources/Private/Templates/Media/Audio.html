@@ -1,14 +1,18 @@
+<html
+    data-namespace-typo3-fluid="true"
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+
 <f:layout name="Media"/>
 
 <f:section name="media">
 <f:if condition="{audio.audioFileAvailable}">
-	<f:then>
-		<f:render partial="Media/AudioTag" arguments="{_all}"/>
-	</f:then>
+    <f:then>
+        <f:render partial="Media/AudioTag" arguments="{_all}"/>
+    </f:then>
 
-	<f:else>
-		<f:render section="noAudioAvailable" arguments="{_all}"/>
-	</f:else>
+    <f:else>
+        <f:render section="noAudioAvailable" arguments="{_all}"/>
+    </f:else>
 </f:if>
 </f:section>
 
@@ -19,3 +23,5 @@
 <f:section name="metadata">
 <f:render partial="Media/Metadata" arguments="{media: audio}"/>
 </f:section>
+
+</html>

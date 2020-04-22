@@ -1,29 +1,35 @@
+<html
+    data-namespace-typo3-fluid="true"
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+
 <audio controls="controls">
-	<f:if condition="{audio.hasMp3}">
-		<source src="{audio.mp3.originalResource.publicUrl}" type="audio/mpeg"/>
-	</f:if>
+    <f:if condition="{audio.hasMp3}">
+        <source src="{audio.mp3.originalResource.publicUrl}" type="audio/mpeg"/>
+    </f:if>
 
-	<f:if condition="{audio.hasOgg}">
-		<source src="{audio.ogg.originalResource.publicUrl}" type="audio/ogg"/>
-	</f:if>
+    <f:if condition="{audio.hasOgg}">
+        <source src="{audio.ogg.originalResource.publicUrl}" type="audio/ogg"/>
+    </f:if>
 
-	<div class="tx-html5mediakit-video-fallbacktext">
-		<p>
-			<f:translate key="media_audio_tag_not_supported"/>
-		</p>
+    <div class="tx-html5mediakit-video-fallbacktext">
+        <p>
+            <f:translate key="media_audio_tag_not_supported"/>
+        </p>
 
-		<f:if condition="{audio.hasMp3}">
-			<p>
-				<f:translate key="media_audio_download_hint_mp3"/>
-				<a href="{audio.mp3.originalResource.publicUrl}">{audio.mp3.originalResource.name}</a>
-			</p>
-		</f:if>
+        <f:if condition="{audio.hasMp3}">
+            <p>
+                <f:translate key="media_audio_download_hint_mp3"/>
+                <a href="{audio.mp3.originalResource.publicUrl}">{audio.mp3.originalResource.name}</a>
+            </p>
+        </f:if>
 
-		<f:if condition="{audio.hasOgg}">
-			<p>
-				<f:translate key="media_audio_download_hint_ogg"/>
-				<a href="{audio.ogg.originalResource.publicUrl}">{audio.ogg.originalResource.name}</a>
-			</p>
-		</f:if>
-	</div>
+        <f:if condition="{audio.hasOgg}">
+            <p>
+                <f:translate key="media_audio_download_hint_ogg"/>
+                <a href="{audio.ogg.originalResource.publicUrl}">{audio.ogg.originalResource.name}</a>
+            </p>
+        </f:if>
+    </div>
 </audio>
+
+</html>

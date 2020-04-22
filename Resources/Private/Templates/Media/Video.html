@@ -1,20 +1,26 @@
+<html
+    data-namespace-typo3-fluid="true"
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+
 <f:layout name="Media"/>
 
 <f:section name="media">
-	<f:if condition="{video.videoFileAvailable}">
-		<f:then>
-			<f:render partial="Media/VideoTag" arguments="{_all}"/>
-		</f:then>
-		<f:else>
-			<f:render section="noVideoAvailable" arguments="{_all}"/>
-		</f:else>
-	</f:if>
+<f:if condition="{video.videoFileAvailable}">
+    <f:then>
+        <f:render partial="Media/VideoTag" arguments="{_all}"/>
+    </f:then>
+    <f:else>
+        <f:render section="noVideoAvailable" arguments="{_all}"/>
+    </f:else>
+</f:if>
 </f:section>
 
 <f:section name="noVideoAvailable">
-	<p>No video file is available in any format.</p>
+<p>No video file is available in any format.</p>
 </f:section>
 
 <f:section name="metadata">
-	<f:render partial="Media/Metadata" arguments="{media: video}"/>
+<f:render partial="Media/Metadata" arguments="{media: video}"/>
 </f:section>
+
+</html>

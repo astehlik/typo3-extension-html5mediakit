@@ -1,16 +1,22 @@
+<html
+    data-namespace-typo3-fluid="true"
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+
 <f:if condition="{media.hasMetadata}">
-	<div class="tx-html5mediakit-media-metadata">
+    <div class="tx-html5mediakit-media-metadata">
 
-		<f:if condition="{media.caption}">
-			<div class="tx-html5mediakit-media-caption">
-				{media.caption}
-			</div>
-		</f:if>
+        <f:if condition="{media.caption}">
+            <div class="tx-html5mediakit-media-caption">
+                {media.caption}
+            </div>
+        </f:if>
 
-		<f:if condition="{media.description}">
-			<div class="tx-html5mediakit-media-description">
-				<f:format.html parseFuncTSPath="lib.parseFunc_RTE_tx_html5mediakit_description">{media.description}</f:format.html>
-			</div>
-		</f:if>
-	</div>
+        <f:if condition="{media.description}">
+            <div class="tx-html5mediakit-media-description">
+                <f:format.html parseFuncTSPath="lib.parseFunc_RTE_tx_html5mediakit_description">{media.description}</f:format.html>
+            </div>
+        </f:if>
+    </div>
 </f:if>
+
+</html>
