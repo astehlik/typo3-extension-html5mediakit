@@ -22,10 +22,10 @@ abstract class AbstractMediaControllerTest extends FunctionalTestCase
 {
     protected $testExtensionsToLoad = ['typo3conf/ext/html5mediakit'];
 
-    protected function loadFixturesAndGetResponseBody(string $dataSet): string
+    protected function loadFixturesAndGetResponseBody(string $dataSet, int $pageId = 1, int $languageId = 0): string
     {
-        $dataSetFilename = sprintf('EXT' . ':html5mediakit/Tests/Functional/Fixtures/Database/%s.xml', $dataSet);
-        $this->importDataSet($dataSetFilename);
+        $this->importDataSet($this->buildDatasetPath('common'));
+        $this->importDataSet($this->buildDatasetPath($dataSet));
         $this->setUpFrontendRootPage(
             1,
             [
@@ -36,9 +36,14 @@ abstract class AbstractMediaControllerTest extends FunctionalTestCase
             ]
         );
 
-        $request = (new InternalRequest())->withPageId(1);
+        $request = (new InternalRequest())->withPageId($pageId)->withLanguageId($languageId);
         $response = $this->executeFrontendRequest($request);
 
         return (string)$response->getBody();
+    }
+
+    private function buildDatasetPath(string $dataSet): string
+    {
+        return sprintf('EXT' . ':html5mediakit/Tests/Functional/Fixtures/Database/%s.xml', $dataSet);
     }
 }

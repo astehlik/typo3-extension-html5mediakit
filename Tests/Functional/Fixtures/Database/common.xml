@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dataset>
+	<sys_file>
+		<uid>1</uid>
+		<pid>0</pid>
+		<storage>0</storage>
+		<identifier>audio/media.mp3</identifier>
+		<name>media.mp3</name>
+		<type>4</type>
+	</sys_file>
+
+	<sys_file>
+		<uid>2</uid>
+		<pid>0</pid>
+		<storage>0</storage>
+		<identifier>audio/media.ogg</identifier>
+		<name>media.ogg</name>
+		<type>4</type>
+	</sys_file>
+
+	<sys_file>
+		<uid>3</uid>
+		<pid>0</pid>
+		<storage>0</storage>
+		<identifier>video/media.mp4</identifier>
+		<name>media.mp4</name>
+		<type>4</type>
+	</sys_file>
+
+	<sys_file>
+		<uid>4</uid>
+		<pid>0</pid>
+		<storage>0</storage>
+		<identifier>video/media.ogv</identifier>
+		<name>media.ogv</name>
+		<type>4</type>
+	</sys_file>
+
+	<sys_file>
+		<uid>5</uid>
+		<pid>0</pid>
+		<storage>0</storage>
+		<identifier>video/media.webm</identifier>
+		<name>media.webm</name>
+		<type>4</type>
+	</sys_file>
+</dataset>

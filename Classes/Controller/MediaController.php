@@ -55,7 +55,8 @@ class MediaController extends ActionController
         $contentObject = $this->configurationManager->getContentObject();
 
         try {
-            $media = $this->mediaRepository->findOneByContentElementUid($contentObject->data['uid']);
+            $uid = $contentObject->data['_LOCALIZED_UID'] ?? $contentObject->data['uid'];
+            $media = $this->mediaRepository->findOneByContentElementUid($uid);
         } catch (MediaException $mediaException) {
             return $this->translate('exception.' . $mediaException->getCode());
         }

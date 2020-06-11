@@ -14,7 +14,7 @@ class AudioTest extends AbstractMediaControllerTest
 
     public function testMediaControllerRendersAudio()
     {
-        $responseBody = $this->loadFixturesAndGetResponseBody('audio');
+        $responseBody = $this->loadFixturesAndGetResponseBody('media/audio');
 
         $this->assertResponseContainsSources($responseBody);
         $this->assertResponseContainsFallbackLinks($responseBody);
