@@ -1,4 +1,3 @@
-
 // Configure frontend output, non allowed tags will be rendered
 // with htmlspecialchars so that the editor sees that there is something
 // wrong.
@@ -8,34 +7,4 @@ lib.parseFunc_RTE_tx_html5mediakit_description < lib.parseFunc_RTE
 lib.parseFunc_RTE_tx_html5mediakit_description {
 	allowTags = i,em,b,strong,br,p,a
 	denyTags = u,img,div,center,pre,font,hr,sub,sup,li,ul,ol,blo ckquote,strike,span
-}
-
-plugin.tx_html5mediakit {
-
-	persistence {
-
-		classes {
-
-			Sto\Html5mediakit\Domain\Model\Media {
-				subclasses {
-					audio = Sto\Html5mediakit\Domain\Model\Audio
-					video = Sto\Html5mediakit\Domain\Model\Video
-				}
-			}
-
-			Sto\Html5mediakit\Domain\Model\Audio {
-				mapping {
-					recordType = audio
-					tableName = tx_html5mediakit_domain_model_media
-				}
-			}
-
-			Sto\Html5mediakit\Domain\Model\Video {
-				mapping {
-					recordType = video
-					tableName = tx_html5mediakit_domain_model_media
-				}
-			}
-		}
-	}
 }
