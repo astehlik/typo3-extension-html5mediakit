@@ -18,8 +18,8 @@ class AudioTest extends AbstractMediaControllerTest
 
         $this->assertResponseContainsSources($responseBody);
         $this->assertResponseContainsFallbackLinks($responseBody);
-        $this->assertContains('Testcaption', $responseBody);
-        $this->assertContains('Testdescription', $responseBody);
+        $this->assertStringContainsString('Testcaption', $responseBody);
+        $this->assertStringContainsString('Testdescription', $responseBody);
     }
 
     private function assertResponseContainsFallbackLinks(string $responseBody)
