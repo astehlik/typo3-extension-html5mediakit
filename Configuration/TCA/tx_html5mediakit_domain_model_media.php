@@ -34,6 +34,7 @@ $customFileTcaFieldSettings = [
         File::FILETYPE_APPLICATION => ['showitem' => '--palette--;;filePalette'],
     ],
     'maxitems' => 1,
+    'behaviour' => ['allowLanguageSynchronization' => true]
 ];
 
 return [
