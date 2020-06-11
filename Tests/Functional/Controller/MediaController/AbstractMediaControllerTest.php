@@ -24,14 +24,14 @@ abstract class AbstractMediaControllerTest extends FunctionalTestCase
 
     protected function loadFixturesAndGetResponseBody(string $dataSet): string
     {
-        $dataSetFilename = sprintf('EXT:' . 'html5mediakit/Tests/Functional/Fixtures/Database/%s.xml', $dataSet);
+        $dataSetFilename = sprintf('EXT' . ':html5mediakit/Tests/Functional/Fixtures/Database/%s.xml', $dataSet);
         $this->importDataSet($dataSetFilename);
         $this->setUpFrontendRootPage(
             1,
             [
                 'setup' => [
-                    'EXT:html5mediakit/Configuration/TypoScript/setup.txt',
-                    'EXT:html5mediakit/Tests/Functional/Fixtures/setup.txt',
+                    'EXT' . ':html5mediakit/Configuration/TypoScript/setup.txt',
+                    'EXT' . ':html5mediakit/Tests/Functional/Fixtures/setup.txt',
                 ],
             ]
         );
