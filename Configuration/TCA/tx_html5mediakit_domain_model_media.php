@@ -36,6 +36,7 @@ $customFileTcaFieldSettings = [
         ],
     ],
     'maxitems' => 1,
+    'behaviour' => ['allowLanguageSynchronization' => true]
 ];
 
 return [
