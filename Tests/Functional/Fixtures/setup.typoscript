@@ -3,8 +3,10 @@ page {
     10 = CONTENT
     10 {
         table = tt_content
-        select.orderBy = sorting
-        select.where = colPos=0
+        select {
+            orderBy = sorting
+            where = {#colPos}=0
+        }
     }
 }
 
@@ -15,3 +17,7 @@ tt_content {
     pluginName = mediarenderer
     vendorName = Sto
 }
+
+[globalVar = GP:L = 1]
+    config.sys_language_uid = 1
+[global]

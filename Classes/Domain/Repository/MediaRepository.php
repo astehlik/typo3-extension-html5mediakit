@@ -37,7 +37,7 @@ class MediaRepository extends Repository
 
         // We do not want to do any language overlay in our query because the content element UID
         // is already the UID of the translated content element.
-        $query->getQuerySettings()->setLanguageMode(null);
+        $query->getQuerySettings()->setLanguageOverlayMode(false);
 
         $query->matching($query->equals('contentElement', $contentElementUid));
 

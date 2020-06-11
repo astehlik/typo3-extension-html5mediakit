@@ -13,7 +13,7 @@ class VideoTest extends AbstractMediaControllerTest
 
     public function testMediaControllerShowsVideo()
     {
-        $responseBody = $this->loadFixturesAndGetResponseBody('video');
+        $responseBody = $this->loadFixturesAndGetResponseBody('media/video');
 
         $this->assertResponseContainsSources($responseBody);
         $this->assertResponseContainsFallbackLinks($responseBody);
