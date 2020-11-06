@@ -13,13 +13,13 @@ class VideoViewHelperTest extends ViewHelperBaseTestcase
     public function testControlsAttributeIsRendered()
     {
         $this->arguments = ['controls' => 'controls'];
-        $this->assertRenderResult('<video controls="controls" />');
+        $this->assertRenderResult('<video controls="controls">children</video>');
     }
 
     public function testNoEmptyAttributeIsRendered()
     {
         $this->arguments = [];
-        $this->assertRenderResult('<video />');
+        $this->assertRenderResult('<video>children</video>');
     }
 
     public function testPosterAttributeIsRendered()
@@ -34,14 +34,20 @@ class VideoViewHelperTest extends ViewHelperBaseTestcase
         $video->_setProperty('poster', $posterMock);
 
         $this->arguments = ['poster' => '/my/img/src.png'];
-        $this->assertRenderResult('<video poster="/my/img/src.png" />', $video);
+        $this->assertRenderResult('<video poster="/my/img/src.png">children</video>', $video);
     }
 
     private function assertRenderResult(string $expectedResult, ?Video $video = null): void
     {
         $this->arguments['video'] = $video ?: new Video();
+
+        $renderChildrenClosure = function() {
+            return 'children';
+        };
+
         $viewHelper = new VideoViewHelper();
         $this->injectDependenciesIntoViewHelper($viewHelper);
+        $viewHelper->setRenderChildrenClosure($renderChildrenClosure);
         $this->assertEquals($expectedResult, $viewHelper->initializeArgumentsAndRender());
     }
 }
