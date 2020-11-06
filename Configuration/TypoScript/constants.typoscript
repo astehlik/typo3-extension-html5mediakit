@@ -1,0 +1,14 @@
+plugin.tx_html5mediakit {
+  # customsubcategory=300=View
+  view {
+    # cat=plugin.tx_hml5mediakit/300/templateRootPath; type=string; label=Path to template overrides
+    templateRootPath = EXT:html5mediakit/Resources/Private/Templates/
+
+    # cat=plugin.tx_hml5mediakit/300/templateRootPath; type=string; label=Path to partial overrides
+    partialRootPath = EXT:html5mediakit/Resources/Private/Partials/
+
+    # cat=plugin.tx_hml5mediakit/300/templateRootPath; type=string; label=Path to layout overrides
+    layoutRootPath = EXT:html5mediakit/Resources/Private/Layouts/
+  }
+}
+

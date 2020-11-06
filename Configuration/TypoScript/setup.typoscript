@@ -8,3 +8,22 @@ lib.parseFunc_RTE_tx_html5mediakit_description {
 	allowTags = i,em,b,strong,br,p,a
 	denyTags = u,img,div,center,pre,font,hr,sub,sup,li,ul,ol,blo ckquote,strike,span
 }
+
+plugin.tx_html5mediakit {
+  view {
+    templateRootPaths {
+      0 = EXT:html5mediakit/Resources/Private/Templates/
+      1 = {$plugin.tx_html5mediakit.view.templateRootPath}
+    }
+
+    partialRootPaths {
+      0 = EXT:html5mediakit/Resources/Private/Partials/
+      1 = {$plugin.tx_html5mediakit.view.partialRootPath}
+    }
+
+    layoutRootPaths {
+      0 = EXT:html5mediakit/Resources/Private/Layouts/
+      1 = {$plugin.tx_html5mediakit.view.layoutRootPath}
+    }
+  }
+}

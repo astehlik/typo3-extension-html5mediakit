@@ -25,6 +25,13 @@ abstract class AbstractMediaControllerTest extends FunctionalTestCase
 {
     protected $testExtensionsToLoad = ['typo3conf/ext/html5mediakit'];
 
+    protected $typoscriptConstantFiles = [];
+
+    private $typoscriptSetupFilesDefault = [
+        'EXT:html5mediakit/Configuration/TypoScript/setup.typoscript',
+        'EXT:html5mediakit/Tests/Functional/Fixtures/TypoScript/setup.typoscript',
+    ];
+
     protected function loadFixturesAndGetResponseBody(string $dataSet, int $pageId = 1, int $languageId = 0): string
     {
         $this->importDataSet($this->buildDatasetPath('common'));
@@ -32,10 +39,8 @@ abstract class AbstractMediaControllerTest extends FunctionalTestCase
         $this->setUpFrontendRootPage(
             1,
             [
-                'setup' => [
-                    'EXT:html5mediakit/Configuration/TypoScript/setup.typoscript',
-                    'EXT:html5mediakit/Tests/Functional/Fixtures/setup.typoscript',
-                ],
+                'setup' => $this->typoscriptSetupFilesDefault,
+                'constants' => $this->typoscriptConstantFiles,
             ]
         );
         $this->setUpFrontendSite(1);

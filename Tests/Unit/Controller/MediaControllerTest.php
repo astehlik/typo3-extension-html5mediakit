@@ -13,6 +13,7 @@ namespace Sto\Html5mediakit\Tests\Unit\Controller;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Sto\Html5mediakit\Domain\Model\Video;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -35,7 +36,7 @@ class MediaControllerTest extends TestCase
      */
     public function videoActionAssignsVideoToView()
     {
-        /** @var Video|\PHPUnit\Framework\MockObject\MockObject $dummyVideo */
+        /** @var Video|MockObject $dummyVideo */
         $dummyVideo = $this->createMock(Video::class);
         $viewMock = $this->createMock(ViewInterface::class);
         $viewMock->expects($this->once())->method('assign')->with('video', $dummyVideo);
