@@ -41,7 +41,7 @@ class VideoViewHelperTest extends ViewHelperBaseTestcase
     {
         $this->arguments['video'] = $video ?: new Video();
 
-        $renderChildrenClosure = function() {
+        $renderChildrenClosure = function () {
             return 'children';
         };
 
