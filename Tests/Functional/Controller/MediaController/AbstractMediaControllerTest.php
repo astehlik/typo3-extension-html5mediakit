@@ -23,13 +23,15 @@ use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
 
 abstract class AbstractMediaControllerTest extends FunctionalTestCase
 {
+    protected const FIXTURES_PATH = 'EXT:html5mediakit/Tests/Functional/Fixtures';
+
     protected $testExtensionsToLoad = ['typo3conf/ext/html5mediakit'];
 
     protected $typoscriptConstantFiles = [];
 
     private $typoscriptSetupFilesDefault = [
         'EXT:html5mediakit/Configuration/TypoScript/setup.typoscript',
-        'EXT:html5mediakit/Tests/Functional/Fixtures/TypoScript/setup.typoscript',
+        self::FIXTURES_PATH . '/TypoScript/setup.typoscript',
     ];
 
     protected function loadFixturesAndGetResponseBody(string $dataSet, int $pageId = 1, int $languageId = 0): string
