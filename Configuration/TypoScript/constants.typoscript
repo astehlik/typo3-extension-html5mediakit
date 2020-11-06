@@ -11,4 +11,3 @@ plugin.tx_html5mediakit {
     layoutRootPath = EXT:html5mediakit/Resources/Private/Layouts/
   }
 }
-

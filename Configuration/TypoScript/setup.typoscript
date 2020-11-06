@@ -5,8 +5,8 @@
 // This is why we copy the configuration.
 lib.parseFunc_RTE_tx_html5mediakit_description < lib.parseFunc_RTE
 lib.parseFunc_RTE_tx_html5mediakit_description {
-	allowTags = i,em,b,strong,br,p,a
-	denyTags = u,img,div,center,pre,font,hr,sub,sup,li,ul,ol,blo ckquote,strike,span
+  allowTags = i,em,b,strong,br,p,a
+  denyTags = u,img,div,center,pre,font,hr,sub,sup,li,ul,ol,blo ckquote,strike,span
 }
 
 plugin.tx_html5mediakit {
