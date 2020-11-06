@@ -19,6 +19,7 @@ class VideoTest extends AbstractMediaControllerTest
         $this->assertResponseContainsFallbackLinks($responseBody);
         $this->assertStringContainsString('Testcaption', $responseBody);
         $this->assertStringContainsString('Testdescription', $responseBody);
+        $this->assertStringContainsString('poster="video/poster.png"', $responseBody);
     }
 
     private function assertResponseContainsFallbackLinks(string $responseBody)

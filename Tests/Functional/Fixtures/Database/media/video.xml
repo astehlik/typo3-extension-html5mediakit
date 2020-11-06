@@ -26,6 +26,7 @@
         <h264>1</h264>
         <ogv>1</ogv>
         <web_m>1</web_m>
+        <poster>1</poster>
         <deleted>0</deleted>
     </tx_html5mediakit_domain_model_media>
 
@@ -59,6 +60,17 @@
         <uid_foreign>1</uid_foreign>
         <tablenames>tx_html5mediakit_domain_model_media</tablenames>
         <fieldname>web_m</fieldname>
+        <l10n_diffsource/>
+    </sys_file_reference>
+
+    <sys_file_reference>
+        <uid>4</uid>
+        <pid>0</pid>
+        <table_local>file</table_local>
+        <uid_local>6</uid_local>
+        <uid_foreign>1</uid_foreign>
+        <tablenames>tx_html5mediakit_domain_model_media</tablenames>
+        <fieldname>poster</fieldname>
         <l10n_diffsource/>
     </sys_file_reference>
 </dataset>

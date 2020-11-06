@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 use Sto\Html5mediakit\Domain\Model\Enumeration\MediaType;
@@ -7,6 +8,7 @@ use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
 $languagePrefix = 'LLL:EXT:html5mediakit/Resources/Private/Language/locallang_db.xlf:';
 $languagePrefixColumn = $languagePrefix . 'tx_html5mediakit_domain_model_media.';
+$lllAddImageFileReference = 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference';
 
 $customFileTcaFieldSettings = [
     'appearance' => [
@@ -36,7 +38,7 @@ $customFileTcaFieldSettings = [
         ],
     ],
     'maxitems' => 1,
-    'behaviour' => ['allowLanguageSynchronization' => true]
+    'behaviour' => ['allowLanguageSynchronization' => true],
 ];
 
 return [
@@ -147,6 +149,24 @@ return [
                 'ogv'
             ),
         ],
+        'poster' => [
+            'label' => $languagePrefixColumn . 'poster',
+            'config' => ExtensionManagementUtility::getFileFieldTCAConfig(
+                'poster',
+                [
+                    'appearance' => ['createNewRelationLinkTitle' => $lllAddImageFileReference],
+                    'maxitems' => 1,
+                    'behaviour' => ['allowLanguageSynchronization' => true],
+                    'overrideChildTca' => [
+                        'types' => [
+                            '0' => ['showitem' => '--palette--;;filePalette'],
+                            File::FILETYPE_IMAGE => ['showitem' => '--palette--;;filePalette'],
+                        ],
+                    ],
+                ],
+                $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
+            ),
+        ],
         'sys_language_uid' => [
             'exclude' => true,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
@@ -183,14 +203,16 @@ return [
         '0' => ['showitem' => 'type,--palette--;;hiddenFields'],
         'video' => [
             'showitem' => '
-                type, h264, web_m, ogv, --palette--;'
-                . $languagePrefixColumn . 'palette.metadata;metadata,--palette--;;hiddenFields
+                type, h264, web_m, ogv, poster,
+                --palette--;' . $languagePrefixColumn . 'palette.metadata;metadata,
+                --palette--;;hiddenFields
             ',
         ],
         'audio' => [
             'showitem' => '
-                type, mp3, ogg, --palette--;'
-                . $languagePrefixColumn . 'palette.metadata;metadata,--palette--;;hiddenFields
+                type, mp3, ogg,
+                --palette--;' . $languagePrefixColumn . 'palette.metadata;metadata,
+                --palette--;;hiddenFields
             ',
         ],
     ],
