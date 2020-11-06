@@ -1,8 +1,8 @@
 html5mediakit TYPO3 Extension
 =============================
 
-.. image:: https://travis-ci.org/astehlik/typo3-extension-html5mediakit.svg?branch=develop
-   :target: https://travis-ci.org/astehlik/typo3-extension-html5mediakit
+.. image:: https://travis-ci.com/astehlik/typo3-extension-html5mediakit.svg?branch=develop
+   :target: https://travis-ci.com/astehlik/typo3-extension-html5mediakit
    :alt: Travis Build Status
 
 This TYPO3 Extension adds a new content element type for adding HTML5 media elements for your page.
