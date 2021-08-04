@@ -12,7 +12,9 @@
 	</f:if>
 
 	<div class="tx-html5mediakit-video-fallbacktext">
-		<p><f:translate key="media_video_tag_not_supported"/></p>
+		<p class="tx-html5mediakit-tag-not-supported-message rs_skip">
+			<f:translate key="media_video_tag_not_supported"/>
+		</p>
 
 		<f:if condition="{video.hasWebM}">
 			<p>
