@@ -13,7 +13,7 @@
 		"typo3/cms-filelist": "*",
 		"typo3/cms-frontend": "*",
 		"typo3/cms-fluid-styled-content": "*",
-		"de-swebhosting/typo3-extension-buildtools": "dev-master"
+		"de-swebhosting/typo3-extension-buildtools": "^10.1"
 	},
 	"replace": {
 		"typo3-ter/html5mediakit": "self.version"
