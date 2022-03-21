@@ -26,11 +26,14 @@ jobs:
       - name: Install composer dependencies
         run: composer install
 
+      - name: Create Build.tar
+        run: tar -czf Build.tar.gz .Build
+
       - name: Save dependencies in artifacts
         uses: actions/upload-artifact@master
         with:
           name: composer-dependencies-${{ matrix.php-version }}
-          path: .Build
+          path: Build.tar.gz
 
   composer-validate:
     needs: composer-install
@@ -38,10 +41,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - uses: actions/download-artifact@master
+      - uses: ./.github/actions/fetch-composer-dependencies
         with:
-          name: composer-dependencies-${{ matrix.php-version }}
-          path: .Build
+          php_version: 7.4
 
       - name: Validate composer.json
         run: bash .Build/bin/t3_run_tests.sh -s composerValidate -p 7.4
@@ -52,10 +54,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - uses: actions/download-artifact@master
+      - uses: ./.github/actions/fetch-composer-dependencies
         with:
-          name: composer-dependencies-7.4
-          path: .Build
+          php_version: 7.4
 
       - name: Run codestyle checks
         run: bash .Build/bin/t3_check_codestyle.sh PSRHtml5mediakit
@@ -69,10 +70,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - uses: actions/download-artifact@master
+      - uses: ./.github/actions/fetch-composer-dependencies
         with:
-          name: composer-dependencies-${{ matrix.php-versions }}
-          path: .Build
+          php_version: ${{ matrix.php-versions }}
 
       - name: Run codestyle checks
         run: bash .Build/bin/t3_run_tests.sh -s unit -p ${{ matrix.php-versions }}
@@ -86,10 +86,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - uses: actions/download-artifact@master
+      - uses: ./.github/actions/fetch-composer-dependencies
         with:
-          name: composer-dependencies-${{ matrix.php-versions }}
-          path: .Build
+          php_version: ${{ matrix.php-versions }}
 
       - name: Run codestyle checks
         run: bash .Build/bin/t3_run_tests.sh -s functional -d sqlite -p ${{ matrix.php-versions }}
@@ -100,10 +99,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - uses: actions/download-artifact@master
+      - uses: ./.github/actions/fetch-composer-dependencies
         with:
-          name: composer-dependencies-7.4
-          path: .Build
+          php_version: 7.4
 
       - name: Run codestyle checks
         run: bash .Build/bin/t3_run_tests.sh -s functional -p 7.4
@@ -117,10 +115,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - uses: actions/download-artifact@master
+      - uses: ./.github/actions/fetch-composer-dependencies
         with:
-          name: composer-dependencies-${{ matrix.php-versions }}
-          path: .Build
+          php_version: ${{ matrix.php-versions }}
 
       - name: Run acceptance tests
         run: bash .Build/bin/t3_run_tests.sh -s acceptance -p ${{ matrix.php-versions }}
@@ -134,10 +131,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - uses: actions/download-artifact@master
+      - uses: ./.github/actions/fetch-composer-dependencies
         with:
-          name: composer-dependencies-${{ matrix.php-versions }}
-          path: .Build
+          php_version: ${{ matrix.php-versions }}
 
       - name: Run PHP linting
         run: bash .Build/bin/t3_run_tests.sh -s lint -p ${{ matrix.php-versions }}

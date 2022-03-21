@@ -1,0 +1,20 @@
+name: Fetch composer dependencies from artifact
+
+inputs:
+  php_version:
+    required: true
+    description: "The PHP version that should be used"
+
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/download-artifact@master
+      with:
+        name: composer-dependencies-${{ inputs.php-version }}
+        path: ./
+
+    - name: Extract Build.tar.gz
+      run: tar -xzf Build.tar.gz
+
+    - name: Remove Build.tar.gz
+      run: rm Build.tar.gz
