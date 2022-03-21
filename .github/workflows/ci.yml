@@ -5,26 +5,57 @@ on:
   pull_request:
 
 jobs:
+  composer-install:
+    runs-on: typo3gmbh/php${{ matrix.container-version }}
+    strategy:
+      matrix:
+        include:
+          - container-version: 72
+            php-version: 7.2
+          - container-version: 73
+            php-version: 7.3
+          - container-version: 74
+            php-version: 7.4
+    steps:
+      - name: Install composer dependencies
+        run: composer install
+
+      - name: Save dependencies in artifacts
+        uses: actions/upload-artifact@master
+        with:
+          name: composer-dependencies-${{ matrix.php-version }}
+          path: .Build
+
   composer-validate:
+    needs: composer-install
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+
+      - uses: actions/download-artifact@master
+        with:
+          name: composer-dependencies-${{ matrix.php-version }}
+          path: .Build
 
       - name: Validate composer.json
         run: bash .Build/bin/t3_run_tests.sh -s composerValidate -p 7.4
 
   check-codestyle:
+    needs: composer-install
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
 
-      - name: Install composer dependencies
-        run: composer install
+      - uses: actions/download-artifact@master
+        with:
+          name: composer-dependencies-7.4
+          path: .Build
 
       - name: Run codestyle checks
         run: bash .Build/bin/t3_check_codestyle.sh PSRHtml5mediakit
 
   php-unit:
+    needs: composer-install
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -32,13 +63,16 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Install composer dependencies
-        run: bash .Build/bin/t3_run_tests.sh -s composerValidate -p ${{ matrix.php-versions }}
+      - uses: actions/download-artifact@master
+        with:
+          name: composer-dependencies-${{ matrix.php-versions }}
+          path: .Build
 
       - name: Run codestyle checks
         run: bash .Build/bin/t3_run_tests.sh -s unit -p ${{ matrix.php-versions }}
 
   php-feature-sqlite:
+    needs: composer-install
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -46,24 +80,30 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Install composer dependencies
-        run: bash .Build/bin/t3_run_tests.sh -s composerValidate -p ${{ matrix.php-versions }}
+      - uses: actions/download-artifact@master
+        with:
+          name: composer-dependencies-${{ matrix.php-versions }}
+          path: .Build
 
       - name: Run codestyle checks
         run: bash .Build/bin/t3_run_tests.sh -s functional -d sqlite -p ${{ matrix.php-versions }}
 
   php-feature-mysql:
+    needs: composer-install
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
 
-      - name: Install composer dependencies
-        run: bash .Build/bin/t3_run_tests.sh -s composerValidate -p 7.4
+      - uses: actions/download-artifact@master
+        with:
+          name: composer-dependencies-7.4
+          path: .Build
 
       - name: Run codestyle checks
         run: bash .Build/bin/t3_run_tests.sh -s functional -p 7.4
 
   php-acceptance:
+    needs: composer-install
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -71,13 +111,16 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Install composer dependencies
-        run: bash .Build/bin/t3_run_tests.sh -s composerValidate -p ${{ matrix.php-versions }}
+      - uses: actions/download-artifact@master
+        with:
+          name: composer-dependencies-${{ matrix.php-versions }}
+          path: .Build
 
       - name: Run acceptance tests
         run: bash .Build/bin/t3_run_tests.sh -s acceptance -p ${{ matrix.php-versions }}
 
   php-lint:
+    needs: composer-install
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -85,8 +128,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Install composer dependencies
-        run: bash .Build/bin/t3_run_tests.sh -s composerValidate -p ${{ matrix.php-versions }}
+      - uses: actions/download-artifact@master
+        with:
+          name: composer-dependencies-${{ matrix.php-versions }}
+          path: .Build
 
       - name: Run PHP linting
         run: bash .Build/bin/t3_run_tests.sh -s lint -p ${{ matrix.php-versions }}
