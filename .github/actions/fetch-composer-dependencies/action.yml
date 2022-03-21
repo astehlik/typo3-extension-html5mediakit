@@ -1,4 +1,6 @@
-name: Fetch composer dependencies from artifact
+name: Fetch composer dependencies
+
+description: "Fetch composer dependencies from artifact and extract"
 
 inputs:
   php_version:
