@@ -1,0 +1,89 @@
+name: PHP Composer
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  composer-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Validate composer.json
+        run: bash .Build/bin/t3_run_tests.sh -s composerValidate -p 7.4
+
+  check-codestyle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install composer dependencies
+        run: composer install
+
+      - name: Run codestyle checks
+        run: bash .Build/bin/t3_check_codestyle.sh PSRHtml5mediakit
+
+  php-unit:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php-versions: ['7.2', '7.3', '7.4']
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install composer dependencies
+        run: composer install
+
+      - name: Run codestyle checks
+        run: bash .Build/bin/t3_run_tests.sh -s unit -p ${{ matrix.php-versions }}
+
+  php-feature-sqlite:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php-versions: ['7.2', '7.3', '7.4']
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install composer dependencies
+        run: composer install
+
+      - name: Run codestyle checks
+        run: bash .Build/bin/t3_run_tests.sh -s functional -d sqlite -p ${{ matrix.php-versions }}
+
+  php-feature-mysql:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install composer dependencies
+        run: composer install
+
+      - name: Run codestyle checks
+        run: bash .Build/bin/t3_run_tests.sh -s functional -p 7.4
+
+  php-acceptance:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php-versions: ['7.2', '7.3', '7.4']
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install composer dependencies
+        run: composer install
+
+      - name: Run acceptance tests
+        run: bash .Build/bin/t3_run_tests.sh -s acceptance -p ${{ matrix.php-versions }}
+
+  php-lint:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php-versions: ['7.2', '7.3', '7.4']
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run PHP linting
+        run: bash .Build/bin/t3_run_tests.sh -s lint -p ${{ matrix.php-versions }}
