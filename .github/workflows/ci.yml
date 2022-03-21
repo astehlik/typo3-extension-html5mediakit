@@ -4,6 +4,9 @@ on:
   push:
   pull_request:
 
+env:
+  TYPO3_EXTENSION_KEY: html5mediakit
+
 jobs:
   composer-install:
     runs-on: ubuntu-latest
