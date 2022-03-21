@@ -1,4 +1,4 @@
-name: PHP Composer
+name: CI
 
 on:
   push:
@@ -6,7 +6,8 @@ on:
 
 jobs:
   composer-install:
-    runs-on: typo3gmbh/php${{ matrix.container-version }}
+    runs-on: ubuntu-latest
+    container: typo3gmbh/php${{ matrix.container-version }}
     strategy:
       matrix:
         include:
