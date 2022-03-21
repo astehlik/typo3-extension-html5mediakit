@@ -10,7 +10,7 @@ jobs:
     container:
       image: typo3gmbh/php${{ matrix.container-version }}
       volumes:
-        - /__w/typo3-extension-html5mediakit/typo3-extension-html5mediakit/:/__w/typo3-extension-html5mediakit/typo3-extension-html5mediakit/
+        - ${{ github.workspace }}:${{ github.workspace }}
     strategy:
       matrix:
         include:
@@ -21,6 +21,8 @@ jobs:
           - container-version: 74
             php-version: 7.4
     steps:
+      - uses: actions/checkout@v2
+
       - name: Install composer dependencies
         run: composer install
 
