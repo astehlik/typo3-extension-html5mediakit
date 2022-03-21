@@ -8,6 +8,8 @@ jobs:
   composer-install:
     runs-on: ubuntu-latest
     container: typo3gmbh/php${{ matrix.container-version }}
+      volumes:
+        - /__w/typo3-extension-html5mediakit/typo3-extension-html5mediakit/:/__w/typo3-extension-html5mediakit/typo3-extension-html5mediakit/
     strategy:
       matrix:
         include:
