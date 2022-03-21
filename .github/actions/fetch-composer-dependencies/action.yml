@@ -17,6 +17,8 @@ runs:
 
     - name: Extract Build.tar.gz
       run: tar -xzf Build.tar.gz
+      shell: bash
 
     - name: Remove Build.tar.gz
       run: rm Build.tar.gz
+      shell: bash
