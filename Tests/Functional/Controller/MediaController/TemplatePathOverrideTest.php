@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Sto\Html5mediakit\Tests\Functional\Controller\MediaController;
