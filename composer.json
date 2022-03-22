@@ -14,7 +14,7 @@
 		"typo3/cms-frontend": "*",
 		"typo3/cms-fluid-styled-content": "*",
 		"de-swebhosting/php-codestyle": "^3.0",
-		"de-swebhosting/typo3-extension-buildtools": "^10.1"
+		"de-swebhosting/typo3-extension-buildtools": "dev-master"
 	},
 	"replace": {
 		"typo3-ter/html5mediakit": "self.version"
