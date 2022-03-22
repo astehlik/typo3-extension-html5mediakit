@@ -77,7 +77,7 @@ jobs:
         with:
           php_version: ${{ matrix.php-versions }}
 
-      - name: Run codestyle checks
+      - name: Run unit tests
         run: bash .Build/bin/t3_run_tests.sh -s unit -p ${{ matrix.php-versions }}
 
   php-feature-sqlite:
@@ -93,7 +93,7 @@ jobs:
         with:
           php_version: ${{ matrix.php-versions }}
 
-      - name: Run codestyle checks
+      - name: Run functional tests on sqlite
         run: bash .Build/bin/t3_run_tests.sh -s functional -d sqlite -p ${{ matrix.php-versions }}
 
   php-feature-mysql:
@@ -106,7 +106,7 @@ jobs:
         with:
           php_version: 7.4
 
-      - name: Run codestyle checks
+      - name: Run functional tests on MariaDB
         run: bash .Build/bin/t3_run_tests.sh -s functional -p 7.4
 
   php-acceptance:
