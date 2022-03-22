@@ -29,7 +29,7 @@ class BackendHtml5mediakitEnvironment extends BackendEnvironment
         'testExtensionsToLoad' => ['typo3conf/ext/html5mediakit'],
         'xmlDatabaseFixtures' => [
             'PACKAGE:typo3/testing-framework/Resources/Core/Acceptance/Fixtures/be_users.xml',
-            'PACKAGE:typo3/testing-framework/Resources/Core/Acceptance/Fixtures/be_sessions.xml',
+            'PACKAGE:de-swebhosting/typo3-extension-buildtools/resources/acceptance/fixtures/be_sessions.xml',
             'PACKAGE:typo3/testing-framework/Resources/Core/Acceptance/Fixtures/be_groups.xml',
             'EXT:html5mediakit/Tests/Acceptance/Fixtures/page.xml',
         ],
