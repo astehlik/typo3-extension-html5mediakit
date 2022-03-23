@@ -25,11 +25,11 @@ class VideoViewHelper extends AbstractTagBasedViewHelper
             'video',
             Video::class,
             'The video that is rendered.',
-            true,
+            true
         );
     }
 
-    public function render()
+    public function render(): string
     {
         $this->tag->setTagName('video');
         $this->tag->ignoreEmptyAttributes(true);

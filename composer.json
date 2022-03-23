@@ -14,7 +14,7 @@
 		"typo3/cms-frontend": "*",
 		"typo3/cms-fluid-styled-content": "*",
 		"de-swebhosting/php-codestyle": "^3.0",
-		"de-swebhosting/typo3-extension-buildtools": "^10.1"
+		"de-swebhosting/typo3-extension-buildtools": "dev-master"
 	},
 	"replace": {
 		"typo3-ter/html5mediakit": "self.version"
@@ -32,12 +32,16 @@
 	},
 	"config": {
 		"vendor-dir": ".Build/vendor",
-		"bin-dir": ".Build/bin"
+		"bin-dir": ".Build/bin",
+		"allow-plugins": {
+			"typo3/class-alias-loader": true,
+			"typo3/cms-composer-installers": true
+		}
 	},
 	"scripts": {
 		"post-autoload-dump": [
 			"TYPO3\\TestingFramework\\Composer\\ExtensionTestEnvironment::prepare",
-			"Sto\\Html5mediakit\\Tests\\ExtensionTestEnvironment::prepare"
+			"De\\SWebhosting\\Buildtools\\ExtensionTestEnvironment::prepare"
 		]
 	},
 	"extra": {
