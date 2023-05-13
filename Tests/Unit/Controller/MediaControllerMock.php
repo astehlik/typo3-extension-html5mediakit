@@ -15,11 +15,17 @@ namespace Sto\Html5mediakit\Tests\Unit\Controller;
  *                                                                        */
 
 use Sto\Html5mediakit\Controller\MediaController;
+use TYPO3\CMS\Extbase\Mvc\RequestInterface;
 
 class MediaControllerMock extends MediaController
 {
     public function setView($view): void
     {
         $this->view = $view;
+    }
+
+    public function setRequest(RequestInterface $request): void
+    {
+        $this->request = $request;
     }
 }
