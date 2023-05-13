@@ -1,0 +1,6 @@
+pages,,,
+,uid,pid,title
+,1,0,Page with media record attached to dummy parent
+tx_html5mediakit_domain_model_media,
+,uid,pid,content_element,type,caption,description,h264,ogv,web_m,poster,deleted,parent_table,parent_record
+,1,1,0,video,Testcaption,Testdescription,0,0,0,0,0,a_dummy_table,23
