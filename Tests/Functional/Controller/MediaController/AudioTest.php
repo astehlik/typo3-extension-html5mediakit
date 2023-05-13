@@ -1,14 +1,12 @@
 <?php
 
-/** @noinspection HtmlUnknownTarget */
-
 declare(strict_types=1);
 
 namespace Sto\Html5mediakit\Tests\Functional\Controller\MediaController;
 
 class AudioTest extends AbstractMediaControllerTestCase
 {
-    private $formats = [
+    private array $formats = [
         'mpeg' => 'mp3',
         'ogg' => 'ogg',
     ];
@@ -26,7 +24,8 @@ class AudioTest extends AbstractMediaControllerTestCase
     private function assertResponseContainsFallbackLinks(string $responseBody)
     {
         foreach ($this->formats as $extension) {
-            $expectedSource = sprintf('<a href="audio/media.%s">media.%1$s</a>', $extension);
+            /** @noinspection HtmlUnknownTarget */
+            $expectedSource = sprintf('<a href="/audio/media.%s">media.%1$s</a>', $extension);
             $this->assertStringContainsString($expectedSource, $responseBody);
         }
     }
@@ -34,7 +33,8 @@ class AudioTest extends AbstractMediaControllerTestCase
     private function assertResponseContainsSources(string $responseBody)
     {
         foreach ($this->formats as $mimeType => $extension) {
-            $expectedSource = sprintf('<source src="audio/media.%s" type="audio/%s"/>', $extension, $mimeType);
+            /** @noinspection HtmlUnknownTarget */
+            $expectedSource = sprintf('<source src="/audio/media.%s" type="audio/%s"/>', $extension, $mimeType);
             $this->assertStringContainsString($expectedSource, $responseBody);
         }
     }

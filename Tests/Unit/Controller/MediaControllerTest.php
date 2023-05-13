@@ -17,19 +17,20 @@ namespace Sto\Html5mediakit\Tests\Unit\Controller;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Sto\Html5mediakit\Domain\Model\Video;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Mvc\View\ViewInterface;
+use TYPO3\CMS\Core\Http\ResponseFactory;
+use TYPO3\CMS\Core\Http\StreamFactory;
+use TYPO3Fluid\Fluid\View\ViewInterface;
 
 class MediaControllerTest extends TestCase
 {
-    /**
-     * @var MediaControllerMock
-     */
-    protected $mediaController;
+    protected MediaControllerMock $mediaController;
 
     public function setUp(): void
     {
-        $this->mediaController = GeneralUtility::makeInstance(MediaControllerMock::class);
+        $this->mediaController = new MediaControllerMock();
+
+        $this->mediaController->injectResponseFactory(new ResponseFactory());
+        $this->mediaController->injectStreamFactory(new StreamFactory());
     }
 
     /**

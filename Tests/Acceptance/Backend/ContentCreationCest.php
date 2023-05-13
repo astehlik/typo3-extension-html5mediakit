@@ -26,10 +26,11 @@ class ContentCreationCest
         $I->wait(0.2);
         $I->switchToContentFrame();
 
-        $I->click('Create new content element');
+        $I->click('typo3-backend-new-content-element-wizard-button');
 
-        $modalDialog->canSeeDialog();
 
+        $I->switchToIFrame();
+        $I->waitForElement('.t3-new-content-element-wizard-inner');
         $I->click('Video / Audio');
 
         $I->switchToContentFrame();

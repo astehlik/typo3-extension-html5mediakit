@@ -6,7 +6,7 @@ namespace Sto\Html5mediakit\Tests\Functional\Controller\MediaController;
 
 class VideoTest extends AbstractMediaControllerTestCase
 {
-    private $formats = [
+    private array $formats = [
         'webm' => 'webm',
         'mp4' => 'mp4',
         'ogg' => 'ogv',
@@ -20,13 +20,14 @@ class VideoTest extends AbstractMediaControllerTestCase
         $this->assertResponseContainsFallbackLinks($responseBody);
         $this->assertStringContainsString('Testcaption', $responseBody);
         $this->assertStringContainsString('Testdescription', $responseBody);
-        $this->assertStringContainsString('poster="video/poster.png"', $responseBody);
+        $this->assertStringContainsString('poster="/video/poster.png"', $responseBody);
     }
 
     private function assertResponseContainsFallbackLinks(string $responseBody)
     {
         foreach ($this->formats as $extension) {
-            $expectedSource = sprintf('<a href="video/media.%s">media.%1$s</a>', $extension);
+            /** @noinspection HtmlUnknownTarget */
+            $expectedSource = sprintf('<a href="/video/media.%s">media.%1$s</a>', $extension);
             $this->assertStringContainsString($expectedSource, $responseBody);
         }
     }
@@ -34,7 +35,8 @@ class VideoTest extends AbstractMediaControllerTestCase
     private function assertResponseContainsSources(string $responseBody)
     {
         foreach ($this->formats as $mimeType => $extension) {
-            $expectedSource = sprintf('<source src="video/media.%s" type="video/%s"/>', $extension, $mimeType);
+            /** @noinspection HtmlUnknownTarget */
+            $expectedSource = sprintf('<source src="/video/media.%s" type="video/%s"/>', $extension, $mimeType);
             $this->assertStringContainsString($expectedSource, $responseBody);
         }
     }

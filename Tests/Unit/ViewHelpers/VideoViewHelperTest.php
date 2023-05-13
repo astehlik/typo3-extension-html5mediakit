@@ -6,10 +6,12 @@ use Sto\Html5mediakit\Domain\Model\Video;
 use Sto\Html5mediakit\ViewHelpers\VideoViewHelper;
 use TYPO3\CMS\Core\Resource\FileInterface;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
-use TYPO3\TestingFramework\Fluid\Unit\ViewHelpers\ViewHelperBaseTestcase;
+use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 
-class VideoViewHelperTest extends ViewHelperBaseTestcase
+class VideoViewHelperTest extends UnitTestCase
 {
+    private array $arguments;
+
     public function testControlsAttributeIsRendered()
     {
         $this->arguments = ['controls' => 'controls'];
@@ -34,6 +36,7 @@ class VideoViewHelperTest extends ViewHelperBaseTestcase
         $video->_setProperty('poster', $posterMock);
 
         $this->arguments = ['poster' => '/my/img/src.png'];
+        /** @noinspection HtmlUnknownTarget */
         $this->assertRenderResult('<video poster="/my/img/src.png">children</video>', $video);
     }
 
@@ -46,7 +49,7 @@ class VideoViewHelperTest extends ViewHelperBaseTestcase
         };
 
         $viewHelper = new VideoViewHelper();
-        $this->injectDependenciesIntoViewHelper($viewHelper);
+        $viewHelper->setArguments($this->arguments);
         $viewHelper->setRenderChildrenClosure($renderChildrenClosure);
         $this->assertEquals($expectedResult, $viewHelper->initializeArgumentsAndRender());
     }
