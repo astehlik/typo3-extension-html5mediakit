@@ -113,7 +113,7 @@ return [
                 'items' => [
                     ['label' => '', 'value' => 0],
                 ],
-                'foreign_table' => 'tt_content',
+                'foreign_table' => 'tx_html5mediakit_domain_model_media',
                 'foreign_table_where' => 'AND {#tx_html5mediakit_domain_model_media}.{#pid}=###CURRENT_PID###'
                     . ' AND {#tx_html5mediakit_domain_model_media}.{#sys_language_uid} IN (-1,0)',
                 'default' => 0,
