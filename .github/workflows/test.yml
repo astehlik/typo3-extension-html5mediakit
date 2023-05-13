@@ -42,7 +42,7 @@ jobs:
         with:
           php-version: "${{ env.MAIN_PHP_VERSION }}"
       - run: |
-          bash .Build/bin/t3_check_codestyle.sh PSRTinyurls
+          bash .Build/bin/t3_check_codestyle.sh PSRHtml5mediakit
 
   "check-codestyle-php-cs-fixer":
     name: "PHP code style check"
