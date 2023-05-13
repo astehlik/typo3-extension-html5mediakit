@@ -15,9 +15,4 @@ tt_content {
   userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
   extensionName = Html5mediakit
   pluginName = mediarenderer
-  vendorName = Sto
 }
-
-[globalVar = GP:L = 1]
-  config.sys_language_uid = 1
-[global]
