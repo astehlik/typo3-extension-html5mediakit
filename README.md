@@ -1,6 +1,7 @@
 # html5mediakit TYPO3 Extension
 
-[![CI](https://github.com/astehlik/typo3-extension-html5mediakit/actions/workflows/ci.yml/badge.svg)](https://github.com/astehlik/typo3-extension-html5mediakit/actions/workflows/ci.yml)
+[![CI](https://github.com/astehlik/typo3-extension-html5mediakit/actions/workflows/test.yml/badge.svg)](https://github.com/asthlik/typo3-extension-html5mediakit/actions/workflows/test.yml)
+[![Maintainability](https://api.codeclimate.com/v1/badges/bebb623b96cfe91d495d/maintainability)](https://codeclimate.com/github/astehlik/typo3-extension-html5mediakit/maintainability)
 
 This TYPO3 Extension adds a new content element type for adding HTML5 media elements for your page.
 
