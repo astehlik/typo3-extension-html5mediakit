@@ -20,5 +20,6 @@ CREATE TABLE tx_html5mediakit_domain_model_media (
 	ogg tinyint(3) unsigned DEFAULT '0' NOT NULL,
 	h264 tinyint(3) unsigned DEFAULT '0' NOT NULL,
 	ogv tinyint(3) unsigned DEFAULT '0' NOT NULL,
+	poster tinyint(3) unsigned DEFAULT '0' NOT NULL,
 	web_m tinyint(3) unsigned DEFAULT '0' NOT NULL
 );

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Sto\Html5mediakit\Tests\Unit\Domain\Model;
@@ -24,38 +25,29 @@ class MediaTest extends TestCase
      */
     protected $media;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         $this->media = GeneralUtility::makeInstance(Media::class);
     }
 
-    /**
-     * @test
-     */
-    public function getHasMetadataReturnsFalseIfNoTeaserOrDescriptionPresent()
+    public function testGetHasMetadataReturnsFalseIfNoTeaserOrDescriptionPresent(): void
     {
         $this->media->setCaption('');
         $this->media->setDescription('');
-        $this->assertFalse($this->media->getHasMetadata());
+        self::assertFalse($this->media->getHasMetadata());
     }
 
-    /**
-     * @test
-     */
-    public function getHasMetadataReturnsTrueIfCaptionPresent()
+    public function testGetHasMetadataReturnsTrueIfCaptionPresent(): void
     {
         $this->media->setCaption('not empty');
         $this->media->setDescription('');
-        $this->assertTrue($this->media->getHasMetadata());
+        self::assertTrue($this->media->getHasMetadata());
     }
 
-    /**
-     * @test
-     */
-    public function getHasMetadataReturnsTrueIfDescriptionPresent()
+    public function testGetHasMetadataReturnsTrueIfDescriptionPresent(): void
     {
         $this->media->setCaption('');
         $this->media->setDescription('not empty');
-        $this->assertTrue($this->media->getHasMetadata());
+        self::assertTrue($this->media->getHasMetadata());
     }
 }

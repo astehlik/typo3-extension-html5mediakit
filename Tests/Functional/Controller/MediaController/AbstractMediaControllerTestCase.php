@@ -1,4 +1,5 @@
 <?php
+
 /** @noinspection HtmlUnknownTarget */
 
 declare(strict_types=1);
@@ -21,27 +22,45 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\TestingFramework\Core\Functional\Framework\Frontend\InternalRequest;
 use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
 
-abstract class AbstractMediaControllerTest extends FunctionalTestCase
+abstract class AbstractMediaControllerTestCase extends FunctionalTestCase
 {
+    protected const FIXTURES_PATH = 'EXT:html5mediakit/Tests/Functional/Fixtures';
+
+    protected $coreExtensionsToLoad = ['fluid_styled_content'];
+
     protected $testExtensionsToLoad = ['typo3conf/ext/html5mediakit'];
 
-    protected function loadFixturesAndGetResponseBody(string $dataSet): string
+    protected array $typoscriptConstantFiles = [
+        'EXT:fluid_styled_content/Configuration/TypoScript/constants.typoscript',
+        'EXT:html5mediakit/Configuration/TypoScript/constants.typoscript',
+    ];
+
+    private array $typoscriptSetupFilesDefault = [
+        'EXT:fluid_styled_content/Configuration/TypoScript/setup.typoscript',
+        'EXT:html5mediakit/Configuration/TypoScript/setup.typoscript',
+        self::FIXTURES_PATH . '/TypoScript/setup.typoscript',
+    ];
+
+    protected function loadFixtures(string $dataSet): void
     {
-        $dataSetFilename = sprintf('EXT:' . 'html5mediakit/Tests/Functional/Fixtures/Database/%s.xml', $dataSet);
-        $this->importDataSet($dataSetFilename);
+        $this->importCSVDataSet($this->buildDatasetPath('common'));
+        $this->importCSVDataSet($this->buildDatasetPath($dataSet));
+    }
+
+    protected function loadFixturesAndGetResponseBody(string $dataSet, int $pageId = 1, int $languageId = 0): string
+    {
+        $this->loadFixtures($dataSet);
         $this->setUpFrontendRootPage(
             1,
             [
-                'setup' => [
-                    'EXT:html5mediakit/Configuration/TypoScript/setup.typoscript',
-                    'EXT:html5mediakit/Tests/Functional/Fixtures/setup.typoscript',
-                ],
+                'setup' => $this->typoscriptSetupFilesDefault,
+                'constants' => $this->typoscriptConstantFiles,
             ]
         );
         $this->setUpFrontendSite(1);
 
-        $request = (new InternalRequest())->withPageId(1);
-        $response = $this->executeFrontendRequest($request);
+        $request = (new InternalRequest())->withPageId($pageId)->withLanguageId($languageId);
+        $response = $this->executeFrontendSubRequest($request);
 
         return (string)$response->getBody();
     }
@@ -49,14 +68,11 @@ abstract class AbstractMediaControllerTest extends FunctionalTestCase
     /**
      * Create a simple site config for the tests that
      * call a frontend page.
-     *
-     * @param int $pageId
-     * @param array $additionalLanguages
      */
-    protected function setUpFrontendSite(int $pageId, array $additionalLanguages = [])
+    protected function setUpFrontendSite(int $pageId, array $additionalLanguages = []): void
     {
         $languages = [
-            0 => [
+            [
                 'title' => 'English',
                 'enabled' => true,
                 'languageId' => 0,
@@ -68,6 +84,19 @@ abstract class AbstractMediaControllerTest extends FunctionalTestCase
                 'hreflang' => '',
                 'direction' => '',
                 'flag' => 'us',
+            ],
+            [
+                'title' => 'German',
+                'enabled' => true,
+                'languageId' => 1,
+                'base' => '/de/',
+                'typo3Language' => 'de',
+                'locale' => 'de_DE.UTF-8',
+                'iso-639-1' => 'de',
+                'navigationTitle' => '',
+                'hreflang' => '',
+                'direction' => '',
+                'flag' => 'de',
             ],
         ];
         $languages = array_merge($languages, $additionalLanguages);
@@ -87,5 +116,10 @@ abstract class AbstractMediaControllerTest extends FunctionalTestCase
         if ($cache->has('site-configuration')) {
             $cache->remove('site-configuration');
         }
+    }
+
+    private function buildDatasetPath(string $dataSet): string
+    {
+        return sprintf(__DIR__ . '/../../Fixtures/Database/%s.csv', $dataSet);
     }
 }

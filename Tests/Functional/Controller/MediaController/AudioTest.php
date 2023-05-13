@@ -1,40 +1,41 @@
 <?php
-/** @noinspection HtmlUnknownTarget */
 
 declare(strict_types=1);
 
 namespace Sto\Html5mediakit\Tests\Functional\Controller\MediaController;
 
-class AudioTest extends AbstractMediaControllerTest
+class AudioTest extends AbstractMediaControllerTestCase
 {
-    private $formats = [
+    private array $formats = [
         'mpeg' => 'mp3',
         'ogg' => 'ogg',
     ];
 
-    public function testMediaControllerRendersAudio()
+    public function testMediaControllerRendersAudio(): void
     {
-        $responseBody = $this->loadFixturesAndGetResponseBody('audio');
+        $responseBody = $this->loadFixturesAndGetResponseBody('media/audio');
 
         $this->assertResponseContainsSources($responseBody);
         $this->assertResponseContainsFallbackLinks($responseBody);
-        $this->assertStringContainsString('Testcaption', $responseBody);
-        $this->assertStringContainsString('Testdescription', $responseBody);
+        self::assertStringContainsString('Testcaption', $responseBody);
+        self::assertStringContainsString('Testdescription', $responseBody);
     }
 
-    private function assertResponseContainsFallbackLinks(string $responseBody)
+    private function assertResponseContainsFallbackLinks(string $responseBody): void
     {
         foreach ($this->formats as $extension) {
-            $expectedSource = sprintf('<a href="audio/media.%s">media.%1$s</a>', $extension);
-            $this->assertStringContainsString($expectedSource, $responseBody);
+            /** @noinspection HtmlUnknownTarget */
+            $expectedSource = sprintf('<a href="/audio/media.%s">media.%1$s</a>', $extension);
+            self::assertStringContainsString($expectedSource, $responseBody);
         }
     }
 
-    private function assertResponseContainsSources(string $responseBody)
+    private function assertResponseContainsSources(string $responseBody): void
     {
         foreach ($this->formats as $mimeType => $extension) {
-            $expectedSource = sprintf('<source src="audio/media.%s" type="audio/%s"/>', $extension, $mimeType);
-            $this->assertStringContainsString($expectedSource, $responseBody);
+            /** @noinspection HtmlUnknownTarget */
+            $expectedSource = sprintf('<source src="/audio/media.%s" type="audio/%s"/>', $extension, $mimeType);
+            self::assertStringContainsString($expectedSource, $responseBody);
         }
     }
 }

@@ -1,5 +1,7 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
+
 namespace Sto\Html5mediakit\Tests\Unit\Controller;
 
 /*                                                                        *
@@ -16,7 +18,7 @@ use Sto\Html5mediakit\Controller\MediaController;
 
 class MediaControllerMock extends MediaController
 {
-    public function setView($view)
+    public function setView($view): void
     {
         $this->view = $view;
     }

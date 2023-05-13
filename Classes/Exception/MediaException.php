@@ -1,5 +1,7 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
+
 namespace Sto\Html5mediakit\Exception;
 
 /*                                                                        *
@@ -12,11 +14,9 @@ namespace Sto\Html5mediakit\Exception;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
-use RuntimeException;
-
 /**
  * Generic media related Exception. Translations should be available for the Exception code.
  */
-class MediaException extends RuntimeException
+class MediaException extends \RuntimeException
 {
 }

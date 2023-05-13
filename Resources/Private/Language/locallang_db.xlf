@@ -45,6 +45,9 @@
 			<trans-unit id="tx_html5mediakit_domain_model_media.ogv" xml:space="preserve">
 				<source>OGV file</source>
 			</trans-unit>
+			<trans-unit id="tx_html5mediakit_domain_model_media.poster" xml:space="preserve">
+				<source>Poster image</source>
+			</trans-unit>
 			<trans-unit id="tx_html5mediakit_domain_model_media.web_m" xml:space="preserve">
 				<source>WebM file</source>
 			</trans-unit>

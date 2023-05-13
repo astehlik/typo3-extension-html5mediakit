@@ -1,5 +1,7 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
+
 namespace Sto\Html5mediakit\Domain\Model\Enumeration;
 
 /*                                                                        *
@@ -24,12 +26,12 @@ class MediaType extends Enumeration
      *
      * @const
      */
-    const AUDIO = 'audio';
+    public const AUDIO = 'audio';
 
     /**
      * Media type "video" for MP4 / OGV files.
      *
      * @const
      */
-    const VIDEO = 'video';
+    public const VIDEO = 'video';
 }

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Sto\Html5mediakit\Domain\Repository;
@@ -25,10 +26,9 @@ class MediaRepository extends Repository
 {
     /**
      * Returns the first media element that was found for the given
-     * content element UID (there should only be one)
+     * content element UID (there should only be one).
      *
      * @param int $contentElementUid
-     * @return \Sto\Html5mediakit\Domain\Model\Media
      */
     public function findOneByContentElementUid($contentElementUid): Media
     {
@@ -37,7 +37,7 @@ class MediaRepository extends Repository
 
         // We do not want to do any language overlay in our query because the content element UID
         // is already the UID of the translated content element.
-        $query->getQuerySettings()->setLanguageMode(null);
+        $query->getQuerySettings()->setLanguageOverlayMode(false);
 
         $query->matching($query->equals('contentElement', $contentElementUid));
 
@@ -53,7 +53,6 @@ class MediaRepository extends Repository
 
         $query = $this->createQuery();
         $query->getQuerySettings()->setRespectStoragePage(false);
-        $query->getQuerySettings()->setLanguageMode(null);
 
         $andCondition = [
             $query->equals('parentTable', $parentTable),
@@ -76,7 +75,7 @@ class MediaRepository extends Repository
         return $media;
     }
 
-    private function validateParentRecordData($data)
+    private function validateParentRecordData($data): void
     {
         if (empty($data['parent_table'])) {
             throw new \InvalidArgumentException('parent_table field is missing in content data.');

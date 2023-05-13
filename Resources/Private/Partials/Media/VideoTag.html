@@ -1,8 +1,8 @@
 <html
     data-namespace-typo3-fluid="true"
-    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
-
-<video controls="controls">
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:h5="http://typo3.org/ns/Sto/Html5mediakit/ViewHelpers">
+<h5:video controls="controls" video="{video}">
     <f:if condition="{video.hasWebM}">
         <source src="{video.webM.originalResource.publicUrl}" type="video/webm"/>
     </f:if>
@@ -16,7 +16,9 @@
     </f:if>
 
     <div class="tx-html5mediakit-video-fallbacktext">
-        <p><f:translate key="media_video_tag_not_supported"/></p>
+        <p class="tx-html5mediakit-tag-not-supported-message rs_skip">
+            <f:translate key="media_video_tag_not_supported"/>
+        </p>
 
         <f:if condition="{video.hasWebM}">
             <p>
@@ -39,6 +41,5 @@
             </p>
         </f:if>
     </div>
-</video>
-
+</h5:video>
 </html>

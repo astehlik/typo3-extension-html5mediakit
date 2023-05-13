@@ -1,0 +1,28 @@
+sys_language,,,,,,
+,uid,pid,sorting,title,flag,language_isocode
+,1,0,256,German,de,de
+pages,,,,,,,,
+,uid,pid,title,slug,doktype,sys_language_uid,l10n_parent,l10n_source
+,1,0,root,/html5mediakit,1,0,0,0
+,10,1,connected mode default,/html5mediakit/connected-mode,1,0,0,0
+,11,1,connected mode de,/html5mediakit/connected-mode,1,1,10,10
+,20,1,copy mode default,/html5mediakit/copy-mode,1,0,0,0
+,21,1,copy mode de,/html5mediakit/copy-mode,1,1,20,20
+tt_content,,,,,,,,,
+,uid,pid,CType,header,tx_html5mediakit_media,sys_language_uid,l18n_parent,l10n_source,t3_origuid
+,10,10,html5mediakit_mediarenderer,connected default,1,0,0,0,0
+,11,10,html5mediakit_mediarenderer,connected en,1,1,10,10,10
+,20,20,html5mediakit_mediarenderer,copy default,1,0,0,0,0
+,21,20,html5mediakit_mediarenderer,copy en,1,1,0,0,0
+tx_html5mediakit_domain_model_media,,,,,,,,,,,,,
+,uid,pid,content_element,type,caption,description,mp3,ogg,h264,ogv,web_m,sys_language_uid,l10n_parent
+,10,10,10,audio,caption connected default,<p>Some decription <strong>with</strong> formatting</p>,1,0,0,0,0,0,0
+,11,10,11,audio,caption connected de,<p>Eine Beschreibung <strong>mit</strong> formatierung</p>,0,1,0,0,0,1,6
+,20,20,20,video,caption copy default,<p>Some decription <strong>with</strong> formatting</p>,0,0,1,0,0,0,0
+,21,20,21,video,caption copy de,<p>Eine Beschreibung <strong>mit</strong> formatierung</p>,0,0,0,1,0,1,0
+sys_file_reference,,,,,,,,
+,uid,pid,table_local,uid_local,uid_foreign,tablenames,fieldname,l10n_diffsource
+,10,10,file,1,10,tx_html5mediakit_domain_model_media,mp3,
+,11,10,file,2,11,tx_html5mediakit_domain_model_media,ogg,
+,20,20,file,3,20,tx_html5mediakit_domain_model_media,h264,
+,21,20,file,4,21,tx_html5mediakit_domain_model_media,ogv,

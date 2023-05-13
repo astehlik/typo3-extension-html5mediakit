@@ -1,0 +1,5 @@
+plugin.tx_html5mediakit {
+  view.templateRootPath = EXT:html5mediakit/Tests/Functional/Fixtures/Templates/Templates/
+  view.partialRootPath = EXT:html5mediakit/Tests/Functional/Fixtures/Templates/Partials/
+  view.layoutRootPath = EXT:html5mediakit/Tests/Functional/Fixtures/Templates/Layouts/
+}
