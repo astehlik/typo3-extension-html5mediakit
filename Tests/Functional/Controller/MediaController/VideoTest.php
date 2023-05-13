@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Sto\Html5mediakit\Tests\Functional\Controller\MediaController;
 
-class VideoTest extends AbstractMediaControllerTest
+class VideoTest extends AbstractMediaControllerTestCase
 {
     private $formats = [
         'webm' => 'webm',

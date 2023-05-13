@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Sto\Html5mediakit\Tests\Functional\Controller\MediaController;
 
-class TemplatePathOverrideTest extends AbstractMediaControllerTest
+class TemplatePathOverrideTest extends AbstractMediaControllerTestCase
 {
     protected $typoscriptConstantFiles = [self::FIXTURES_PATH . '/TypoScript/template_override_constants.typoscript'];
 

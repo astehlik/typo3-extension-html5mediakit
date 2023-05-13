@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Sto\Html5mediakit\Tests\Functional\Controller\MediaController;
 
-class TranslationTest extends AbstractMediaControllerTest
+class TranslationTest extends AbstractMediaControllerTestCase
 {
     public function testConnectedModeUsesExpectedMedia()
     {
