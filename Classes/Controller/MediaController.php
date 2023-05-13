@@ -24,6 +24,7 @@ use Sto\Html5mediakit\Exception\MediaException;
 use TYPO3\CMS\Extbase\Http\ForwardResponse;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
+use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 
 /**
  * Controller for rendering media.
@@ -49,7 +50,7 @@ class MediaController extends ActionController
      */
     public function renderMediaAction(): ResponseInterface
     {
-        $contentObject = $this->configurationManager->getContentObject();
+        $contentObject = $this->getCurrentContentObject();
 
         try {
             $uid = $contentObject->data['_LOCALIZED_UID'] ?? $contentObject->data['uid'];
@@ -63,7 +64,7 @@ class MediaController extends ActionController
 
     public function renderMediaForRelatedTableAction(): ResponseInterface
     {
-        $contentObject = $this->configurationManager->getContentObject();
+        $contentObject = $this->getCurrentContentObject();
 
         try {
             $media = $this->mediaRepository->findOneByParentRecord($contentObject->data);
@@ -81,6 +82,11 @@ class MediaController extends ActionController
         return $this->htmlResponse();
     }
 
+    private function getCurrentContentObject(): ContentObjectRenderer
+    {
+        return $this->request->getAttribute('currentContentObject');
+    }
+
     private function renderMedia(Media $media): ResponseInterface
     {
         $mediaType = $media->getType();
@@ -88,7 +94,7 @@ class MediaController extends ActionController
         // We update the last changed register when a media record has changed because
         // the content element will not get this information if no properties in the
         // content element are changed.
-        $contentObject = $this->configurationManager->getContentObject();
+        $contentObject = $contentObject = $this->getCurrentContentObject();
         $contentObject->lastChanged($media->getTstamp());
 
         if ($mediaType->equals(MediaType::VIDEO)) {

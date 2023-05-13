@@ -8,6 +8,6 @@ tx_html5mediakit_domain_model_media,,,,,,,,,
 ,uid,pid,content_element,type,caption,description,mp3,ogg,deleted
 ,1,1,1,audio,Testcaption,Testdescription,1,1,0
 sys_file_reference,,,,,,,,
-,uid,pid,table_local,uid_local,uid_foreign,tablenames,fieldname,l10n_diffsource
-,1,0,file,1,1,tx_html5mediakit_domain_model_media,mp3,
-,2,0,file,2,1,tx_html5mediakit_domain_model_media,ogg,
+,uid,pid,uid_local,uid_foreign,tablenames,fieldname,l10n_diffsource
+,1,0,1,1,tx_html5mediakit_domain_model_media,mp3,
+,2,0,2,1,tx_html5mediakit_domain_model_media,ogg,

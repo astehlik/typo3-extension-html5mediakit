@@ -10,9 +10,8 @@ page {
   }
 }
 
-tt_content = USER
+tt_content = EXTBASEPLUGIN
 tt_content {
-  userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
   extensionName = Html5mediakit
   pluginName = mediarenderer
 }

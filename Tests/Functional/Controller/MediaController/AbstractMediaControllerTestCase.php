@@ -26,9 +26,9 @@ abstract class AbstractMediaControllerTestCase extends FunctionalTestCase
 {
     protected const FIXTURES_PATH = 'EXT:html5mediakit/Tests/Functional/Fixtures';
 
-    protected $coreExtensionsToLoad = ['fluid_styled_content'];
+    protected array $coreExtensionsToLoad = ['fluid_styled_content'];
 
-    protected $testExtensionsToLoad = ['typo3conf/ext/html5mediakit'];
+    protected array $testExtensionsToLoad = ['typo3conf/ext/html5mediakit'];
 
     protected array $typoscriptConstantFiles = [
         'EXT:fluid_styled_content/Configuration/TypoScript/constants.typoscript',

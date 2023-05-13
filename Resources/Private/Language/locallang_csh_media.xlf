@@ -3,14 +3,8 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2011-10-17T20:22:32Z" product-name="html5mediakit">
 		<header/>
 		<body>
-			<trans-unit id=".description" xml:space="preserve">
-				<source>Media element</source>
-			</trans-unit>
-			<trans-unit id=".details" xml:space="preserve">
-				<source>The media element that should be shown on the page. Can either be a video an audio file.</source>
-			</trans-unit>
 			<trans-unit id="type.description" xml:space="preserve">
-				<source>The type of the media elment, can be video or audio.</source>
+				<source>The type of the media element, can be video or audio.</source>
 			</trans-unit>
 			<trans-unit id="caption.description" xml:space="preserve">
 				<source>Optinal caption for the media element</source>

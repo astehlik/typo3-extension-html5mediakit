@@ -3,50 +3,53 @@
 declare(strict_types=1);
 
 use Sto\Html5mediakit\Domain\Model\Enumeration\MediaType;
-use TYPO3\CMS\Core\Resource\File;
-use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+use TYPO3\CMS\Core\Resource\AbstractFile;
 
 $languagePrefix = 'LLL:EXT:html5mediakit/Resources/Private/Language/locallang_db.xlf:';
 $languagePrefixColumn = $languagePrefix . 'tx_html5mediakit_domain_model_media.';
+$languagePrefixCsh = 'LLL:EXT:html5mediakit/Resources/Private/Language/locallang_csh_media.xlf:';
 $lllAddImageFileReference = 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference';
 
-$customFileTcaFieldSettings = [
-    'appearance' => [
-        'createNewRelationLinkTitle' => $languagePrefix . 'choose_file',
-        'useSortable' => false,
-        'headerThumbnail' => [
-            'field' => '',
-            'width' => '0',
-            'height' => '0',
+$buildFileFieldConfig = function (array $allowedFileTypes) use ($languagePrefix) {
+    return [
+        'type' => 'file',
+        'allowed' => $allowedFileTypes,
+        'appearance' => [
+            'createNewRelationLinkTitle' => $languagePrefix . 'choose_file',
+            'useSortable' => false,
+            'headerThumbnail' => [
+                'field' => '',
+                'width' => '0',
+                'height' => '0',
+            ],
+            'enabledControls' => [
+                'info' => false,
+                'new' => false,
+                'dragdrop' => false,
+                'sort' => false,
+                'hide' => false,
+                'delete' => true,
+                'localize' => false,
+            ],
         ],
-        'enabledControls' => [
-            'info' => false,
-            'new' => false,
-            'dragdrop' => false,
-            'sort' => false,
-            'hide' => false,
-            'delete' => true,
-            'localize' => false,
+        'overrideChildTca' => [
+            'types' => [
+                '0' => ['showitem' => '--palette--;;filePalette'],
+                AbstractFile::FILETYPE_AUDIO => ['showitem' => '--palette--;;filePalette'],
+                AbstractFile::FILETYPE_VIDEO => ['showitem' => '--palette--;;filePalette'],
+                AbstractFile::FILETYPE_APPLICATION => ['showitem' => '--palette--;;filePalette'],
+            ],
         ],
-    ],
-    'overrideChildTca' => [
-        'types' => [
-            '0' => ['showitem' => '--palette--;;filePalette'],
-            File::FILETYPE_AUDIO => ['showitem' => '--palette--;;filePalette'],
-            File::FILETYPE_VIDEO => ['showitem' => '--palette--;;filePalette'],
-            File::FILETYPE_APPLICATION => ['showitem' => '--palette--;;filePalette'],
-        ],
-    ],
-    'maxitems' => 1,
-    'behaviour' => ['allowLanguageSynchronization' => true],
-];
+        'maxitems' => 1,
+        'security' => ['ignorePageTypeRestriction' => true],
+    ];
+};
 
 return [
     'ctrl' => [
         'label' => 'caption',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
-        'cruser_id' => 'cruser_id',
         'delete' => 'deleted',
         'title' => $languagePrefix . 'tx_html5mediakit_domain_model_media',
         'type' => 'type',
@@ -59,21 +62,23 @@ return [
         'languageField' => 'sys_language_uid',
         'transOrigPointerField' => 'l10n_parent',
         'transOrigDiffSourceField' => 'l10n_diffsource',
+        'security' => ['ignorePageTypeRestriction' => true],
     ],
     'columns' => [
         'type' => [
             'label' => $languagePrefixColumn . 'type',
+            'description' => $languagePrefixCsh . 'type.description',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'items' => [
                     [
-                        $languagePrefixColumn . 'type.I.video',
-                        MediaType::VIDEO,
+                        'label' => $languagePrefixColumn . 'type.I.video',
+                        'value' => MediaType::VIDEO,
                     ],
                     [
-                        $languagePrefixColumn . 'type.I.audio',
-                        MediaType::AUDIO,
+                        'label' => $languagePrefixColumn . 'type.I.audio',
+                        'value' => MediaType::AUDIO,
                     ],
                 ],
                 'default' => MediaType::VIDEO,
@@ -83,10 +88,12 @@ return [
         ],
         'caption' => [
             'label' => $languagePrefixColumn . 'caption',
+            'description' => $languagePrefixCsh . 'caption.description',
             'config' => ['type' => 'input'],
         ],
         'description' => [
             'label' => $languagePrefixColumn . 'description',
+            'description' => $languagePrefixCsh . 'description.description',
             'config' => [
                 'type' => 'text',
                 'rows' => 5,
@@ -104,66 +111,54 @@ return [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'items' => [
-                    [
-                        '',
-                        0,
-                    ],
+                    ['label' => '', 'value' => 0],
                 ],
-                'foreign_table' => 'tx_html5mediakit_domain_model_media',
-                'foreign_table_where' => 'AND tx_html5mediakit_domain_model_media.pid=###CURRENT_PID###'
-                    . ' AND tx_html5mediakit_domain_model_media.sys_language_uid IN (-1,0)',
+                'foreign_table' => 'tt_content',
+                'foreign_table_where' => 'AND {#tx_html5mediakit_domain_model_media}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_html5mediakit_domain_model_media}.{#sys_language_uid} IN (-1,0)',
                 'default' => 0,
             ],
         ],
         'mp3' => [
             'label' => $languagePrefixColumn . 'mp3',
-            'config' => ExtensionManagementUtility::getFileFieldTCAConfig(
-                'mp3',
-                $customFileTcaFieldSettings,
-                'mp3'
-            ),
+            'description' => $languagePrefixCsh . 'mp3.description',
+            'config' => $buildFileFieldConfig(['mp3']),
         ],
         'ogg' => [
             'label' => $languagePrefixColumn . 'ogg',
-            'config' => ExtensionManagementUtility::getFileFieldTCAConfig(
-                'ogg',
-                $customFileTcaFieldSettings,
-                'ogg,ogx'
+            'description' => $languagePrefixCsh . 'ogg.description',
+            'config' => $buildFileFieldConfig(
+                [
+                    'ogg',
+                    'ogx'
+                ]
             ),
         ],
         'h264' => [
             'label' => $languagePrefixColumn . 'h264',
-            'config' => ExtensionManagementUtility::getFileFieldTCAConfig(
-                'h264',
-                $customFileTcaFieldSettings,
-                'mp4'
-            ),
+            'description' => $languagePrefixCsh . 'h264.description',
+            'config' => $buildFileFieldConfig(['mp4']),
         ],
         'ogv' => [
             'label' => $languagePrefixColumn . 'ogv',
-            'config' => ExtensionManagementUtility::getFileFieldTCAConfig(
-                'ogv',
-                $customFileTcaFieldSettings,
-                'ogv'
-            ),
+            'description' => $languagePrefixCsh . 'ogv.description',
+            'config' => $buildFileFieldConfig(['ogv']),
         ],
         'poster' => [
             'label' => $languagePrefixColumn . 'poster',
-            'config' => ExtensionManagementUtility::getFileFieldTCAConfig(
-                'poster',
-                [
-                    'appearance' => ['createNewRelationLinkTitle' => $lllAddImageFileReference],
-                    'maxitems' => 1,
-                    'behaviour' => ['allowLanguageSynchronization' => true],
-                    'overrideChildTca' => [
-                        'types' => [
-                            '0' => ['showitem' => '--palette--;;filePalette'],
-                            File::FILETYPE_IMAGE => ['showitem' => '--palette--;;filePalette'],
-                        ],
+            'config' => [
+                'type' => 'file',
+                'allowed' => 'common-image-types',
+                'appearance' => ['createNewRelationLinkTitle' => $lllAddImageFileReference],
+                'maxitems' => 1,
+                'behaviour' => ['allowLanguageSynchronization' => true],
+                'overrideChildTca' => [
+                    'types' => [
+                        '0' => ['showitem' => '--palette--;;filePalette'],
+                        AbstractFile::FILETYPE_IMAGE => ['showitem' => '--palette--;;filePalette'],
                     ],
                 ],
-                $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
-            ),
+            ],
         ],
         'sys_language_uid' => [
             'exclude' => true,
@@ -172,11 +167,8 @@ return [
         ],
         'web_m' => [
             'label' => $languagePrefixColumn . 'web_m',
-            'config' => ExtensionManagementUtility::getFileFieldTCAConfig(
-                'web_m',
-                $customFileTcaFieldSettings,
-                'webm'
-            ),
+            'description' => $languagePrefixCsh . 'web_m.description',
+            'config' =>  $buildFileFieldConfig(['webm']),
         ],
         'content_element' => [
             'config' => ['type' => 'passthrough'],
