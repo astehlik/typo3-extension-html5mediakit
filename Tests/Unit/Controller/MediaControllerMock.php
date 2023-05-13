@@ -18,7 +18,7 @@ use Sto\Html5mediakit\Controller\MediaController;
 
 class MediaControllerMock extends MediaController
 {
-    public function setView($view)
+    public function setView($view): void
     {
         $this->view = $view;
     }

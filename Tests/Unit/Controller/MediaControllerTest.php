@@ -25,7 +25,7 @@ class MediaControllerTest extends TestCase
 {
     protected MediaControllerMock $mediaController;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         $this->mediaController = new MediaControllerMock();
 
@@ -33,15 +33,12 @@ class MediaControllerTest extends TestCase
         $this->mediaController->injectStreamFactory(new StreamFactory());
     }
 
-    /**
-     * @test
-     */
-    public function videoActionAssignsVideoToView()
+    public function testVideoActionAssignsVideoToView(): void
     {
-        /** @var Video|MockObject $dummyVideo */
+        /** @var MockObject|Video $dummyVideo */
         $dummyVideo = $this->createMock(Video::class);
         $viewMock = $this->createMock(ViewInterface::class);
-        $viewMock->expects($this->once())->method('assign')->with('video', $dummyVideo);
+        $viewMock->expects(self::once())->method('assign')->with('video', $dummyVideo);
         $this->mediaController->setView($viewMock);
         $this->mediaController->videoAction($dummyVideo);
     }

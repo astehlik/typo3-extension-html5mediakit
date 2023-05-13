@@ -26,22 +26,22 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 
 /**
- * Controller for rendering media
+ * Controller for rendering media.
  */
 class MediaController extends ActionController
 {
     protected MediaRepository $mediaRepository;
-
-    public function injectMediaRepository(MediaRepository $mediaRepository)
-    {
-        $this->mediaRepository = $mediaRepository;
-    }
 
     public function audioAction(Audio $audio): ResponseInterface
     {
         $this->view->assign('audio', $audio);
 
         return $this->htmlResponse();
+    }
+
+    public function injectMediaRepository(MediaRepository $mediaRepository): void
+    {
+        $this->mediaRepository = $mediaRepository;
     }
 
     /**
@@ -64,6 +64,7 @@ class MediaController extends ActionController
     public function renderMediaForRelatedTableAction(): ResponseInterface
     {
         $contentObject = $this->configurationManager->getContentObject();
+
         try {
             $media = $this->mediaRepository->findOneByParentRecord($contentObject->data);
         } catch (MediaException $mediaException) {
@@ -103,9 +104,6 @@ class MediaController extends ActionController
 
     /**
      * Fetches the translation for the given key from the html5mediakit translations.
-     *
-     * @param string $translationKey
-     * @return string
      */
     private function translate(string $translationKey): string
     {

@@ -10,7 +10,7 @@ use TYPO3\TestingFramework\Core\Acceptance\Extension\BackendEnvironment;
 class BackendHtml5mediakitEnvironment extends BackendEnvironment
 {
     /**
-     * Load a list of core extensions and styleguide
+     * Load a list of core extensions and styleguide.
      *
      * @var array
      */
@@ -36,7 +36,7 @@ class BackendHtml5mediakitEnvironment extends BackendEnvironment
         ],
     ];
 
-    public function bootstrapTypo3Environment(SuiteEvent $suiteEvent)
+    public function bootstrapTypo3Environment(SuiteEvent $suiteEvent): void
     {
         parent::bootstrapTypo3Environment($suiteEvent);
 
@@ -49,8 +49,8 @@ class BackendHtml5mediakitEnvironment extends BackendEnvironment
         $putenvCode = 'putenv(\'TYPO3_PATH_ROOT=' . $typo3RootPath . '\');';
 
         $indexFiles = [
-          'index.php',
-          'typo3/index.php',
+            'index.php',
+            'typo3/index.php',
         ];
 
         foreach ($indexFiles as $indexFile) {

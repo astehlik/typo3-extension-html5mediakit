@@ -63,11 +63,8 @@ abstract class AbstractMediaControllerTestCase extends FunctionalTestCase
     /**
      * Create a simple site config for the tests that
      * call a frontend page.
-     *
-     * @param int $pageId
-     * @param array $additionalLanguages
      */
-    protected function setUpFrontendSite(int $pageId, array $additionalLanguages = [])
+    protected function setUpFrontendSite(int $pageId, array $additionalLanguages = []): void
     {
         $languages = [
             [
@@ -118,6 +115,6 @@ abstract class AbstractMediaControllerTestCase extends FunctionalTestCase
 
     private function buildDatasetPath(string $dataSet): string
     {
-        return sprintf('EXT' . ':html5mediakit/Tests/Functional/Fixtures/Database/%s.xml', $dataSet);
+        return sprintf('EXT:html5mediakit/Tests/Functional/Fixtures/Database/%s.xml', $dataSet);
     }
 }

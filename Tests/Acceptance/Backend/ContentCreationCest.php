@@ -10,15 +10,12 @@ use Sto\Html5mediakit\Tests\Acceptance\Support\Helper\PageTree;
 
 class ContentCreationCest
 {
-    /**
-     * @param BackendTester $I
-     */
-    public function _before(BackendTester $I)
+    public function _before(BackendTester $I): void
     {
         $I->useExistingSession('admin');
     }
 
-    public function html5MediaCanBeCreated(BackendTester $I, PageTree $pageTree, ModalDialog $modalDialog)
+    public function html5MediaCanBeCreated(BackendTester $I, PageTree $pageTree, ModalDialog $modalDialog): void
     {
         $I->click('Page');
         $pageTree->openPath(['root Page']);
@@ -27,7 +24,6 @@ class ContentCreationCest
         $I->switchToContentFrame();
 
         $I->click('typo3-backend-new-content-element-wizard-button');
-
 
         $I->switchToIFrame();
         $I->waitForElement('.t3-new-content-element-wizard-inner');

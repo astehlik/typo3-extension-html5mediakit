@@ -24,21 +24,21 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 class Media extends AbstractEntity
 {
     /**
-     * Caption for the media file
+     * Caption for the media file.
      *
      * @var string
      */
     protected $caption;
 
     /**
-     * UID of the content element to which this media element belongs
+     * UID of the content element to which this media element belongs.
      *
      * @var int
      */
     protected $contentElement;
 
     /**
-     * The (Richtext) description of the media element
+     * The (Richtext) description of the media element.
      *
      * @var string
      */
@@ -60,23 +60,17 @@ class Media extends AbstractEntity
     protected $tstamp;
 
     /**
-     * The type of the media element (can be audio or video)
+     * The type of the media element (can be audio or video).
      *
      * @var \Sto\Html5mediakit\Domain\Model\Enumeration\MediaType
      */
     protected $type;
 
-    /**
-     * @return string
-     */
     public function getCaption(): string
     {
         return $this->caption;
     }
 
-    /**
-     * @return int
-     */
     public function getContentElement(): int
     {
         return $this->contentElement;
@@ -93,8 +87,6 @@ class Media extends AbstractEntity
     /**
      * Returns TRUE if the media element has a teaser and / or
      * a description.
-     *
-     * @return bool
      */
     public function getHasMetadata(): bool
     {
@@ -126,37 +118,37 @@ class Media extends AbstractEntity
         return $this->type;
     }
 
-    public function setCaption(string $caption)
+    public function setCaption(string $caption): void
     {
         $this->caption = $caption;
     }
 
-    public function setContentElement(int $contentElement)
+    public function setContentElement(int $contentElement): void
     {
         $this->contentElement = $contentElement;
     }
 
-    public function setDescription(string $description)
+    public function setDescription(string $description): void
     {
         $this->description = $description;
     }
 
-    public function setParentRecord(int $parentRecord)
+    public function setParentRecord(int $parentRecord): void
     {
         $this->parentRecord = $parentRecord;
     }
 
-    public function setParentTable(string $parentTable)
+    public function setParentTable(string $parentTable): void
     {
         $this->parentTable = $parentTable;
     }
 
-    public function setTstamp(int $tstamp)
+    public function setTstamp(int $tstamp): void
     {
         $this->tstamp = $tstamp;
     }
 
-    public function setType(MediaType $type)
+    public function setType(MediaType $type): void
     {
         $this->type = $type;
     }

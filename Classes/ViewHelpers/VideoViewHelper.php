@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Sto\Html5mediakit\ViewHelpers;
 
 use Sto\Html5mediakit\Domain\Model\Video;
@@ -7,7 +9,7 @@ use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractTagBasedViewHelper;
 
 class VideoViewHelper extends AbstractTagBasedViewHelper
 {
-    public function initializeArguments()
+    public function initializeArguments(): void
     {
         parent::initializeArguments();
 

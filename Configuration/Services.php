@@ -10,6 +10,5 @@ return function (ContainerConfigurator $configurator): void {
 
         ->load('Sto\\Html5mediakit\\Controller\\', __DIR__ . '/../Classes/Controller/')
         ->load('Sto\\Html5mediakit\\Domain\\Repository\\', __DIR__ . '/../Classes/Domain/Repository/')
-        ->load('Sto\\Html5mediakit\\ViewHelpers\\', __DIR__ . '/../Classes/ViewHelpers/')
-    ;
+        ->load('Sto\\Html5mediakit\\ViewHelpers\\', __DIR__ . '/../Classes/ViewHelpers/');
 };

@@ -12,32 +12,32 @@ class VideoTest extends AbstractMediaControllerTestCase
         'ogg' => 'ogv',
     ];
 
-    public function testMediaControllerShowsVideo()
+    public function testMediaControllerShowsVideo(): void
     {
         $responseBody = $this->loadFixturesAndGetResponseBody('media/video');
 
         $this->assertResponseContainsSources($responseBody);
         $this->assertResponseContainsFallbackLinks($responseBody);
-        $this->assertStringContainsString('Testcaption', $responseBody);
-        $this->assertStringContainsString('Testdescription', $responseBody);
-        $this->assertStringContainsString('poster="/video/poster.png"', $responseBody);
+        self::assertStringContainsString('Testcaption', $responseBody);
+        self::assertStringContainsString('Testdescription', $responseBody);
+        self::assertStringContainsString('poster="/video/poster.png"', $responseBody);
     }
 
-    private function assertResponseContainsFallbackLinks(string $responseBody)
+    private function assertResponseContainsFallbackLinks(string $responseBody): void
     {
         foreach ($this->formats as $extension) {
             /** @noinspection HtmlUnknownTarget */
             $expectedSource = sprintf('<a href="/video/media.%s">media.%1$s</a>', $extension);
-            $this->assertStringContainsString($expectedSource, $responseBody);
+            self::assertStringContainsString($expectedSource, $responseBody);
         }
     }
 
-    private function assertResponseContainsSources(string $responseBody)
+    private function assertResponseContainsSources(string $responseBody): void
     {
         foreach ($this->formats as $mimeType => $extension) {
             /** @noinspection HtmlUnknownTarget */
             $expectedSource = sprintf('<source src="/video/media.%s" type="video/%s"/>', $extension, $mimeType);
-            $this->assertStringContainsString($expectedSource, $responseBody);
+            self::assertStringContainsString($expectedSource, $responseBody);
         }
     }
 }
