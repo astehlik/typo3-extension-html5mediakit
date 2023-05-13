@@ -14,12 +14,14 @@ namespace Sto\Html5mediakit\Controller;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
+use Psr\Http\Message\ResponseInterface;
 use Sto\Html5mediakit\Domain\Model\Audio;
 use Sto\Html5mediakit\Domain\Model\Enumeration\MediaType;
 use Sto\Html5mediakit\Domain\Model\Media;
 use Sto\Html5mediakit\Domain\Model\Video;
 use Sto\Html5mediakit\Domain\Repository\MediaRepository;
 use Sto\Html5mediakit\Exception\MediaException;
+use TYPO3\CMS\Extbase\Http\ForwardResponse;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 
@@ -28,30 +30,24 @@ use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
  */
 class MediaController extends ActionController
 {
-    /**
-     * @var MediaRepository
-     */
-    protected $mediaRepository;
+    protected MediaRepository $mediaRepository;
 
     public function injectMediaRepository(MediaRepository $mediaRepository)
     {
         $this->mediaRepository = $mediaRepository;
     }
 
-    /**
-     * @param \Sto\Html5mediakit\Domain\Model\Audio $audio
-     */
-    public function audioAction(Audio $audio)
+    public function audioAction(Audio $audio): ResponseInterface
     {
         $this->view->assign('audio', $audio);
+
+        return $this->htmlResponse();
     }
 
     /**
      * Renders the media depending on the type.
-     *
-     * @throws \TYPO3\CMS\Core\FormProtection\Exception
      */
-    public function renderMediaAction()
+    public function renderMediaAction(): ResponseInterface
     {
         $contentObject = $this->configurationManager->getContentObject();
 
@@ -59,37 +55,32 @@ class MediaController extends ActionController
             $uid = $contentObject->data['_LOCALIZED_UID'] ?? $contentObject->data['uid'];
             $media = $this->mediaRepository->findOneByContentElementUid($uid);
         } catch (MediaException $mediaException) {
-            return $this->translate('exception.' . $mediaException->getCode());
+            return $this->htmlResponse($this->translate('exception.' . $mediaException->getCode()));
         }
 
-        $this->renderMedia($media);
-
-        throw new \RuntimeException('An invalid media type is used.');
+        return $this->renderMedia($media);
     }
 
-    public function renderMediaForRelatedTableAction()
+    public function renderMediaForRelatedTableAction(): ResponseInterface
     {
         $contentObject = $this->configurationManager->getContentObject();
         try {
             $media = $this->mediaRepository->findOneByParentRecord($contentObject->data);
         } catch (MediaException $mediaException) {
-            return $this->translate('exception.' . $mediaException->getCode());
+            return $this->htmlResponse($this->translate('exception.' . $mediaException->getCode()));
         }
 
-        $this->renderMedia($media);
-
-        throw new \RuntimeException('An invalid media type is used.');
+        return $this->renderMedia($media);
     }
 
-    /**
-     * @param \Sto\Html5mediakit\Domain\Model\Video $video
-     */
-    public function videoAction(Video $video)
+    public function videoAction(Video $video): ResponseInterface
     {
         $this->view->assign('video', $video);
+
+        return $this->htmlResponse();
     }
 
-    private function renderMedia(Media $media)
+    private function renderMedia(Media $media): ResponseInterface
     {
         $mediaType = $media->getType();
 
@@ -100,10 +91,14 @@ class MediaController extends ActionController
         $contentObject->lastChanged($media->getTstamp());
 
         if ($mediaType->equals(MediaType::VIDEO)) {
-            $this->forward('video', null, null, ['video' => $media->getUid()]);
-        } elseif ($mediaType->equals(MediaType::AUDIO)) {
-            $this->forward('audio', null, null, ['audio' => $media->getUid()]);
+            return (new ForwardResponse('video'))->withArguments(['video' => $media->getUid()]);
         }
+
+        if ($mediaType->equals(MediaType::AUDIO)) {
+            return (new ForwardResponse('audio'))->withArguments(['audio' => $media->getUid()]);
+        }
+
+        throw new \RuntimeException('An invalid media type is used.');
     }
 
     /**
