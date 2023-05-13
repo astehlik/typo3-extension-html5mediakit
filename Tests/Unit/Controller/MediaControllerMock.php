@@ -19,13 +19,13 @@ use TYPO3\CMS\Extbase\Mvc\RequestInterface;
 
 class MediaControllerMock extends MediaController
 {
-    public function setView($view): void
-    {
-        $this->view = $view;
-    }
-
     public function setRequest(RequestInterface $request): void
     {
         $this->request = $request;
+    }
+
+    public function setView($view): void
+    {
+        $this->view = $view;
     }
 }

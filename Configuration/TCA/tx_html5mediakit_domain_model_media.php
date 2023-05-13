@@ -111,7 +111,10 @@ return [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'items' => [
-                    ['label' => '', 'value' => 0],
+                    [
+                        'label' => '',
+                        'value' => 0,
+                    ],
                 ],
                 'foreign_table' => 'tx_html5mediakit_domain_model_media',
                 'foreign_table_where' => 'AND {#tx_html5mediakit_domain_model_media}.{#pid}=###CURRENT_PID###'
@@ -130,7 +133,7 @@ return [
             'config' => $buildFileFieldConfig(
                 [
                     'ogg',
-                    'ogx'
+                    'ogx',
                 ]
             ),
         ],
@@ -168,7 +171,7 @@ return [
         'web_m' => [
             'label' => $languagePrefixColumn . 'web_m',
             'description' => $languagePrefixCsh . 'web_m.description',
-            'config' =>  $buildFileFieldConfig(['webm']),
+            'config' => $buildFileFieldConfig(['webm']),
         ],
         'content_element' => [
             'config' => ['type' => 'passthrough'],
