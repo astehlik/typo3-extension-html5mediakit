@@ -53,7 +53,6 @@ class MediaRepository extends Repository
 
         $query = $this->createQuery();
         $query->getQuerySettings()->setRespectStoragePage(false);
-        $query->getQuerySettings()->setLanguageMode(null);
 
         $andCondition = [
             $query->equals('parentTable', $parentTable),
