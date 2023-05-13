@@ -14,7 +14,7 @@ tt_content,,,,,,,,,
 tx_html5mediakit_domain_model_media,,,,,,,,,,,,,
 ,uid,pid,content_element,type,caption,description,mp3,ogg,h264,ogv,web_m,sys_language_uid,l10n_parent
 ,10,10,10,audio,caption connected default,<p>Some decription <strong>with</strong> formatting</p>,1,0,0,0,0,0,0
-,11,10,11,audio,caption connected de,<p>Eine Beschreibung <strong>mit</strong> formatierung</p>,0,1,0,0,0,1,6
+,11,10,11,audio,caption connected de,<p>Eine Beschreibung <strong>mit</strong> formatierung</p>,0,1,0,0,0,1,10
 ,20,20,20,video,caption copy default,<p>Some decription <strong>with</strong> formatting</p>,0,0,1,0,0,0,0
 ,21,20,21,video,caption copy de,<p>Eine Beschreibung <strong>mit</strong> formatierung</p>,0,0,0,1,0,1,0
 sys_file_reference,,,,,,,,
