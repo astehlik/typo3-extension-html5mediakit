@@ -1,8 +1,4 @@
-﻿.. include:: Includes.txt
-
-
-.. Every manual should have a start label for cross-referencing to
-.. start page. Do not remove this!
+﻿..  include:: /Includes.rst.txt
 
 .. _start:
 
@@ -10,47 +6,42 @@
 html5mediakit
 =============================================================
 
-.. only:: html
+:Extension key:
+    html5mediakit
 
-   :Classification:
-      html5mediakit
+:Package name:
+    de-swebhosting-typo3-extension/html5mediakit
 
-   :Version:
-      |release|
+:Version:
+    |release|
 
-   :Language:
-      en
+:Language:
+    en
 
-   :Description:
-      Manual covering TYPO3 extension html5mediakit
+:Author:
+   Alexander Stehlik
 
-   :Keywords:
-      HTML5, media, video, audio
+:License:
+    This document is published under the
+    `Creative Commons BY 4.0 <https://creativecommons.org/licenses/by/4.0/>`__
+    license.
 
-   :Copyright:
-      2019
+:Rendered:
+   |today|
 
-   :Author:
-      Alexander Stehlik
+----
 
-   :Email:
-      alexander.stehlik.deleteme@gmail.com
+This extension provides a new content type “Video / Audio”. It allows embedding video and audio files using the corresponding HTML5 elements.
 
-   :License:
-      This document is published under the Open Publication License
-      available from http://www.opencontent.org/openpub/
+You can upload video and audio files in multiple formats to support more browsers.
 
-   :Rendered:
-      |today|
+----
 
-   The content of this document is related to TYPO3,
-   a GNU/GPL CMS/Framework available from `www.typo3.org <https://typo3.org/>`__.
+**Table of Contents:**
 
-
-   **Table of Contents**
-
-.. toctree::
-   :maxdepth: 3
+..  toctree::
+    :maxdepth: 2
+    :titlesonly:
 
    Introduction/Index
    User/Index
@@ -58,4 +49,10 @@ html5mediakit
    Configuration/Index
    KnownProblems/Index
    ToDoList/Index
-   Links
+
+..  Meta Menu
+
+..  toctree::
+    :hidden:
+
+    Sitemap
