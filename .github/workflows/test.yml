@@ -100,7 +100,7 @@ jobs:
         with:
           php_version: ${{ env.MAIN_PHP_VERSION }}
       - run: |
-          bash .Build/bin/t3_run_tests.sh -s functional -d mariadb -t Backend -p ${{ env.MAIN_PHP_VERSION }}
+          bash .Build/bin/t3_run_tests.sh -s acceptance -d mariadb -t Backend -p ${{ env.MAIN_PHP_VERSION }}
 
   "php-lint":
     name: "PHP linting"
