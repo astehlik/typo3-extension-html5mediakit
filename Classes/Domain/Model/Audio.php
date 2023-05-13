@@ -22,14 +22,14 @@ use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 class Audio extends Media
 {
     /**
-     * Reference to the MP3 version of the audio
+     * Reference to the MP3 version of the audio.
      *
      * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
      */
     protected $mp3;
 
     /**
-     * Reference to the OGA/OGG Vorbis version of the audio
+     * Reference to the OGA/OGG Vorbis version of the audio.
      *
      * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
      */
@@ -37,8 +37,6 @@ class Audio extends Media
 
     /**
      * Returns true if an audio file of any type is available.
-     *
-     * @return bool
      */
     public function getAudioFileAvailable(): bool
     {
@@ -47,8 +45,6 @@ class Audio extends Media
 
     /**
      * Returns true if a MP3 file is available.
-     *
-     * @return bool
      */
     public function getHasMp3(): bool
     {
@@ -57,25 +53,17 @@ class Audio extends Media
 
     /**
      * Returns true if an OGG file is available.
-     *
-     * @return bool
      */
     public function getHasOgg(): bool
     {
         return $this->ogg instanceof FileReference;
     }
 
-    /**
-     * @return FileReference
-     */
     public function getMp3(): FileReference
     {
         return $this->mp3;
     }
 
-    /**
-     * @return FileReference
-     */
     public function getOgg(): FileReference
     {
         return $this->ogg;

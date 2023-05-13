@@ -21,7 +21,7 @@ use Exception;
  */
 class MediaMissingException extends MediaException
 {
-    public function __construct($message = '', $code = 0, Exception $previous = null)
+    public function __construct($message = '', $code = 0, \Exception $previous = null)
     {
         if ($message === '') {
             $message = 'No media exists in the current content element.';

@@ -9,7 +9,7 @@ use Sto\Html5mediakit\Tests\Acceptance\Support\_generated\BackendTesterActions;
 use TYPO3\TestingFramework\Core\Acceptance\Step\FrameSteps;
 
 /**
- * Default backend admin or editor actor in the backend
+ * Default backend admin or editor actor in the backend.
  */
 class BackendTester extends Actor
 {

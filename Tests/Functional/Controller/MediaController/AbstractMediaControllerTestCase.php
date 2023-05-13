@@ -22,15 +22,21 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\TestingFramework\Core\Functional\Framework\Frontend\InternalRequest;
 use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
 
-abstract class AbstractMediaControllerTest extends FunctionalTestCase
+abstract class AbstractMediaControllerTestCase extends FunctionalTestCase
 {
     protected const FIXTURES_PATH = 'EXT:html5mediakit/Tests/Functional/Fixtures';
 
+    protected $coreExtensionsToLoad = ['fluid_styled_content'];
+
     protected $testExtensionsToLoad = ['typo3conf/ext/html5mediakit'];
 
-    protected $typoscriptConstantFiles = [];
+    protected array $typoscriptConstantFiles = [
+        'EXT:fluid_styled_content/Configuration/TypoScript/constants.typoscript',
+        'EXT:html5mediakit/Configuration/TypoScript/constants.typoscript',
+    ];
 
-    private $typoscriptSetupFilesDefault = [
+    private array $typoscriptSetupFilesDefault = [
+        'EXT:fluid_styled_content/Configuration/TypoScript/setup.typoscript',
         'EXT:html5mediakit/Configuration/TypoScript/setup.typoscript',
         self::FIXTURES_PATH . '/TypoScript/setup.typoscript',
     ];
@@ -49,7 +55,7 @@ abstract class AbstractMediaControllerTest extends FunctionalTestCase
         $this->setUpFrontendSite(1);
 
         $request = (new InternalRequest())->withPageId($pageId)->withLanguageId($languageId);
-        $response = $this->executeFrontendRequest($request);
+        $response = $this->executeFrontendSubRequest($request);
 
         return (string)$response->getBody();
     }
@@ -57,11 +63,8 @@ abstract class AbstractMediaControllerTest extends FunctionalTestCase
     /**
      * Create a simple site config for the tests that
      * call a frontend page.
-     *
-     * @param int $pageId
-     * @param array $additionalLanguages
      */
-    protected function setUpFrontendSite(int $pageId, array $additionalLanguages = [])
+    protected function setUpFrontendSite(int $pageId, array $additionalLanguages = []): void
     {
         $languages = [
             [
@@ -112,6 +115,6 @@ abstract class AbstractMediaControllerTest extends FunctionalTestCase
 
     private function buildDatasetPath(string $dataSet): string
     {
-        return sprintf('EXT' . ':html5mediakit/Tests/Functional/Fixtures/Database/%s.xml', $dataSet);
+        return sprintf('EXT:html5mediakit/Tests/Functional/Fixtures/Database/%s.xml', $dataSet);
     }
 }

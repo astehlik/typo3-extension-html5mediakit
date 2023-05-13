@@ -26,10 +26,9 @@ class MediaRepository extends Repository
 {
     /**
      * Returns the first media element that was found for the given
-     * content element UID (there should only be one)
+     * content element UID (there should only be one).
      *
      * @param int $contentElementUid
-     * @return \Sto\Html5mediakit\Domain\Model\Media
      */
     public function findOneByContentElementUid($contentElementUid): Media
     {
@@ -77,7 +76,7 @@ class MediaRepository extends Repository
         return $media;
     }
 
-    private function validateParentRecordData($data)
+    private function validateParentRecordData($data): void
     {
         if (empty($data['parent_table'])) {
             throw new \InvalidArgumentException('parent_table field is missing in content data.');

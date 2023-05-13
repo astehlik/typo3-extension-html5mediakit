@@ -1,0 +1,32 @@
+version: "2"
+
+prepare:
+  fetch:
+    - url: "https://raw.githubusercontent.com/astehlik/php-codestyle/main/PhpMd/RulesetTypo3.xml"
+      path: "PhpMdRulesetTypo3.xml"
+
+plugins:
+  phpcodesniffer:
+    enabled: false
+  fixme:
+    enabled: true
+  phpmd:
+    enabled: true
+    config:
+      rulesets: "PhpMdRulesetTypo3.xml"
+  eslint:
+    enabled: true
+    config:
+      extensions:
+        - .js
+  csslint:
+    enabled: false
+  duplication:
+    enabled: true
+    config:
+      languages:
+      - php
+      - javascript
+
+exclude_patterns:
+  - "Tests/**/*"

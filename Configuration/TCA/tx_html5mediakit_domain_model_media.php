@@ -60,7 +60,6 @@ return [
         'transOrigPointerField' => 'l10n_parent',
         'transOrigDiffSourceField' => 'l10n_diffsource',
     ],
-    'interface' => ['showRecordFieldList' => 'type,caption,description,mp3,ogg,h264,ogv,web_m'],
     'columns' => [
         'type' => [
             'label' => $languagePrefixColumn . 'type',
@@ -99,7 +98,6 @@ return [
             'config' => ['type' => 'passthrough'],
         ],
         'l10n_parent' => [
-            'exclude' => 1,
             'displayCond' => 'FIELD:sys_language_uid:>:0',
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
             'config' => [
@@ -170,19 +168,7 @@ return [
         'sys_language_uid' => [
             'exclude' => true,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',
-                'special' => 'languages',
-                'items' => [
-                    [
-                        'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.allLanguages',
-                        -1,
-                        'flags-multiple',
-                    ],
-                ],
-                'default' => 0,
-            ],
+            'config' => ['type' => 'language'],
         ],
         'web_m' => [
             'label' => $languagePrefixColumn . 'web_m',
