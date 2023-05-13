@@ -1,20 +1,23 @@
 {
 	"name": "de-swebhosting-typo3-extension/html5mediakit",
-	"type": "typo3-cms-extension",
 	"description": "Allows easy embedding of HTML5 video and audio elements.",
 	"license": "GPL-3.0-or-later",
+	"type": "typo3-cms-extension",
 	"require": {
-		"php": "^7.2",
-		"typo3/cms-core": "^10.0"
+		"php": "^7.4 || ^8.0",
+		"typo3/cms-core": "^11.5",
+		"typo3/cms-extbase": "*",
+		"typo3/cms-frontend": "*"
 	},
 	"require-dev": {
-		"typo3/cms-install": "*",
-		"typo3/cms-about": "*",
-		"typo3/cms-filelist": "*",
-		"typo3/cms-frontend": "*",
 		"typo3/cms-fluid-styled-content": "*",
-		"de-swebhosting/php-codestyle": "^3.0",
-		"de-swebhosting/typo3-extension-buildtools": "dev-master"
+		"de-swebhosting/php-codestyle": "^4.0",
+		"de-swebhosting/typo3-extension-buildtools": "dev-TYPO3_11",
+		"dms/phpunit-arraysubset-asserts": "^0.4",
+		"ergebnis/composer-normalize": "^2.28",
+		"friendsofphp/php-cs-fixer": "^3.14",
+		"michielroos/typo3scan": "^1.7",
+		"squizlabs/php_codesniffer": "^3.7"
 	},
 	"replace": {
 		"typo3-ter/html5mediakit": "self.version"
@@ -31,27 +34,27 @@
 		}
 	},
 	"config": {
-		"vendor-dir": ".Build/vendor",
-		"bin-dir": ".Build/bin",
 		"allow-plugins": {
 			"typo3/class-alias-loader": true,
-			"typo3/cms-composer-installers": true
+			"typo3/cms-composer-installers": true,
+			"ergebnis/composer-normalize": true
+		},
+		"bin-dir": ".Build/bin",
+		"vendor-dir": ".Build/vendor"
+	},
+	"extra": {
+		"typo3/class-alias-loader": {
+			"always-add-alias-loader": true
+		},
+		"typo3/cms": {
+			"app-dir": ".Build",
+			"extension-key": "html5mediakit",
+			"web-dir": ".Build/Web"
 		}
 	},
 	"scripts": {
 		"post-autoload-dump": [
-			"TYPO3\\TestingFramework\\Composer\\ExtensionTestEnvironment::prepare",
 			"De\\SWebhosting\\Buildtools\\ExtensionTestEnvironment::prepare"
 		]
-	},
-	"extra": {
-		"branch-alias": {
-			"dev-develop": "10.1.x-dev"
-		},
-		"typo3/cms": {
-			"app-dir": ".Build",
-			"web-dir": ".Build/Web",
-			"extension-key": "html5mediakit"
-		}
 	}
 }
