@@ -1,0 +1,8 @@
+sys_file,,,,,,
+,uid,pid,storage,identifier,name,type
+,1,0,0,audio/media.mp3,media.mp3,4
+,2,0,0,audio/media.ogg,media.ogg,4
+,3,0,0,video/media.mp4,media.mp4,4
+,4,0,0,video/media.ogv,media.ogv,4
+,5,0,0,video/media.webm,media.webm,4
+,6,0,0,video/poster.png,poster.png,2

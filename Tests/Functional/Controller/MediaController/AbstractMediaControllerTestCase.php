@@ -41,10 +41,15 @@ abstract class AbstractMediaControllerTestCase extends FunctionalTestCase
         self::FIXTURES_PATH . '/TypoScript/setup.typoscript',
     ];
 
+    protected function loadFixtures(string $dataSet): void
+    {
+        $this->importCSVDataSet($this->buildDatasetPath('common'));
+        $this->importCSVDataSet($this->buildDatasetPath($dataSet));
+    }
+
     protected function loadFixturesAndGetResponseBody(string $dataSet, int $pageId = 1, int $languageId = 0): string
     {
-        $this->importDataSet($this->buildDatasetPath('common'));
-        $this->importDataSet($this->buildDatasetPath($dataSet));
+        $this->loadFixtures($dataSet);
         $this->setUpFrontendRootPage(
             1,
             [
@@ -115,6 +120,6 @@ abstract class AbstractMediaControllerTestCase extends FunctionalTestCase
 
     private function buildDatasetPath(string $dataSet): string
     {
-        return sprintf('EXT:html5mediakit/Tests/Functional/Fixtures/Database/%s.xml', $dataSet);
+        return sprintf(__DIR__ . '/../../Fixtures/Database/%s.csv', $dataSet);
     }
 }
