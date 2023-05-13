@@ -9,9 +9,3 @@ page {
     }
   }
 }
-
-tt_content = EXTBASEPLUGIN
-tt_content {
-  extensionName = Html5mediakit
-  pluginName = mediarenderer
-}
