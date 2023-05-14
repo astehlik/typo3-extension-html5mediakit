@@ -27,10 +27,8 @@ class MediaRepository extends Repository
     /**
      * Returns the first media element that was found for the given
      * content element UID (there should only be one).
-     *
-     * @param int $contentElementUid
      */
-    public function findOneByContentElementUid($contentElementUid): Media
+    public function findOneByContentElementUid(int $contentElementUid): Media
     {
         $query = $this->createQuery();
         $query->getQuerySettings()->setRespectStoragePage(false);
@@ -54,10 +52,10 @@ class MediaRepository extends Repository
         $query = $this->createQuery();
         $query->getQuerySettings()->setRespectStoragePage(false);
 
-        $andCondition = [
+        $andCondition = $query->logicalAnd(
             $query->equals('parentTable', $parentTable),
             $query->equals('parentRecord', $parentRecord),
-        ];
+        );
 
         $query->matching($query->logicalAnd($andCondition));
 
