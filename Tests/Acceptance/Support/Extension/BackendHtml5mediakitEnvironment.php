@@ -28,12 +28,7 @@ class BackendHtml5mediakitEnvironment extends BackendEnvironment
             'fluid_styled_content',
         ],
         'testExtensionsToLoad' => ['typo3conf/ext/html5mediakit'],
-        'xmlDatabaseFixtures' => [
-            'PACKAGE:typo3/testing-framework/Resources/Core/Acceptance/Fixtures/be_users.xml',
-            'PACKAGE:de-swebhosting/typo3-extension-buildtools/resources/acceptance/fixtures/be_sessions.xml',
-            'PACKAGE:typo3/testing-framework/Resources/Core/Acceptance/Fixtures/be_groups.xml',
-            'EXT:html5mediakit/Tests/Acceptance/Fixtures/page.xml',
-        ],
+        'csvDatabaseFixtures' => [__DIR__ . '/../../Fixtures/BackendEnvironment.csv'],
     ];
 
     public function bootstrapTypo3Environment(SuiteEvent $suiteEvent): void
@@ -46,7 +41,10 @@ class BackendHtml5mediakitEnvironment extends BackendEnvironment
             throw new \RuntimeException('TYPO3_PATH_ROOT environment variable is not set');
         }
 
-        $putenvCode = 'putenv(\'TYPO3_PATH_ROOT=' . $typo3RootPath . '\');';
+        $putenvCode = PHP_EOL
+            . 'putenv(\'TYPO3_PATH_ROOT=' . $typo3RootPath . '\');' . PHP_EOL
+            . 'putenv(\'TYPO3_PATH_APP=' . $typo3RootPath . '\');' . PHP_EOL
+            . PHP_EOL;
 
         $indexFiles = [
             'index.php',
