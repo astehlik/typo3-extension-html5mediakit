@@ -16,6 +16,7 @@ namespace Sto\Html5mediakit\Domain\Model;
 
 use Sto\Html5mediakit\Domain\Model\Enumeration\MediaType;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 
 /**
  * Overall media class containing common media properties like
@@ -23,6 +24,13 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
  */
 class Media extends AbstractEntity
 {
+    /**
+     * Reference to the WebVTT subtitle file (.vtt).
+     *
+     * @var FileReference
+     */
+    protected $subtitle;
+
     /**
      * Caption for the media file.
      *
@@ -65,6 +73,11 @@ class Media extends AbstractEntity
      * @var \Sto\Html5mediakit\Domain\Model\Enumeration\MediaType
      */
     protected $type;
+
+    public function getSubtitle(): FileReference
+    {
+        return $this->subtitle;
+    }
 
     public function getCaption(): string
     {
@@ -116,6 +129,11 @@ class Media extends AbstractEntity
     public function getType(): MediaType
     {
         return $this->type;
+    }
+
+    public function setSubtitle(FileReference $subtitle): void
+    {
+        $this->subtitle = $subtitle;
     }
 
     public function setCaption(string $caption): void
