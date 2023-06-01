@@ -7,7 +7,7 @@
 				<source>The type of the media element, can be video or audio.</source>
 			</trans-unit>
 			<trans-unit id="subtitle.description" xml:space="preserve">
-				<source>optional vtt subtitle file for the media element</source>
+				<source>optional VTT subtitle file for the media element</source>
 			</trans-unit>
 			<trans-unit id="caption.description" xml:space="preserve">
 				<source>optional caption for the media element</source>
