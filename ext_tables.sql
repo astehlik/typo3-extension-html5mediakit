@@ -14,6 +14,7 @@ CREATE TABLE tx_html5mediakit_domain_model_media (
 	parent_table varchar(255) DEFAULT '' NOT NULL,
 
 	type varchar(100) DEFAULT '' NOT NULL,
+	subtitle tinyint(3) unsigned DEFAULT '0' NOT NULL,
 	caption varchar(255) DEFAULT '' NOT NULL,
 	description text NOT NULL,
 	mp3 tinyint(3) unsigned DEFAULT '0' NOT NULL,
