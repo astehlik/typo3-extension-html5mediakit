@@ -86,6 +86,11 @@ return [
                 'maxitems' => 1,
             ],
         ],
+        'subtitle' => [
+            'label' => $languagePrefixColumn . 'subtitle',
+            'description' => $languagePrefixCsh . 'subtitle.description',
+            'config' => $buildFileFieldConfig(['vtt']),
+        ],
         'caption' => [
             'label' => $languagePrefixColumn . 'caption',
             'description' => $languagePrefixCsh . 'caption.description',
@@ -199,7 +204,7 @@ return [
     ],
     'palettes' => [
         'metadata' => [
-            'showitem' => 'caption, --linebreak--, description',
+            'showitem' => 'subtitle, --linebreak--, caption, --linebreak--, description',
             'canNotCollapse' => 1,
         ],
         'hiddenFields' => [
