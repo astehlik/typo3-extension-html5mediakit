@@ -49,6 +49,13 @@ class Video extends Media
      */
     protected $webM;
 
+    /**
+     * Reference to the WebVTT subtitle file (.vtt).
+     *
+     * @var FileReference
+     */
+    protected $subtitle;
+
     public function getH264(): FileReference
     {
         return $this->h264;
@@ -79,6 +86,14 @@ class Video extends Media
     }
 
     /**
+     * Returns true if an poster image is available.
+     */
+    public function getHasSubtitle(): bool
+    {
+        return $this->subtitle instanceof FileReference;
+    }
+
+    /**
      * Returns true if an WebM file is available.
      */
     public function getHasWebM(): bool
@@ -94,6 +109,11 @@ class Video extends Media
     public function getPoster(): FileReference
     {
         return $this->poster;
+    }
+
+    public function getSubtitle(): FileReference
+    {
+        return $this->subtitle;
     }
 
     /**
