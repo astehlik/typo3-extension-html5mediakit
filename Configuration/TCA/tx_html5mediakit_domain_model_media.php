@@ -87,6 +87,7 @@ return [
             ],
         ],
         'subtitle' => [
+            'displayCond' => 'FIELD:type:=:video',
             'label' => $languagePrefixColumn . 'subtitle',
             'description' => $languagePrefixCsh . 'subtitle.description',
             'config' => $buildFileFieldConfig(['vtt']),
