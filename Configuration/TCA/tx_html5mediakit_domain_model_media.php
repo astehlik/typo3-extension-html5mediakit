@@ -90,7 +90,7 @@ return [
             'displayCond' => 'FIELD:type:=:video',
             'label' => $languagePrefixColumn . 'subtitle',
             'description' => $languagePrefixCsh . 'subtitle.description',
-            'config' => $buildFileFieldConfig(['vtt']),
+            'config' => $buildFileFieldConfig(['vtt', 'srt', 'sub']),
         ],
         'caption' => [
             'label' => $languagePrefixColumn . 'caption',
