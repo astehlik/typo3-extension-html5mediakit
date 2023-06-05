@@ -41,5 +41,11 @@
             </p>
         </f:if>
     </div>
+
+    <f:if condition="{video.subtitles}">
+        <f:for each="{video.subtitles}" as="subtitle" iteration="iteration">
+            <track {f:if(condition: iteration.isFirst, then: 'default')} kind="subtitles" src="{subtitle.originalResource.publicUrl}">
+        </f:for>
+    </f:if>
 </h5:video>
 </html>

@@ -15,6 +15,7 @@ namespace Sto\Html5mediakit\Domain\Model;
  *                                                                        */
 
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
  * Video media containing different video formats.
@@ -50,11 +51,11 @@ class Video extends Media
     protected $webM;
 
     /**
-     * Reference to the WebVTT subtitle file (.vtt).
+     * Reference to the subtitle file.
      *
-     * @var FileReference
+     * @var ObjectStorage<FileReference>
      */
-    protected $subtitle;
+    protected $subtitles;
 
     public function getH264(): FileReference
     {
@@ -86,14 +87,6 @@ class Video extends Media
     }
 
     /**
-     * Returns true if a subtitle file is available.
-     */
-    public function getHasSubtitle(): bool
-    {
-        return $this->subtitle instanceof FileReference;
-    }
-
-    /**
      * Returns true if an WebM file is available.
      */
     public function getHasWebM(): bool
@@ -111,9 +104,9 @@ class Video extends Media
         return $this->poster;
     }
 
-    public function getSubtitle(): FileReference
+    public function getSubtitles(): ObjectStorage
     {
-        return $this->subtitle;
+        return $this->subtitles;
     }
 
     /**

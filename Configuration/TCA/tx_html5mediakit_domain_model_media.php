@@ -86,11 +86,14 @@ return [
                 'maxitems' => 1,
             ],
         ],
-        'subtitle' => [
+        'subtitles' => [
             'displayCond' => 'FIELD:type:=:video',
-            'label' => $languagePrefixColumn . 'subtitle',
-            'description' => $languagePrefixCsh . 'subtitle.description',
-            'config' => $buildFileFieldConfig(['vtt', 'srt', 'sub']),
+            'label' => $languagePrefixColumn . 'subtitles',
+            'description' => $languagePrefixCsh . 'subtitles.description',
+            'config' => [
+                'type' => 'file',
+                'allowed' => ['vtt', 'srt', 'sub'],
+            ]
         ],
         'caption' => [
             'label' => $languagePrefixColumn . 'caption',
@@ -205,7 +208,7 @@ return [
     ],
     'palettes' => [
         'metadata' => [
-            'showitem' => 'subtitle, --linebreak--, caption, --linebreak--, description',
+            'showitem' => 'subtitles, --linebreak--, caption, --linebreak--, description',
             'canNotCollapse' => 1,
         ],
         'hiddenFields' => [

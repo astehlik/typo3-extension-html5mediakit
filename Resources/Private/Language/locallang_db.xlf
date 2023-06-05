@@ -9,6 +9,9 @@
 			<trans-unit id="tt_content.tx_html5mediakit_media" xml:space="preserve">
 				<source>Media file</source>
 			</trans-unit>
+			<trans-unit id="sys_file_reference.language" xml:space="preserve">
+				<source>Language</source>
+			</trans-unit>
 			<trans-unit id="new_content_element_wizard_html5mediakitmediarenderer_description" xml:space="preserve">
 				<source>Embed a video or audio file from the file list.</source>
 			</trans-unit>
@@ -30,8 +33,8 @@
 			<trans-unit id="tx_html5mediakit_domain_model_media.caption" xml:space="preserve">
 				<source>Caption</source>
 			</trans-unit>
-			<trans-unit id="tx_html5mediakit_domain_model_media.subtitle" xml:space="preserve">
-				<source>Subtitle</source>
+			<trans-unit id="tx_html5mediakit_domain_model_media.subtitles" xml:space="preserve">
+				<source>Subtitles</source>
 			</trans-unit>
 			<trans-unit id="tx_html5mediakit_domain_model_media.description" xml:space="preserve">
 				<source>Description</source>
