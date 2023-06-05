@@ -86,7 +86,7 @@ class Video extends Media
     }
 
     /**
-     * Returns true if an poster image is available.
+     * Returns true if a subtitle file is available.
      */
     public function getHasSubtitle(): bool
     {
