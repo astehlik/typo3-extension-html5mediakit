@@ -10,7 +10,8 @@ $additionalColumns = [
         'description' => 'LLL:EXT:html5mediakit/Resources/Private/Language/locallang_csh_media.xlf:language.description',
         'config' => [
             'type' => 'input',
-            'eval' => 'trim,required,alpha,nospace,lower,2'
+            'eval' => 'trim,required,alpha,nospace,lower,2',
+            'default' => 'en'
         ],
     ],
 ];
@@ -26,3 +27,5 @@ ExtensionManagementUtility::addToAllTCAtypes(
     '',
     'after:title'
 );
+
+$GLOBALS['TCA']['sys_file_reference']['columns']['language']['displayCond'] = 'FIELD:fieldname:=:subtitles';
