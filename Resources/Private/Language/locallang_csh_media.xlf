@@ -9,6 +9,9 @@
 			<trans-unit id="subtitles.description" xml:space="preserve">
 				<source>An optional subtitle file(s) for the video.</source>
 			</trans-unit>
+			<trans-unit id="language.description" xml:space="preserve">
+				<source>Please enter the subtitle language in ISO 639-1 format.</source>
+			</trans-unit>
 			<trans-unit id="caption.description" xml:space="preserve">
 				<source>An optional caption for the media element.</source>
 			</trans-unit>
