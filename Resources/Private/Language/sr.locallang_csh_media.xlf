@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0">
+  <file source-language="en" datatype="plaintext" original="messages" date="2011-10-17T20:22:32Z" product-name="html5mediakit" target-language="sr">
+    <header/>
+    <body>
+      <trans-unit id="type.description" xml:space="preserve">
+				<source>The type of the media element, can be video or audio.</source>
+			<target state="needs-translation">The type of the media element, can be video or audio.</target></trans-unit>
+      <trans-unit id="caption.description" xml:space="preserve">
+				<source>Optinal caption for the media element</source>
+			<target state="needs-translation">Optinal caption for the media element</target></trans-unit>
+      <trans-unit id="description.description" xml:space="preserve">
+				<source>An optional short description of the media file, e.g. information about author / source of the media file.</source>
+			<target state="needs-translation">An optional short description of the media file, e.g. information about author / source of the media file.</target></trans-unit>
+      <trans-unit id="mp3.description" xml:space="preserve">
+				<source>Insert the MP3 version of your audio file here. Optionally you can also add an ogg version for increased browser support.</source>
+			<target state="needs-translation">Insert the MP3 version of your audio file here. Optionally you can also add an ogg version for increased browser support.</target></trans-unit>
+      <trans-unit id="ogg.description" xml:space="preserve">
+				<source>Optional OGG version of your audio file. It should contain the same audio data as the selected MP3 file. Use this for increased browser support.</source>
+			<target state="needs-translation">Optional OGG version of your audio file. It should contain the same audio data as the selected MP3 file. Use this for increased browser support.</target></trans-unit>
+      <trans-unit id="h264.description" xml:space="preserve">
+				<source>Insert the h.264 version of your medie file here. Optionall you can also add an OGV or a WebM version to increase browser support.</source>
+			<target state="needs-translation">Insert the h.264 version of your medie file here. Optionall you can also add an OGV or a WebM version to increase browser support.</target></trans-unit>
+      <trans-unit id="ogv.description" xml:space="preserve">
+				<source>Optional OGV version of your video file. It should contain the same video data as the selected h.264 file. Use this for increased browser support.</source>
+			<target state="needs-translation">Optional OGV version of your video file. It should contain the same video data as the selected h.264 file. Use this for increased browser support.</target></trans-unit>
+      <trans-unit id="web_m.description" xml:space="preserve">
+				<source>Optional WebM version of your video file. It should contain the same video data as the selected h.264 file. Use this for increased browser support.</source>
+			<target state="needs-translation">Optional WebM version of your video file. It should contain the same video data as the selected h.264 file. Use this for increased browser support.</target></trans-unit>
+    </body>
+  </file>
+</xliff>
