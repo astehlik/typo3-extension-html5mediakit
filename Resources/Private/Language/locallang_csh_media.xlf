@@ -7,7 +7,7 @@
 				<source>The type of the media element, can be video or audio.</source>
 			</trans-unit>
 			<trans-unit id="subtitles.description" xml:space="preserve">
-				<source>An optional subtitle file(s) for the video.</source>
+				<source>Optional subtitle files for the media file.</source>
 			</trans-unit>
 			<trans-unit id="language.description" xml:space="preserve">
 				<source>Please enter the subtitle language in ISO 639-1 format (e. g. „de“, „en“, „fr“).</source>
