@@ -57,6 +57,12 @@
 			<trans-unit id="tx_html5mediakit_domain_model_media.palette.metadata" xml:space="preserve">
 				<source>Metadata</source>
 			</trans-unit>
+			<trans-unit id="tx_html5mediakit_track_srclang" xml:space="preserve">
+				<source>Subtitle language</source>
+			</trans-unit>
+			<trans-unit id="tx_html5mediakit_track_srclang.description" xml:space="preserve">
+				<source>Please enter the subtitle language in ISO 639-1 format (e. g. „de“, „en“, „fr“).</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

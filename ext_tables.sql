@@ -9,7 +9,7 @@ CREATE TABLE tt_content (
 # Table structure for table 'sys_file_reference'
 #
 CREATE TABLE sys_file_reference (
-	'language' varchar(255) DEFAULT '' NOT NULL,
+	tx_html5mediakit_track_srclang varchar(255) DEFAULT '' NOT NULL,
 );
 
 #

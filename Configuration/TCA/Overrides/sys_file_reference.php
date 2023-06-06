@@ -5,9 +5,9 @@ declare(strict_types=1);
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
 $additionalColumns = [
-    'language' => [
-        'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
-        'description' => 'LLL:EXT:html5mediakit/Resources/Private/Language/locallang_csh_media.xlf:language.description',
+    'tx_html5mediakit_track_srclang' => [
+        'label' => 'LLL:EXT:html5mediakit/Resources/Private/Language/locallang_db:tx_html5mediakit_track_srclang',
+        'description' => 'LLL:EXT:html5mediakit/Resources/Private/Language/locallang_db:tx_html5mediakit_track_srclang.description',
         'config' => [
             'type' => 'input',
             'eval' => 'trim,required,alpha,nospace,lower,2',
@@ -23,9 +23,9 @@ ExtensionManagementUtility::addTCAcolumns(
 
 ExtensionManagementUtility::addToAllTCAtypes(
     'sys_file_reference',
-    'language',
+    'tx_html5mediakit_track_srclang',
     '',
     'after:title'
 );
 
-$GLOBALS['TCA']['sys_file_reference']['columns']['language']['displayCond'] = 'FIELD:fieldname:=:subtitles';
+$GLOBALS['TCA']['sys_file_reference']['columns']['tx_html5mediakit_track_srclang']['displayCond'] = 'FIELD:fieldname:=:subtitles';
