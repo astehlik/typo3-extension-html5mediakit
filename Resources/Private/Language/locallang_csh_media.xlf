@@ -6,7 +6,7 @@
 			<trans-unit id="type.description" xml:space="preserve">
 				<source>The type of the media element, can be video or audio.</source>
 			</trans-unit>
-			<trans-unit id="subtitles.description" xml:space="preserve">
+			<trans-unit id="tracks.description" xml:space="preserve">
 				<source>Optional subtitle files for the media file.</source>
 			</trans-unit>
 			<trans-unit id="caption.description" xml:space="preserve">

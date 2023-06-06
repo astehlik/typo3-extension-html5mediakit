@@ -30,7 +30,7 @@
 			<trans-unit id="tx_html5mediakit_domain_model_media.caption" xml:space="preserve">
 				<source>Caption</source>
 			</trans-unit>
-			<trans-unit id="tx_html5mediakit_domain_model_media.subtitles" xml:space="preserve">
+			<trans-unit id="tx_html5mediakit_domain_model_media.tracks" xml:space="preserve">
 				<source>Subtitles</source>
 			</trans-unit>
 			<trans-unit id="tx_html5mediakit_domain_model_media.description" xml:space="preserve">

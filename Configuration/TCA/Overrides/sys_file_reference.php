@@ -28,4 +28,4 @@ ExtensionManagementUtility::addToAllTCAtypes(
     'after:title'
 );
 
-$GLOBALS['TCA']['sys_file_reference']['columns']['tx_html5mediakit_track_srclang']['displayCond'] = 'FIELD:fieldname:=:subtitles';
+$GLOBALS['TCA']['sys_file_reference']['columns']['tx_html5mediakit_track_srclang']['displayCond'] = 'FIELD:fieldname:=:tracks';

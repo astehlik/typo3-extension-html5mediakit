@@ -15,18 +15,12 @@ namespace Sto\Html5mediakit\Domain\Model;
  *                                                                        */
 
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
-use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
  * Video media containing different video formats.
  */
 class Video extends Media
 {
-    public function __construct()
-    {
-        $this->subtitles = new ObjectStorage();
-    }
-
     /**
      * Reference to the h.264 (.mp4) version of the video.
      *
@@ -54,13 +48,6 @@ class Video extends Media
      * @var FileReference
      */
     protected $webM;
-
-    /**
-     * Reference to the subtitle file.
-     *
-     * @var ObjectStorage<FileReference>
-     */
-    protected $subtitles;
 
     public function getH264(): FileReference
     {
@@ -107,11 +94,6 @@ class Video extends Media
     public function getPoster(): FileReference
     {
         return $this->poster;
-    }
-
-    public function getSubtitles(): ObjectStorage
-    {
-        return $this->subtitles;
     }
 
     /**

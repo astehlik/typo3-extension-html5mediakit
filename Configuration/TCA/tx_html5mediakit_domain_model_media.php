@@ -86,9 +86,9 @@ return [
                 'maxitems' => 1,
             ],
         ],
-        'subtitles' => [
-            'label' => $languagePrefixColumn . 'subtitles',
-            'description' => $languagePrefixCsh . 'subtitles.description',
+        'tracks' => [
+            'label' => $languagePrefixColumn . 'tracks',
+            'description' => $languagePrefixCsh . 'tracks.description',
             'config' => [
                 'type' => 'file',
                 'allowed' => ['vtt', 'srt', 'sub'],
@@ -207,7 +207,7 @@ return [
     ],
     'palettes' => [
         'metadata' => [
-            'showitem' => 'subtitles, --linebreak--, caption, --linebreak--, description',
+            'showitem' => 'tracks, --linebreak--, caption, --linebreak--, description',
             'canNotCollapse' => 1,
         ],
         'hiddenFields' => [
