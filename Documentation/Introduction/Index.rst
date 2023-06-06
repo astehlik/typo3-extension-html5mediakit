@@ -7,6 +7,7 @@
 Introduction
 ============
 
+This documentation provides step-by-step instructions for embedding video and audio files on your website using the "Video and Audio" content type. It also covers the process of uploading text WebVTT files as captions for the media file to enhanced accessibility.
 
 .. _what-it-does:
 
