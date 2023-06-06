@@ -1,0 +1,4 @@
+<f:for each="{subtitles}" as="subtitle" iteration="iteration">
+    <track {f:if(condition: iteration.isFirst, then: 'default' )} kind="subtitles"
+        srclang="{subtitle.originalResource.properties.language}" src="{subtitle.originalResource.publicUrl}">
+</f:for>
