@@ -87,7 +87,6 @@ return [
             ],
         ],
         'subtitles' => [
-            'displayCond' => 'FIELD:type:=:video',
             'label' => $languagePrefixColumn . 'subtitles',
             'description' => $languagePrefixCsh . 'subtitles.description',
             'config' => [
