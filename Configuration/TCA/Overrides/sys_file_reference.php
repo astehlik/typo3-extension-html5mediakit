@@ -13,6 +13,12 @@ $additionalColumns = [
             'eval' => 'trim,required,alpha,nospace,lower,2',
             'default' => 'en'
         ],
+        'displayCond' => [
+            'AND' => [
+                'FIELD:tablenames:=:tx_html5mediakit_domain_model_media',
+                'FIELD:fieldname:=:tracks'
+            ],
+        ],
     ],
 ];
 
@@ -27,5 +33,3 @@ ExtensionManagementUtility::addToAllTCAtypes(
     '',
     'after:title'
 );
-
-$GLOBALS['TCA']['sys_file_reference']['columns']['tx_html5mediakit_track_srclang']['displayCond'] = 'FIELD:fieldname:=:tracks';
