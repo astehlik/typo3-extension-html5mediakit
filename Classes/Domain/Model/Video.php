@@ -22,6 +22,11 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
  */
 class Video extends Media
 {
+    public function __construct()
+    {
+        $this->subtitles = new ObjectStorage();
+    }
+
     /**
      * Reference to the h.264 (.mp4) version of the video.
      *
