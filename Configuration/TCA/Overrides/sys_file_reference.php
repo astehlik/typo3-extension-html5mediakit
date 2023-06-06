@@ -11,6 +11,7 @@ $additionalColumns = [
         'config' => [
             'type' => 'input',
             'eval' => 'trim,required,alpha,nospace,lower,2',
+            'size' => 10,
             'default' => 'en'
         ],
         'displayCond' => [
