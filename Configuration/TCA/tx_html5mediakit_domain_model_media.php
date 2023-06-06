@@ -91,7 +91,7 @@ return [
             'description' => $languagePrefixCsh . 'tracks.description',
             'config' => [
                 'type' => 'file',
-                'allowed' => ['vtt', 'srt', 'sub'],
+                'allowed' => 'vtt',
             ]
         ],
         'caption' => [
