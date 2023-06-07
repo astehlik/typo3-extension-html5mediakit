@@ -37,7 +37,7 @@ Here are some screenshots of the extension in action:
    :width: 480px
    :alt: A screenshot of the Backend form for editing a video content element
 
-- Editing metadata for media element
+- Editing metadata for a media element
 
 .. figure:: ../Images/ScreenshotBackendFormMetadata.png
    :width: 480px
