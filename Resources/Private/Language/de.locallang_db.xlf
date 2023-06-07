@@ -3,57 +3,57 @@
   <file source-language="en" datatype="plaintext" original="messages" date="2011-10-17T20:22:32Z" product-name="html5mediakit" target-language="de">
     <header/>
     <body>
-      <trans-unit id="tt_content.CType.I.html5mediakit_mediarenderer" xml:space="preserve">
+      <trans-unit id="tt_content.CType.I.html5mediakit_mediarenderer" xml:space="preserve" approved="yes">
 				<source>Video / Audio</source>
-			<target state="needs-translation">Video / Audio</target></trans-unit>
-      <trans-unit id="tt_content.tx_html5mediakit_media" xml:space="preserve">
+			<target state="final">Video / Audio</target></trans-unit>
+      <trans-unit id="tt_content.tx_html5mediakit_media" xml:space="preserve" approved="yes">
 				<source>Media file</source>
-			<target state="needs-translation">Media file</target></trans-unit>
-      <trans-unit id="new_content_element_wizard_html5mediakitmediarenderer_description" xml:space="preserve">
+			<target state="final">Mediendatei</target></trans-unit>
+      <trans-unit id="new_content_element_wizard_html5mediakitmediarenderer_description" xml:space="preserve" approved="yes">
 				<source>Embed a video or audio file from the file list.</source>
-			<target state="needs-translation">Embed a video or audio file from the file list.</target></trans-unit>
-      <trans-unit id="choose_file" xml:space="preserve">
+			<target state="final">Video / Audio Datei aus der Dateiliste einbinden.</target></trans-unit>
+      <trans-unit id="choose_file" xml:space="preserve" approved="yes">
 				<source>Choose file</source>
-			<target state="needs-translation">Choose file</target></trans-unit>
-      <trans-unit id="tx_html5mediakit_domain_model_media" xml:space="preserve">
+			<target state="final">Datei auswählen</target></trans-unit>
+      <trans-unit id="tx_html5mediakit_domain_model_media" xml:space="preserve" approved="yes">
 				<source>Media</source>
-			<target state="needs-translation">Media</target></trans-unit>
-      <trans-unit id="tx_html5mediakit_domain_model_media.type" xml:space="preserve">
+			<target state="final">Medium</target></trans-unit>
+      <trans-unit id="tx_html5mediakit_domain_model_media.type" xml:space="preserve" approved="yes">
 				<source>Type</source>
-			<target state="needs-translation">Type</target></trans-unit>
-      <trans-unit id="tx_html5mediakit_domain_model_media.type.I.video" xml:space="preserve">
+			<target state="final">Typ</target></trans-unit>
+      <trans-unit id="tx_html5mediakit_domain_model_media.type.I.video" xml:space="preserve" approved="yes">
 				<source>Video</source>
-			<target state="needs-translation">Video</target></trans-unit>
-      <trans-unit id="tx_html5mediakit_domain_model_media.type.I.audio" xml:space="preserve">
+			<target state="final">Video</target></trans-unit>
+      <trans-unit id="tx_html5mediakit_domain_model_media.type.I.audio" xml:space="preserve" approved="yes">
 				<source>Audio</source>
-			<target state="needs-translation">Audio</target></trans-unit>
-      <trans-unit id="tx_html5mediakit_domain_model_media.caption" xml:space="preserve">
+			<target state="final">Audio</target></trans-unit>
+      <trans-unit id="tx_html5mediakit_domain_model_media.caption" xml:space="preserve" approved="yes">
 				<source>Caption</source>
-			<target state="needs-translation">Caption</target></trans-unit>
-      <trans-unit id="tx_html5mediakit_domain_model_media.description" xml:space="preserve">
+			<target state="final">Beschriftung</target></trans-unit>
+      <trans-unit id="tx_html5mediakit_domain_model_media.description" xml:space="preserve" approved="yes">
 				<source>Description</source>
-			<target state="needs-translation">Description</target></trans-unit>
-      <trans-unit id="tx_html5mediakit_domain_model_media.mp3" xml:space="preserve">
+			<target state="final">Beschreibung</target></trans-unit>
+      <trans-unit id="tx_html5mediakit_domain_model_media.mp3" xml:space="preserve" approved="yes">
 				<source>MP3 file</source>
-			<target state="needs-translation">MP3 file</target></trans-unit>
-      <trans-unit id="tx_html5mediakit_domain_model_media.ogg" xml:space="preserve">
+			<target state="final">MP3 Datei</target></trans-unit>
+      <trans-unit id="tx_html5mediakit_domain_model_media.ogg" xml:space="preserve" approved="yes">
 				<source>OGG file</source>
-			<target state="needs-translation">OGG file</target></trans-unit>
-      <trans-unit id="tx_html5mediakit_domain_model_media.h264" xml:space="preserve">
+			<target state="final">OGG Datei</target></trans-unit>
+      <trans-unit id="tx_html5mediakit_domain_model_media.h264" xml:space="preserve" approved="yes">
 				<source>h.264 file</source>
-			<target state="needs-translation">h.264 file</target></trans-unit>
-      <trans-unit id="tx_html5mediakit_domain_model_media.ogv" xml:space="preserve">
+			<target state="final">h.264 Datei</target></trans-unit>
+      <trans-unit id="tx_html5mediakit_domain_model_media.ogv" xml:space="preserve" approved="yes">
 				<source>OGV file</source>
-			<target state="needs-translation">OGV file</target></trans-unit>
-      <trans-unit id="tx_html5mediakit_domain_model_media.poster" xml:space="preserve">
+			<target state="final">OGV Datei</target></trans-unit>
+      <trans-unit id="tx_html5mediakit_domain_model_media.poster" xml:space="preserve" approved="yes">
 				<source>Poster image</source>
-			<target state="needs-translation">Poster image</target></trans-unit>
-      <trans-unit id="tx_html5mediakit_domain_model_media.web_m" xml:space="preserve">
+			<target state="final">Vorschaubild</target></trans-unit>
+      <trans-unit id="tx_html5mediakit_domain_model_media.web_m" xml:space="preserve" approved="yes">
 				<source>WebM file</source>
-			<target state="needs-translation">WebM file</target></trans-unit>
-      <trans-unit id="tx_html5mediakit_domain_model_media.palette.metadata" xml:space="preserve">
+			<target state="final">WebM Datei</target></trans-unit>
+      <trans-unit id="tx_html5mediakit_domain_model_media.palette.metadata" xml:space="preserve" approved="yes">
 				<source>Metadata</source>
-			<target state="needs-translation">Metadata</target></trans-unit>
+			<target state="final">Metadaten</target></trans-unit>
     </body>
   </file>
 </xliff>
