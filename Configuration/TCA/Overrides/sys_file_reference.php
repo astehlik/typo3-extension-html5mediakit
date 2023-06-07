@@ -4,6 +4,13 @@ declare(strict_types=1);
 
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
+$displayCondition = [
+    'AND' => [
+        'FIELD:tablenames:=:tx_html5mediakit_domain_model_media',
+        'FIELD:fieldname:=:tracks',
+    ],
+];
+
 $additionalColumns = [
     'tx_html5mediakit_track_kind' => [
         'label' => 'LLL:EXT:html5mediakit/Resources/Private/Language/locallang_db:tx_html5mediakit_track_kind',
@@ -20,12 +27,7 @@ $additionalColumns = [
             ],
             'default' => 'subtitles',
         ],
-        'displayCond' => [
-            'AND' => [
-                'FIELD:tablenames:=:tx_html5mediakit_domain_model_media',
-                'FIELD:fieldname:=:tracks',
-            ],
-        ],
+        'displayCond' => $displayCondition,
     ],
     'tx_html5mediakit_track_label' => [
         'label' => 'LLL:EXT:html5mediakit/Resources/Private/Language/locallang_db:tx_html5mediakit_track_label',
@@ -34,12 +36,7 @@ $additionalColumns = [
             'eval' => 'trim',
             'size' => 10,
         ],
-        'displayCond' => [
-            'AND' => [
-                'FIELD:tablenames:=:tx_html5mediakit_domain_model_media',
-                'FIELD:fieldname:=:tracks',
-            ],
-        ],
+        'displayCond' => $displayCondition,
     ],
     'tx_html5mediakit_track_srclang' => [
         'label' => 'LLL:EXT:html5mediakit/Resources/Private/Language/locallang_db:tx_html5mediakit_track_srclang',
@@ -49,12 +46,7 @@ $additionalColumns = [
             'eval' => 'trim,required,alpha,nospace,lower,2',
             'size' => 10,
         ],
-        'displayCond' => [
-            'AND' => [
-                'FIELD:tablenames:=:tx_html5mediakit_domain_model_media',
-                'FIELD:fieldname:=:tracks',
-            ],
-        ],
+        'displayCond' => $displayCondition,
     ],
 ];
 
@@ -67,5 +59,5 @@ ExtensionManagementUtility::addToAllTCAtypes(
     'sys_file_reference',
     'tx_html5mediakit_track_kind, tx_html5mediakit_track_label, tx_html5mediakit_track_srclang',
     '',
-    'after:title'
+    'after:title',
 );
