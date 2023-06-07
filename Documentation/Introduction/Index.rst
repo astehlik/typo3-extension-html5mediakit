@@ -9,9 +9,9 @@ Introduction
 
 This documentation provides step-by-step instructions for embedding video and audio files on your website using the "Video / Audio" content type. It also covers the process of uploading text WebVTT files as captions for the media file to enhanced accessibility.
 
-.. _what-it-works:
+.. _how-it-works:
 
-What does it work?
+How does it work?
 ================
 
 This extension introduces a new content type e "Video / Audio" that enhances the functionality of your website. Backend users gain the ability to upload and manage video and audio files in various formats, ensuring compatibility across different browsers.
