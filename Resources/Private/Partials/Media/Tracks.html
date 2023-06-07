@@ -1,5 +1,5 @@
 <f:for each="{tracks}" as="track" iteration="iteration">
-    <track {f:if(condition: iteration.isFirst, then: 'default' )} kind="subtitles"
+    <track {f:if(condition: iteration.isFirst, then: 'default')} kind="subtitles"
         label="{track.originalResource.properties.tx_html5mediakit_track_srclang}"
         srclang="{track.originalResource.properties.tx_html5mediakit_track_srclang}"
         src="{track.originalResource.publicUrl}">
