@@ -7,7 +7,7 @@
 Introduction
 ============
 
-This documentation provides step-by-step instructions for embedding video and audio files on your website using the "Video / Audio" content type. It also covers the process of uploading text WebVTT files as captions for the media file to enhanced accessibility.
+This documentation provides step-by-step instructions for embedding video and audio files on your website using the "Video / Audio" content type. It also covers the process of adding metadata for the media file and uploading text WebVTT files to serve as captions to enhanced accessibility.
 
 .. _how-it-works:
 
@@ -24,13 +24,19 @@ Screenshots
 ===========
 
 .. figure:: ../Images/ScreenshotBackendFormAudio.png
-   :width: 680px
+   :width: 480px
    :alt: A screenshot of a Backend form for editing an audio content element
 
    Editing an audio content element
 
 .. figure:: ../Images/ScreenshotBackendFormVideo.png
-   :width: 680px
+   :width: 480px
    :alt: A screenshot of the Backend form for editing a video content element
 
    Editing a video content element
+
+.. figure:: ../Images/ScreenshotBackendFormMetadata.png
+   :width: 480px
+   :alt: A screenshot of the Backend form for editing the metadata of a media element
+
+   Editing metadata for media element
