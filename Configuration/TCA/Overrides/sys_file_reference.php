@@ -12,12 +12,11 @@ $additionalColumns = [
             'type' => 'input',
             'eval' => 'trim,required,alpha,nospace,lower,2',
             'size' => 10,
-            'default' => 'en'
         ],
         'displayCond' => [
             'AND' => [
                 'FIELD:tablenames:=:tx_html5mediakit_domain_model_media',
-                'FIELD:fieldname:=:tracks'
+                'FIELD:fieldname:=:tracks',
             ],
         ],
     ],
