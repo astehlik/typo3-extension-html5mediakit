@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0">
+  <file source-language="en" datatype="plaintext" original="messages" date="2011-10-17T20:22:32Z" product-name="html5mediakit" target-language="no">
+    <header/>
+    <body>
+      <trans-unit id="media_audio_tag_not_supported" xml:space="preserve">
+				<source><![CDATA[Your browser does not seem to support the <code>audio</code> tag.]]></source>
+			<target state="needs-translation"><![CDATA[Your browser does not seem to support the <code>audio</code> tag.]]></target></trans-unit>
+      <trans-unit id="media_audio_download_hint_mp3" xml:space="preserve">
+				<source>You can download the audio file in the MP3 format using this URL:</source>
+			<target state="needs-translation">You can download the audio file in the MP3 format using this URL:</target></trans-unit>
+      <trans-unit id="media_audio_download_hint_ogg" xml:space="preserve">
+				<source>You can download the audio file in the OGG / Vorbis format using this URL:</source>
+			<target state="needs-translation">You can download the audio file in the OGG / Vorbis format using this URL:</target></trans-unit>
+      <trans-unit id="media_video_tag_not_supported" xml:space="preserve">
+				<source><![CDATA[Your browser does not seem to support the <code>video</code> tag.]]></source>
+			<target state="needs-translation"><![CDATA[Your browser does not seem to support the <code>video</code> tag.]]></target></trans-unit>
+      <trans-unit id="media_video_download_hint_webm" xml:space="preserve">
+				<source>You can download the video file in the WebM format using this URL:</source>
+			<target state="needs-translation">You can download the video file in the WebM format using this URL:</target></trans-unit>
+      <trans-unit id="media_video_download_hint_h265" xml:space="preserve">
+				<source>You can download the video file in the h.264 format using this URL:</source>
+			<target state="needs-translation">You can download the video file in the h.264 format using this URL:</target></trans-unit>
+      <trans-unit id="media_video_download_hint_ogv" xml:space="preserve">
+				<source>You can download the video file in the OGG Theora format using this URL:</source>
+			<target state="needs-translation">You can download the video file in the OGG Theora format using this URL:</target></trans-unit>
+      <trans-unit id="exception.1483385454" xml:space="preserve">
+				<source>No media element was found in the current content element.</source>
+			<target state="needs-translation">No media element was found in the current content element.</target></trans-unit>
+    </body>
+  </file>
+</xliff>
