@@ -57,6 +57,12 @@
 			<trans-unit id="tx_html5mediakit_domain_model_media.palette.metadata" xml:space="preserve">
 				<source>Metadata</source>
 			</trans-unit>
+			<trans-unit id="tx_html5mediakit_track_kind" xml:space="preserve">
+				<source>Track kind</source>
+			</trans-unit>
+			<trans-unit id="tx_html5mediakit_track_label" xml:space="preserve">
+				<source>Track label</source>
+			</trans-unit>
 			<trans-unit id="tx_html5mediakit_track_srclang" xml:space="preserve">
 				<source>Track language</source>
 			</trans-unit>
