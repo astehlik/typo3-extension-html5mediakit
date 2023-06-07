@@ -7,7 +7,7 @@
 				<source>The type of the media element, can be video or audio.</source>
 			</trans-unit>
 			<trans-unit id="tracks.description" xml:space="preserve">
-				<source>Optional WebVTT caption files, the caption file placed at the top will serve as the default caption for the media file.</source>
+				<source>Optional WebVTT timed text files, the file placed at the top will serve as the default track for the media file.</source>
 			</trans-unit>
 			<trans-unit id="caption.description" xml:space="preserve">
 				<source>An optional caption for the media element.</source>
