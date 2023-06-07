@@ -74,7 +74,7 @@ class Media extends AbstractEntity
     protected $type;
 
     /**
-     * Reference to the subtitle file.
+     * Reference to the track file.
      *
      * @var ObjectStorage<FileReference>
      */

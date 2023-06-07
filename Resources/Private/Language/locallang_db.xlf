@@ -31,7 +31,7 @@
 				<source>Caption</source>
 			</trans-unit>
 			<trans-unit id="tx_html5mediakit_domain_model_media.tracks" xml:space="preserve">
-				<source>Subtitles</source>
+				<source>Captions</source>
 			</trans-unit>
 			<trans-unit id="tx_html5mediakit_domain_model_media.description" xml:space="preserve">
 				<source>Description</source>
@@ -58,10 +58,10 @@
 				<source>Metadata</source>
 			</trans-unit>
 			<trans-unit id="tx_html5mediakit_track_srclang" xml:space="preserve">
-				<source>Subtitle language</source>
+				<source>Caption language</source>
 			</trans-unit>
 			<trans-unit id="tx_html5mediakit_track_srclang.description" xml:space="preserve">
-				<source>Please enter the subtitle language in ISO 639-1 format (e. g. „de“, „en“, „fr“).</source>
+				<source>Please enter the caption language in ISO 639-1 format (e. g. „de“, „en“, „fr“).</source>
 			</trans-unit>
 		</body>
 	</file>
