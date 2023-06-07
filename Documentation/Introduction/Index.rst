@@ -23,20 +23,22 @@ Under the hood, the extension configures a new media model with the necessary TC
 Screenshots
 ===========
 
+Here are some screenshots of the extension in action:
+
+- Editing an audio content element
+
 .. figure:: ../Images/ScreenshotBackendFormAudio.png
    :width: 480px
    :alt: A screenshot of a Backend form for editing an audio content element
 
-   Editing an audio content element
+- Editing a video content element
 
 .. figure:: ../Images/ScreenshotBackendFormVideo.png
    :width: 480px
    :alt: A screenshot of the Backend form for editing a video content element
 
-   Editing a video content element
+- Editing metadata for media element
 
 .. figure:: ../Images/ScreenshotBackendFormMetadata.png
    :width: 480px
    :alt: A screenshot of the Backend form for editing the metadata of a media element
-
-   Editing metadata for media element
