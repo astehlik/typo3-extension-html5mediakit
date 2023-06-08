@@ -57,7 +57,9 @@ $additionalColumns = [
         'description' => 'LLL:EXT:html5mediakit/Resources/Private/Language/locallang_db:tx_html5mediakit_track_srclang.description',
         'config' => [
             'type' => 'input',
-            'eval' => 'trim,required,alpha,nospace,lower,2',
+            'eval' => 'trim,alpha,nospace,lower',
+            'min' => 2,
+            'max' => 2,
             'size' => 10,
         ],
         'displayCond' => $displayCondition,
