@@ -13,7 +13,7 @@ $displayCondition = [
 
 $additionalColumns = [
     'tx_html5mediakit_track_kind' => [
-        'label' => 'LLL:EXT:html5mediakit/Resources/Private/Language/locallang_db:tx_html5mediakit_track_kind',
+        'label' => 'LLL:EXT:html5mediakit/Resources/Private/Language/locallang_db:sys_file_reference.tx_html5mediakit_track_kind',
         'config' => [
             'type' => 'select',
             'renderType' => 'selectSingle',
