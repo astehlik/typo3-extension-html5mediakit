@@ -10,39 +10,57 @@ $languagePrefixColumn = $languagePrefix . 'tx_html5mediakit_domain_model_media.'
 $languagePrefixCsh = 'LLL:EXT:html5mediakit/Resources/Private/Language/locallang_csh_media.xlf:';
 $lllAddImageFileReference = 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference';
 
-$buildFileFieldConfig = function (array $allowedFileTypes) use ($languagePrefix) {
-    return [
+$buildFileFieldConfig = function (
+    array $allowedFileTypes,
+    int $maxitems = 1,
+    string $showitem = ''
+) use (
+    $languagePrefix
+) {
+    $showitem .= ',--palette--;;filePalette';
+    $showitem = ltrim($showitem, ',');
+    $allowsMultipleFiles = $maxitems === 0 || $maxitems > 1;
+
+    $config = [
         'type' => 'file',
         'allowed' => $allowedFileTypes,
+        'behaviour' => ['allowLanguageSynchronization' => true],
         'appearance' => [
+            'showPossibleLocalizationRecords' => $allowsMultipleFiles,
             'createNewRelationLinkTitle' => $languagePrefix . 'choose_file',
-            'useSortable' => false,
+            'useSortable' => $allowsMultipleFiles,
             'headerThumbnail' => [
                 'field' => '',
                 'width' => '0',
                 'height' => '0',
             ],
             'enabledControls' => [
-                'info' => false,
-                'new' => false,
-                'dragdrop' => false,
-                'sort' => false,
-                'hide' => false,
+                'info' => true,
+                'new' => $allowsMultipleFiles,
+                'dragdrop' => $allowsMultipleFiles,
+                'sort' => $allowsMultipleFiles,
+                'hide' => $allowsMultipleFiles,
                 'delete' => true,
-                'localize' => false,
+                'localize' => $allowsMultipleFiles,
             ],
         ],
         'overrideChildTca' => [
             'types' => [
-                '0' => ['showitem' => '--palette--;;filePalette'],
-                AbstractFile::FILETYPE_AUDIO => ['showitem' => '--palette--;;filePalette'],
-                AbstractFile::FILETYPE_VIDEO => ['showitem' => '--palette--;;filePalette'],
-                AbstractFile::FILETYPE_APPLICATION => ['showitem' => '--palette--;;filePalette'],
+                AbstractFile::FILETYPE_UNKNOWN => ['showitem' => $showitem],
+                AbstractFile::FILETYPE_AUDIO => ['showitem' => $showitem],
+                AbstractFile::FILETYPE_VIDEO => ['showitem' => $showitem],
+                AbstractFile::FILETYPE_APPLICATION => ['showitem' => $showitem],
+                AbstractFile::FILETYPE_TEXT => ['showitem' => $showitem],
             ],
         ],
-        'maxitems' => 1,
         'security' => ['ignorePageTypeRestriction' => true],
     ];
+
+    if ($maxitems > 0) {
+        $config['maxitems'] = $maxitems;
+    }
+
+    return $config;
 };
 
 return [
@@ -90,10 +108,11 @@ return [
         'tracks' => [
             'label' => $languagePrefixColumn . 'tracks',
             'description' => $languagePrefixCsh . 'tracks.description',
-            'config' => [
-                'type' => 'file',
-                'allowed' => 'vtt',
-            ],
+            'config' => $buildFileFieldConfig(
+                ['vtt'],
+                0,
+                'tx_html5mediakit_track_kind, tx_html5mediakit_track_label, tx_html5mediakit_track_srclang',
+            ),
         ],
         'caption' => [
             'label' => $languagePrefixColumn . 'caption',
@@ -193,27 +212,36 @@ return [
         '0' => ['showitem' => 'type,--palette--;;hiddenFields'],
         'video' => [
             'showitem' => '
-                type, h264, web_m, ogv, poster,
-                --palette--;' . $languagePrefixColumn . 'palette.metadata;metadata,
-                --palette--;;hiddenFields
+                --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.media,
+                    type, h264, web_m, ogv, poster,
+                    --palette--;;hiddenFields,
+                --div--;' . $languagePrefixColumn . 'tracks,
+                    tracks,
+                --div--;' . $languagePrefixColumn . 'palette.metadata;metadata,
+                    caption, description,
+                --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
+                    --palette--;;language,
             ',
         ],
         'audio' => [
             'showitem' => '
-                type, mp3, ogg,
-                --palette--;' . $languagePrefixColumn . 'palette.metadata;metadata,
-                --palette--;;hiddenFields
+                --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.media,
+                    type, mp3, ogg,
+                    --palette--;;hiddenFields,
+                --div--;' . $languagePrefixColumn . 'tracks,
+                    tracks,
+                --div--;' . $languagePrefixColumn . 'palette.metadata;metadata,
+                    caption, description,
+                --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
+                    --palette--;;language,
             ',
         ],
     ],
     'palettes' => [
-        'metadata' => [
-            'showitem' => 'tracks, --linebreak--, caption, --linebreak--, description',
-            'canNotCollapse' => 1,
-        ],
-        'hiddenFields' => [
-            'showitem' => 'sys_language_uid, l10n_parent',
-            'isHiddenPalette' => true,
+        'language' => [
+            'showitem' => '
+                sys_language_uid, l10n_parent
+            ',
         ],
     ],
 ];

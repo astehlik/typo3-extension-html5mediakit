@@ -6,13 +6,6 @@ use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
 $lllPrefix = 'LLL:EXT:html5mediakit/Resources/Private/Language/locallang_db:sys_file_reference.';
 
-$displayCondition = [
-    'AND' => [
-        'FIELD:tablenames:=:tx_html5mediakit_domain_model_media',
-        'FIELD:fieldname:=:tracks',
-    ],
-];
-
 $additionalColumns = [
     'tx_html5mediakit_track_kind' => [
         'label' => $lllPrefix . 'tx_html5mediakit_track_kind',
@@ -43,7 +36,6 @@ $additionalColumns = [
             ],
             'default' => 'subtitles',
         ],
-        'displayCond' => $displayCondition,
     ],
     'tx_html5mediakit_track_label' => [
         'label' => $lllPrefix . 'tx_html5mediakit_track_label',
@@ -53,7 +45,6 @@ $additionalColumns = [
             'eval' => 'trim',
             'size' => 10,
         ],
-        'displayCond' => $displayCondition,
     ],
     'tx_html5mediakit_track_srclang' => [
         'label' => $lllPrefix . 'tx_html5mediakit_track_srclang',
@@ -65,18 +56,10 @@ $additionalColumns = [
             'max' => 2,
             'size' => 10,
         ],
-        'displayCond' => $displayCondition,
     ],
 ];
 
 ExtensionManagementUtility::addTCAcolumns(
     'sys_file_reference',
     $additionalColumns
-);
-
-ExtensionManagementUtility::addToAllTCAtypes(
-    'sys_file_reference',
-    'tx_html5mediakit_track_kind, tx_html5mediakit_track_label, tx_html5mediakit_track_srclang',
-    '',
-    'after:title',
 );
