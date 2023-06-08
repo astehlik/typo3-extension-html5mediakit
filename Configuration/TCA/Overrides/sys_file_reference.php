@@ -18,12 +18,26 @@ $additionalColumns = [
             'type' => 'select',
             'renderType' => 'selectSingle',
             'items' => [
-                ['LLL:EXT:html5mediakit/Resources/Private/Language/locallang_db:tx_html5mediakit_track_kind', '--div--'],
-                ['subtitles', 'subtitles'],
-                ['captions', 'captions'],
-                ['descriptions', 'descriptions'],
-                ['chapters', 'chapters'],
-                ['metadata', 'metadata'],
+                [
+                        'label' => 'LLL:EXT:html5mediakit/Resources/Private/Language/locallang_db:sys_file_reference.tx_html5mediakit_track_kind.I.subtitles',
+                        'value' => 'subtitles',
+                ],
+                [
+                        'label' => 'LLL:EXT:html5mediakit/Resources/Private/Language/locallang_db:sys_file_reference.tx_html5mediakit_track_kind.I.captions',
+                        'value' => 'captions',
+                ],
+                [
+                        'label' => 'LLL:EXT:html5mediakit/Resources/Private/Language/locallang_db:sys_file_reference.tx_html5mediakit_track_kind.I.descriptions',
+                        'value' => 'descriptions',
+                ],
+                [
+                        'label' => 'LLL:EXT:html5mediakit/Resources/Private/Language/locallang_db:sys_file_reference.tx_html5mediakit_track_kind.I.chapters',
+                        'value' => 'chapters',
+                ],
+                [
+                        'label' => 'LLL:EXT:html5mediakit/Resources/Private/Language/locallang_db:sys_file_reference.tx_html5mediakit_track_kind.I.metadata',
+                        'value' => 'metadata',
+                ],
             ],
             'default' => 'subtitles',
         ],
