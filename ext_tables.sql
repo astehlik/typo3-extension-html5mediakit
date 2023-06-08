@@ -6,6 +6,15 @@ CREATE TABLE tt_content (
 );
 
 #
+# Table structure for table 'sys_file_reference'
+#
+CREATE TABLE sys_file_reference (
+	tx_html5mediakit_track_kind varchar(100) DEFAULT '' NOT NULL,
+	tx_html5mediakit_track_srclang varchar(100) DEFAULT '' NOT NULL,
+	tx_html5mediakit_track_label varchar(100) DEFAULT '' NOT NULL,
+);
+
+#
 # Table structure for table 'tx_html5mediakit_domain_model_mediacontentelement'
 #
 CREATE TABLE tx_html5mediakit_domain_model_media (
@@ -14,6 +23,7 @@ CREATE TABLE tx_html5mediakit_domain_model_media (
 	parent_table varchar(255) DEFAULT '' NOT NULL,
 
 	type varchar(100) DEFAULT '' NOT NULL,
+	tracks tinyint(3) unsigned DEFAULT '0' NOT NULL,
 	caption varchar(255) DEFAULT '' NOT NULL,
 	description text NOT NULL,
 	mp3 tinyint(3) unsigned DEFAULT '0' NOT NULL,

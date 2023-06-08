@@ -16,6 +16,8 @@ namespace Sto\Html5mediakit\Domain\Model;
 
 use Sto\Html5mediakit\Domain\Model\Enumeration\MediaType;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+use TYPO3\CMS\Extbase\Domain\Model\FileReference;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
  * Overall media class containing common media properties like
@@ -23,6 +25,11 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
  */
 class Media extends AbstractEntity
 {
+    public function __construct()
+    {
+        $this->tracks = new ObjectStorage();
+    }
+
     /**
      * Caption for the media file.
      *
@@ -65,6 +72,13 @@ class Media extends AbstractEntity
      * @var \Sto\Html5mediakit\Domain\Model\Enumeration\MediaType
      */
     protected $type;
+
+    /**
+     * Reference to the track file.
+     *
+     * @var ObjectStorage<FileReference>
+     */
+    protected $tracks;
 
     public function getCaption(): string
     {
@@ -118,6 +132,11 @@ class Media extends AbstractEntity
         return $this->type;
     }
 
+    public function getTracks(): ObjectStorage
+    {
+        return $this->tracks;
+    }
+
     public function setCaption(string $caption): void
     {
         $this->caption = $caption;
@@ -151,5 +170,10 @@ class Media extends AbstractEntity
     public function setType(MediaType $type): void
     {
         $this->type = $type;
+    }
+
+    public function setTracks(ObjectStorage $tracks): void
+    {
+        $this->tracks = $tracks;
     }
 }

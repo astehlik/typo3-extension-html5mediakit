@@ -86,6 +86,14 @@ return [
                 'maxitems' => 1,
             ],
         ],
+        'tracks' => [
+            'label' => $languagePrefixColumn . 'tracks',
+            'description' => $languagePrefixCsh . 'tracks.description',
+            'config' => [
+                'type' => 'file',
+                'allowed' => 'vtt',
+            ]
+        ],
         'caption' => [
             'label' => $languagePrefixColumn . 'caption',
             'description' => $languagePrefixCsh . 'caption.description',
@@ -199,7 +207,7 @@ return [
     ],
     'palettes' => [
         'metadata' => [
-            'showitem' => 'caption, --linebreak--, description',
+            'showitem' => 'tracks, --linebreak--, caption, --linebreak--, description',
             'canNotCollapse' => 1,
         ],
         'hiddenFields' => [
