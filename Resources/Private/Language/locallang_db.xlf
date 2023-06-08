@@ -60,6 +60,21 @@
 			<trans-unit id="tx_html5mediakit_track_kind" xml:space="preserve">
 				<source>Track kind</source>
 			</trans-unit>
+			<trans-unit id="sys_file_reference.tx_html5mediakit_track_kind.I.subtitles" xml:space="preserve">
+				<source>Subtitles</source>
+			</trans-unit>
+			<trans-unit id="sys_file_reference.tx_html5mediakit_track_kind.I.captions" xml:space="preserve">
+				<source>Closed Captions</source>
+			</trans-unit>
+			<trans-unit id="sys_file_reference.tx_html5mediakit_track_kind.I.descriptions" xml:space="preserve">
+				<source>Descriptions</source>
+			</trans-unit>
+			<trans-unit id="sys_file_reference.tx_html5mediakit_track_kind.I.chapters" xml:space="preserve">
+				<source>Chapter titles</source>
+			</trans-unit>
+			<trans-unit id="sys_file_reference.tx_html5mediakit_track_kind.I.metadata" xml:space="preserve">
+				<source>Metadata</source>
+			</trans-unit>
 			<trans-unit id="tx_html5mediakit_track_label" xml:space="preserve">
 				<source>Track label</source>
 			</trans-unit>
