@@ -7,4 +7,4 @@
 Known Problems
 ==============
 
-There is a minor issue regarding the support of WebVTT track files for audio files. Currently, the majority of web browsers do not fully support this feature.
+While there are no technical issues, there is a notable concern related to the support of WebVTT track files for audio files. Presently, most web browsers lack comprehensive support for this feature.
