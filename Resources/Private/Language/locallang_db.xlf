@@ -57,7 +57,7 @@
 			<trans-unit id="tx_html5mediakit_domain_model_media.palette.metadata" xml:space="preserve">
 				<source>Metadata</source>
 			</trans-unit>
-			<trans-unit id="tx_html5mediakit_track_kind" xml:space="preserve">
+			<trans-unit id="sys_file_reference.tx_html5mediakit_track_kind" xml:space="preserve">
 				<source>Track kind</source>
 			</trans-unit>
 			<trans-unit id="sys_file_reference.tx_html5mediakit_track_kind.I.subtitles" xml:space="preserve">
@@ -75,13 +75,13 @@
 			<trans-unit id="sys_file_reference.tx_html5mediakit_track_kind.I.metadata" xml:space="preserve">
 				<source>Metadata</source>
 			</trans-unit>
-			<trans-unit id="tx_html5mediakit_track_label" xml:space="preserve">
+			<trans-unit id="sys_file_reference.tx_html5mediakit_track_label" xml:space="preserve">
 				<source>Track label</source>
 			</trans-unit>
-			<trans-unit id="tx_html5mediakit_track_srclang" xml:space="preserve">
+			<trans-unit id="sys_file_reference.tx_html5mediakit_track_srclang" xml:space="preserve">
 				<source>Track language</source>
 			</trans-unit>
-			<trans-unit id="tx_html5mediakit_track_srclang.description" xml:space="preserve">
+			<trans-unit id="sys_file_reference.tx_html5mediakit_track_srclang.description" xml:space="preserve">
 				<source>Please enter the track language in ISO 639-1 format (e. g. „de“, „en“, „fr“).</source>
 			</trans-unit>
 		</body>
