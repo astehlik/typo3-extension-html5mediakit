@@ -55,6 +55,7 @@ return [
         'type' => 'type',
         'typeicon_column' => 'type',
         'typeicon_classes' => [
+            'default' => 'mimetypes-media-video',
             MediaType::VIDEO => 'mimetypes-media-video',
             MediaType::AUDIO => 'mimetypes-media-audio',
         ],
