@@ -18,7 +18,7 @@ $additionalColumns = [
             'type' => 'select',
             'renderType' => 'selectSingle',
             'items' => [
-                ['Tack kind', '--div--'],
+                ['Track kind', '--div--'],
                 ['subtitles', 'subtitles'],
                 ['captions', 'captions'],
                 ['descriptions', 'descriptions'],
