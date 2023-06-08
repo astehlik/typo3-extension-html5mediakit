@@ -78,11 +78,14 @@
 			<trans-unit id="sys_file_reference.tx_html5mediakit_track_label" xml:space="preserve">
 				<source>Track label</source>
 			</trans-unit>
+			<trans-unit id="sys_file_reference.tx_html5mediakit_track_label.description" xml:space="preserve">
+				<source>A user-readable title of the text track which is used by the browser when listing available text tracks.</source>
+			</trans-unit>
 			<trans-unit id="sys_file_reference.tx_html5mediakit_track_srclang" xml:space="preserve">
-				<source>Track language</source>
+				<source>Track source language</source>
 			</trans-unit>
 			<trans-unit id="sys_file_reference.tx_html5mediakit_track_srclang.description" xml:space="preserve">
-				<source>Please enter the track language in ISO 639-1 format (e. g. „de“, „en“, „fr“).</source>
+				<source>Language of the track text data. It must be a valid BCP 47 language tag (de, en, fr …).</source>
 			</trans-unit>
 		</body>
 	</file>

@@ -45,6 +45,7 @@ $additionalColumns = [
     ],
     'tx_html5mediakit_track_label' => [
         'label' => 'LLL:EXT:html5mediakit/Resources/Private/Language/locallang_db:sys_file_reference.tx_html5mediakit_track_label',
+        'description' => 'LLL:EXT:html5mediakit/Resources/Private/Language/locallang_db:sys_file_reference.tx_html5mediakit_track_label.description',
         'config' => [
             'type' => 'input',
             'eval' => 'trim',
