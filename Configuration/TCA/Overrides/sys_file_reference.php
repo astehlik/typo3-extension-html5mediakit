@@ -18,7 +18,7 @@ $additionalColumns = [
             'type' => 'select',
             'renderType' => 'selectSingle',
             'items' => [
-                ['Track kind', '--div--'],
+                ['LLL:EXT:html5mediakit/Resources/Private/Language/locallang_db:tx_html5mediakit_track_kind', '--div--'],
                 ['subtitles', 'subtitles'],
                 ['captions', 'captions'],
                 ['descriptions', 'descriptions'],
