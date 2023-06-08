@@ -92,7 +92,7 @@ return [
             'config' => [
                 'type' => 'file',
                 'allowed' => 'vtt',
-            ]
+            ],
         ],
         'caption' => [
             'label' => $languagePrefixColumn . 'caption',

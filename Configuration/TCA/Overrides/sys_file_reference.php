@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
+$lllPrefix = 'LLL:EXT:html5mediakit/Resources/Private/Language/locallang_db:sys_file_reference.';
+
 $displayCondition = [
     'AND' => [
         'FIELD:tablenames:=:tx_html5mediakit_domain_model_media',
@@ -13,30 +15,30 @@ $displayCondition = [
 
 $additionalColumns = [
     'tx_html5mediakit_track_kind' => [
-        'label' => 'LLL:EXT:html5mediakit/Resources/Private/Language/locallang_db:sys_file_reference.tx_html5mediakit_track_kind',
+        'label' => $lllPrefix . 'tx_html5mediakit_track_kind',
         'config' => [
             'type' => 'select',
             'renderType' => 'selectSingle',
             'items' => [
                 [
-                        'label' => 'LLL:EXT:html5mediakit/Resources/Private/Language/locallang_db:sys_file_reference.tx_html5mediakit_track_kind.I.subtitles',
-                        'value' => 'subtitles',
+                    'label' => $lllPrefix . 'tx_html5mediakit_track_kind.I.subtitles',
+                    'value' => 'subtitles',
                 ],
                 [
-                        'label' => 'LLL:EXT:html5mediakit/Resources/Private/Language/locallang_db:sys_file_reference.tx_html5mediakit_track_kind.I.captions',
-                        'value' => 'captions',
+                    'label' => $lllPrefix . 'tx_html5mediakit_track_kind.I.captions',
+                    'value' => 'captions',
                 ],
                 [
-                        'label' => 'LLL:EXT:html5mediakit/Resources/Private/Language/locallang_db:sys_file_reference.tx_html5mediakit_track_kind.I.descriptions',
-                        'value' => 'descriptions',
+                    'label' => $lllPrefix . 'tx_html5mediakit_track_kind.I.descriptions',
+                    'value' => 'descriptions',
                 ],
                 [
-                        'label' => 'LLL:EXT:html5mediakit/Resources/Private/Language/locallang_db:sys_file_reference.tx_html5mediakit_track_kind.I.chapters',
-                        'value' => 'chapters',
+                    'label' => $lllPrefix . 'tx_html5mediakit_track_kind.I.chapters',
+                    'value' => 'chapters',
                 ],
                 [
-                        'label' => 'LLL:EXT:html5mediakit/Resources/Private/Language/locallang_db:sys_file_reference.tx_html5mediakit_track_kind.I.metadata',
-                        'value' => 'metadata',
+                    'label' => $lllPrefix . 'tx_html5mediakit_track_kind.I.metadata',
+                    'value' => 'metadata',
                 ],
             ],
             'default' => 'subtitles',
@@ -44,8 +46,8 @@ $additionalColumns = [
         'displayCond' => $displayCondition,
     ],
     'tx_html5mediakit_track_label' => [
-        'label' => 'LLL:EXT:html5mediakit/Resources/Private/Language/locallang_db:sys_file_reference.tx_html5mediakit_track_label',
-        'description' => 'LLL:EXT:html5mediakit/Resources/Private/Language/locallang_db:sys_file_reference.tx_html5mediakit_track_label.description',
+        'label' => $lllPrefix . 'tx_html5mediakit_track_label',
+        'description' => $lllPrefix . 'tx_html5mediakit_track_label.description',
         'config' => [
             'type' => 'input',
             'eval' => 'trim',
@@ -54,8 +56,8 @@ $additionalColumns = [
         'displayCond' => $displayCondition,
     ],
     'tx_html5mediakit_track_srclang' => [
-        'label' => 'LLL:EXT:html5mediakit/Resources/Private/Language/locallang_db:sys_file_reference.tx_html5mediakit_track_srclang',
-        'description' => 'LLL:EXT:html5mediakit/Resources/Private/Language/locallang_db:sys_file_reference.tx_html5mediakit_track_srclang.description',
+        'label' => $lllPrefix . 'tx_html5mediakit_track_srclang',
+        'description' => $lllPrefix . 'tx_html5mediakit_track_srclang.description',
         'config' => [
             'type' => 'input',
             'eval' => 'trim,alpha,nospace,lower',

@@ -25,11 +25,6 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
  */
 class Media extends AbstractEntity
 {
-    public function __construct()
-    {
-        $this->tracks = new ObjectStorage();
-    }
-
     /**
      * Caption for the media file.
      *
@@ -62,6 +57,13 @@ class Media extends AbstractEntity
     protected $parentTable;
 
     /**
+     * Reference to the track file.
+     *
+     * @var ObjectStorage<FileReference>
+     */
+    protected $tracks;
+
+    /**
      * @var int
      */
     protected $tstamp;
@@ -73,12 +75,10 @@ class Media extends AbstractEntity
      */
     protected $type;
 
-    /**
-     * Reference to the track file.
-     *
-     * @var ObjectStorage<FileReference>
-     */
-    protected $tracks;
+    public function __construct()
+    {
+        $this->tracks = new ObjectStorage();
+    }
 
     public function getCaption(): string
     {
@@ -122,6 +122,11 @@ class Media extends AbstractEntity
         return $this->parentTable;
     }
 
+    public function getTracks(): ObjectStorage
+    {
+        return $this->tracks;
+    }
+
     public function getTstamp(): int
     {
         return $this->tstamp;
@@ -130,11 +135,6 @@ class Media extends AbstractEntity
     public function getType(): MediaType
     {
         return $this->type;
-    }
-
-    public function getTracks(): ObjectStorage
-    {
-        return $this->tracks;
     }
 
     public function setCaption(string $caption): void
@@ -162,6 +162,11 @@ class Media extends AbstractEntity
         $this->parentTable = $parentTable;
     }
 
+    public function setTracks(ObjectStorage $tracks): void
+    {
+        $this->tracks = $tracks;
+    }
+
     public function setTstamp(int $tstamp): void
     {
         $this->tstamp = $tstamp;
@@ -170,10 +175,5 @@ class Media extends AbstractEntity
     public function setType(MediaType $type): void
     {
         $this->type = $type;
-    }
-
-    public function setTracks(ObjectStorage $tracks): void
-    {
-        $this->tracks = $tracks;
     }
 }
