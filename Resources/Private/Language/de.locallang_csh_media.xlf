@@ -6,12 +6,12 @@
       <trans-unit id="type.description" xml:space="preserve" approved="yes">
 				<source>The type of the media element, can be video or audio.</source>
 			<target state="final">Der Typ des Mediums, kann Video oder Audio sein.</target></trans-unit>
-      <trans-unit id="tracks.description" xml:space="preserve">
+      <trans-unit id="tracks.description" xml:space="preserve" approved="yes">
 				<source>Optional WebVTT timed text files, the file placed at the top will serve as the default track for the media file.</source>
-			<target state="translated">Optionale WebVTT-Dateien, die oberste Datei dient als Standardspur für die Mediendatei.</target></trans-unit>
-      <trans-unit id="caption.description" xml:space="preserve">
+			<target state="final">Optionale WebVTT-Dateien, die oberste Datei dient als Standardspur für die Mediendatei.</target></trans-unit>
+      <trans-unit id="caption.description" xml:space="preserve" approved="yes">
 				<source>An optional caption for the media element.</source>
-			<target state="translated">Eine optionale Beschriftung des Mediums.</target></trans-unit>
+			<target state="final">Eine optionale Beschriftung des Mediums.</target></trans-unit>
       <trans-unit id="description.description" xml:space="preserve" approved="yes">
 				<source>An optional short description of the media file, e.g. information about author / source of the media file.</source>
 			<target state="final">Eine optionale erweiterte Beschreibung der Mediendatei, kann z.B. dafür verwendet werden um Quellenangaben zu hinterlegen.</target></trans-unit>
