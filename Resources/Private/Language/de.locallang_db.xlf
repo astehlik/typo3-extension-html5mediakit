@@ -15,9 +15,9 @@
       <trans-unit id="choose_file" xml:space="preserve" approved="yes">
 				<source>Choose file</source>
 			<target state="final">Datei auswählen</target></trans-unit>
-      <trans-unit id="tx_html5mediakit_domain_model_media" xml:space="preserve">
+      <trans-unit id="tx_html5mediakit_domain_model_media" xml:space="preserve" approved="yes">
 				<source>HTML5 Media</source>
-			<target state="translated">HTML5 Medium</target></trans-unit>
+			<target state="final">HTML5 Medium</target></trans-unit>
       <trans-unit id="tx_html5mediakit_domain_model_media.type" xml:space="preserve" approved="yes">
 				<source>Type</source>
 			<target state="final">Typ</target></trans-unit>
@@ -30,9 +30,9 @@
       <trans-unit id="tx_html5mediakit_domain_model_media.caption" xml:space="preserve" approved="yes">
 				<source>Caption</source>
 			<target state="final">Beschriftung</target></trans-unit>
-      <trans-unit id="tx_html5mediakit_domain_model_media.tracks" xml:space="preserve">
+      <trans-unit id="tx_html5mediakit_domain_model_media.tracks" xml:space="preserve" approved="yes">
 				<source>Tracks</source>
-			<target state="translated">Tracks</target></trans-unit>
+			<target state="final">Tracks</target></trans-unit>
       <trans-unit id="tx_html5mediakit_domain_model_media.description" xml:space="preserve" approved="yes">
 				<source>Description</source>
 			<target state="final">Beschreibung</target></trans-unit>
@@ -57,36 +57,36 @@
       <trans-unit id="tx_html5mediakit_domain_model_media.palette.metadata" xml:space="preserve" approved="yes">
 				<source>Metadata</source>
 			<target state="final">Metadaten</target></trans-unit>
-      <trans-unit id="sys_file_reference.tx_html5mediakit_track_kind" xml:space="preserve">
+      <trans-unit id="sys_file_reference.tx_html5mediakit_track_kind" xml:space="preserve" approved="yes">
 				<source>Track kind</source>
-			<target state="translated">Typ</target></trans-unit>
-      <trans-unit id="sys_file_reference.tx_html5mediakit_track_kind.I.subtitles" xml:space="preserve">
+			<target state="final">Typ</target></trans-unit>
+      <trans-unit id="sys_file_reference.tx_html5mediakit_track_kind.I.subtitles" xml:space="preserve" approved="yes">
 				<source>Subtitles</source>
-			<target state="translated">Untertitel</target></trans-unit>
-      <trans-unit id="sys_file_reference.tx_html5mediakit_track_kind.I.captions" xml:space="preserve">
+			<target state="final">Untertitel</target></trans-unit>
+      <trans-unit id="sys_file_reference.tx_html5mediakit_track_kind.I.captions" xml:space="preserve" approved="yes">
 				<source>Closed Captions</source>
-			<target state="translated">Closed Captions</target></trans-unit>
-      <trans-unit id="sys_file_reference.tx_html5mediakit_track_kind.I.descriptions" xml:space="preserve">
+			<target state="final">Closed Captions</target></trans-unit>
+      <trans-unit id="sys_file_reference.tx_html5mediakit_track_kind.I.descriptions" xml:space="preserve" approved="yes">
 				<source>Descriptions</source>
-			<target state="translated">Beschreibungen</target></trans-unit>
-      <trans-unit id="sys_file_reference.tx_html5mediakit_track_kind.I.chapters" xml:space="preserve">
+			<target state="final">Beschreibungen</target></trans-unit>
+      <trans-unit id="sys_file_reference.tx_html5mediakit_track_kind.I.chapters" xml:space="preserve" approved="yes">
 				<source>Chapter titles</source>
-			<target state="translated">Kapitelüberschrifteb</target></trans-unit>
-      <trans-unit id="sys_file_reference.tx_html5mediakit_track_kind.I.metadata" xml:space="preserve">
+			<target state="final">Kapitelüberschrifteb</target></trans-unit>
+      <trans-unit id="sys_file_reference.tx_html5mediakit_track_kind.I.metadata" xml:space="preserve" approved="yes">
 				<source>Metadata</source>
-			<target state="translated">Metadaten</target></trans-unit>
-      <trans-unit id="sys_file_reference.tx_html5mediakit_track_label" xml:space="preserve">
+			<target state="final">Metadaten</target></trans-unit>
+      <trans-unit id="sys_file_reference.tx_html5mediakit_track_label" xml:space="preserve" approved="yes">
 				<source>Track label</source>
-			<target state="needs-translation">Track label</target></trans-unit>
-      <trans-unit id="sys_file_reference.tx_html5mediakit_track_label.description" xml:space="preserve">
+			<target state="final">Beschriftung</target></trans-unit>
+      <trans-unit id="sys_file_reference.tx_html5mediakit_track_label.description" xml:space="preserve" approved="yes">
 				<source>A user-readable title of the text track which is used by the browser when listing available text tracks.</source>
-			<target state="needs-translation">A user-readable title of the text track which is used by the browser when listing available text tracks.</target></trans-unit>
-      <trans-unit id="sys_file_reference.tx_html5mediakit_track_srclang" xml:space="preserve">
+			<target state="final">Beschriftung, die vom Browser bei der Auflistung verfügbarer Tracks verwendet wird.</target></trans-unit>
+      <trans-unit id="sys_file_reference.tx_html5mediakit_track_srclang" xml:space="preserve" approved="yes">
 				<source>Track source language</source>
-			<target state="needs-translation">Track source language</target></trans-unit>
-      <trans-unit id="sys_file_reference.tx_html5mediakit_track_srclang.description" xml:space="preserve">
+			<target state="final">Sprache des Tracks</target></trans-unit>
+      <trans-unit id="sys_file_reference.tx_html5mediakit_track_srclang.description" xml:space="preserve" approved="yes">
 				<source>Language of the track text data. It must be a valid BCP 47 language tag (de, en, fr …).</source>
-			<target state="needs-translation">Language of the track text data. It must be a valid BCP 47 language tag (de, en, fr …).</target></trans-unit>
+			<target state="final">Sprache der Track-Daten. Es muss ein gültiges BCP 47 Sprachtag sein (de, en, fr …).</target></trans-unit>
     </body>
   </file>
 </xliff>
