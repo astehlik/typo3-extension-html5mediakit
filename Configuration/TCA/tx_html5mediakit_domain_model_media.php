@@ -11,9 +11,10 @@ $languagePrefixCsh = 'LLL:EXT:html5mediakit/Resources/Private/Language/locallang
 $lllAddImageFileReference = 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference';
 
 $buildFileFieldConfig = function (
-    array $allowedFileTypes,
+    string|array $allowedFileTypes,
     int $maxitems = 1,
-    string $showitem = ''
+    string $showitem = '',
+    string $createNewRelationLinkTitle = '',
 ) use (
     $languagePrefix
 ) {
@@ -21,13 +22,16 @@ $buildFileFieldConfig = function (
     $showitem = ltrim($showitem, ',');
     $allowsMultipleFiles = $maxitems === 0 || $maxitems > 1;
 
+    if ($createNewRelationLinkTitle === '') {
+        $createNewRelationLinkTitle = $languagePrefix . 'choose_file';
+    }
+
     $config = [
         'type' => 'file',
         'allowed' => $allowedFileTypes,
-        'behaviour' => ['allowLanguageSynchronization' => true],
         'appearance' => [
-            'showPossibleLocalizationRecords' => $allowsMultipleFiles,
-            'createNewRelationLinkTitle' => $languagePrefix . 'choose_file',
+            'showPossibleLocalizationRecords' => true,
+            'createNewRelationLinkTitle' => $createNewRelationLinkTitle,
             'useSortable' => $allowsMultipleFiles,
             'headerThumbnail' => [
                 'field' => '',
@@ -41,16 +45,17 @@ $buildFileFieldConfig = function (
                 'sort' => $allowsMultipleFiles,
                 'hide' => $allowsMultipleFiles,
                 'delete' => true,
-                'localize' => $allowsMultipleFiles,
+                'localize' => true,
             ],
         ],
         'overrideChildTca' => [
             'types' => [
-                AbstractFile::FILETYPE_UNKNOWN => ['showitem' => $showitem],
-                AbstractFile::FILETYPE_AUDIO => ['showitem' => $showitem],
-                AbstractFile::FILETYPE_VIDEO => ['showitem' => $showitem],
                 AbstractFile::FILETYPE_APPLICATION => ['showitem' => $showitem],
+                AbstractFile::FILETYPE_AUDIO => ['showitem' => $showitem],
+                AbstractFile::FILETYPE_IMAGE => ['showitem' => $showitem],
                 AbstractFile::FILETYPE_TEXT => ['showitem' => $showitem],
+                AbstractFile::FILETYPE_UNKNOWN => ['showitem' => $showitem],
+                AbstractFile::FILETYPE_VIDEO => ['showitem' => $showitem],
             ],
         ],
         'security' => ['ignorePageTypeRestriction' => true],
@@ -177,19 +182,10 @@ return [
         ],
         'poster' => [
             'label' => $languagePrefixColumn . 'poster',
-            'config' => [
-                'type' => 'file',
-                'allowed' => 'common-image-types',
-                'appearance' => ['createNewRelationLinkTitle' => $lllAddImageFileReference],
-                'maxitems' => 1,
-                'behaviour' => ['allowLanguageSynchronization' => true],
-                'overrideChildTca' => [
-                    'types' => [
-                        '0' => ['showitem' => '--palette--;;filePalette'],
-                        AbstractFile::FILETYPE_IMAGE => ['showitem' => '--palette--;;filePalette'],
-                    ],
-                ],
-            ],
+            'config' => $buildFileFieldConfig(
+                allowedFileTypes: 'common-image-types',
+                createNewRelationLinkTitle: $lllAddImageFileReference
+            ),
         ],
         'sys_language_uid' => [
             'exclude' => true,
