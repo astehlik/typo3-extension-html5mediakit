@@ -31,6 +31,7 @@ $buildFileFieldConfig = function (
         'allowed' => $allowedFileTypes,
         'appearance' => [
             'showPossibleLocalizationRecords' => true,
+            'showAllLocalizationLink' => $allowsMultipleFiles,
             'createNewRelationLinkTitle' => $createNewRelationLinkTitle,
             'useSortable' => $allowsMultipleFiles,
             'headerThumbnail' => [
