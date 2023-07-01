@@ -95,7 +95,7 @@ class MediaController extends ActionController
         // We update the last changed register when a media record has changed because
         // the content element will not get this information if no properties in the
         // content element are changed.
-        $contentObject = $contentObject = $this->getCurrentContentObject();
+        $contentObject = $this->getCurrentContentObject();
         $contentObject->lastChanged($media->getTstamp());
 
         if ($mediaType->equals(MediaType::VIDEO)) {
