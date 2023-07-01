@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Sto\Html5mediakit\Exception;
 
+use RuntimeException;
+
 /*                                                                        *
  * This script belongs to the TYPO3 Extension "html5mediakit".            *
  *                                                                        *
@@ -17,6 +19,6 @@ namespace Sto\Html5mediakit\Exception;
 /**
  * Generic media related Exception. Translations should be available for the Exception code.
  */
-class MediaException extends \RuntimeException
+class MediaException extends RuntimeException
 {
 }

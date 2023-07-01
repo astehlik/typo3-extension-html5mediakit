@@ -25,6 +25,7 @@ use TYPO3\CMS\Extbase\Http\ForwardResponse;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
+use RuntimeException;
 
 /**
  * Controller for rendering media.
@@ -105,7 +106,7 @@ class MediaController extends ActionController
             return (new ForwardResponse('audio'))->withArguments(['audio' => $media->getUid()]);
         }
 
-        throw new \RuntimeException('An invalid media type is used.');
+        throw new RuntimeException('An invalid media type is used.');
     }
 
     /**
