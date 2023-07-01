@@ -106,7 +106,7 @@ class MediaController extends ActionController
             return (new ForwardResponse('audio'))->withArguments(['audio' => $media->getUid()]);
         }
 
-        throw new RuntimeException('An invalid media type is used.');
+        throw new RuntimeException('An invalid media type is used.'); // @codeCoverageIgnore
     }
 
     /**

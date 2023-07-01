@@ -18,6 +18,8 @@ use RuntimeException;
 
 /**
  * Generic media related Exception. Translations should be available for the Exception code.
+ *
+ * @codeCoverageIgnore No code to test.
  */
 class MediaException extends RuntimeException
 {
