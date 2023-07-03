@@ -18,6 +18,8 @@ use TYPO3\CMS\Core\Type\Enumeration;
 
 /**
  * Enumeration of allowed media types.
+ *
+ * @codeCoverageIgnore No code to test.
  */
 class MediaType extends Enumeration
 {

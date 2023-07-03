@@ -18,6 +18,7 @@ use Sto\Html5mediakit\Domain\Model\Media;
 use Sto\Html5mediakit\Exception\MediaMissingException;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
+use InvalidArgumentException;
 
 /**
  * Repository for retrieving media files from the database.
@@ -76,10 +77,10 @@ class MediaRepository extends Repository
     private function validateParentRecordData($data): void
     {
         if (empty($data['parent_table'])) {
-            throw new \InvalidArgumentException('parent_table field is missing in content data.');
+            throw new InvalidArgumentException('parent_table field is missing in content data.');
         }
         if (empty($data['parent_record'])) {
-            throw new \InvalidArgumentException('parent_record field is missing in content data.');
+            throw new InvalidArgumentException('parent_record field is missing in content data.');
         }
     }
 }

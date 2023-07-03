@@ -15,19 +15,25 @@ namespace Sto\Html5mediakit\Tests\Unit\Domain\Model;
  *                                                                        */
 
 use PHPUnit\Framework\TestCase;
+use Sto\Html5mediakit\Domain\Model\Enumeration\MediaType;
 use Sto\Html5mediakit\Domain\Model\Media;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 class MediaTest extends TestCase
 {
-    /**
-     * @var Media
-     */
-    protected $media;
+    protected Media $media;
 
     protected function setUp(): void
     {
         $this->media = GeneralUtility::makeInstance(Media::class);
+    }
+
+    public function testGetContentElementReturnsExpectedValue(): void
+    {
+        $this->media->setContentElement(343);
+
+        self::assertSame(343, $this->media->getContentElement());
     }
 
     public function testGetHasMetadataReturnsFalseIfNoTeaserOrDescriptionPresent(): void
@@ -49,5 +55,44 @@ class MediaTest extends TestCase
         $this->media->setCaption('');
         $this->media->setDescription('not empty');
         self::assertTrue($this->media->getHasMetadata());
+    }
+
+    public function testGetParentRecordReturnsExpectedValue(): void
+    {
+        $this->media->setParentRecord(6176);
+
+        self::assertSame(6176, $this->media->getParentRecord());
+    }
+
+    public function testGetParentTableReturnsExpectedValue(): void
+    {
+        $this->media->setParentTable('the_table');
+
+        self::assertSame('the_table', $this->media->getParentTable());
+    }
+
+    public function testGetTracksReturnsExpectedValue(): void
+    {
+        $theStorage = new ObjectStorage();
+
+        $this->media->setTracks($theStorage);
+
+        self::assertSame($theStorage, $this->media->getTracks());
+    }
+
+    public function testGetTstampReturnsExpectedValue(): void
+    {
+        $this->media->setTstamp(388384);
+
+        self::assertSame(388384, $this->media->getTstamp());
+    }
+
+    public function testGetTypeReturnsExpectedValue(): void
+    {
+        $theType = new MediaType(MediaType::AUDIO);
+
+        $this->media->setType($theType);
+
+        self::assertSame($theType, $this->media->getType());
     }
 }
