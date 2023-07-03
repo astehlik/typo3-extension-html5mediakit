@@ -6,3 +6,5 @@ sys_file,,,,,,
 ,4,0,0,video/media.ogv,media.ogv,4
 ,5,0,0,video/media.webm,media.webm,4
 ,6,0,0,video/poster.png,poster.png,2
+,7,0,0,tracks/subtitles-en.vtt,subtitles-en.vtt,1
+,8,0,0,tracks/subtitles-de.vtt,subtitles-de.vtt,1
