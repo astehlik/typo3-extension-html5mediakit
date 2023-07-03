@@ -6,6 +6,7 @@ namespace Sto\Html5mediakit\Tests\Acceptance\Support\Extension;
 
 use Codeception\Event\SuiteEvent;
 use TYPO3\TestingFramework\Core\Acceptance\Extension\BackendEnvironment;
+use RuntimeException;
 
 class BackendHtml5mediakitEnvironment extends BackendEnvironment
 {
@@ -38,7 +39,7 @@ class BackendHtml5mediakitEnvironment extends BackendEnvironment
         $typo3RootPath = (string)getenv('TYPO3_PATH_ROOT');
 
         if ($typo3RootPath === '') {
-            throw new \RuntimeException('TYPO3_PATH_ROOT environment variable is not set');
+            throw new RuntimeException('TYPO3_PATH_ROOT environment variable is not set');
         }
 
         $putenvCode = PHP_EOL

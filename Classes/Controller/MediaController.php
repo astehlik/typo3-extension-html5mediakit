@@ -25,6 +25,7 @@ use TYPO3\CMS\Extbase\Http\ForwardResponse;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
+use RuntimeException;
 
 /**
  * Controller for rendering media.
@@ -94,7 +95,7 @@ class MediaController extends ActionController
         // We update the last changed register when a media record has changed because
         // the content element will not get this information if no properties in the
         // content element are changed.
-        $contentObject = $contentObject = $this->getCurrentContentObject();
+        $contentObject = $this->getCurrentContentObject();
         $contentObject->lastChanged($media->getTstamp());
 
         if ($mediaType->equals(MediaType::VIDEO)) {
@@ -105,7 +106,7 @@ class MediaController extends ActionController
             return (new ForwardResponse('audio'))->withArguments(['audio' => $media->getUid()]);
         }
 
-        throw new \RuntimeException('An invalid media type is used.');
+        throw new RuntimeException('An invalid media type is used.'); // @codeCoverageIgnore
     }
 
     /**

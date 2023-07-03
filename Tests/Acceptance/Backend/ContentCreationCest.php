@@ -37,9 +37,15 @@ class ContentCreationCest
         $I->waitForElement($headerInputSelector);
         $I->fillField($headerInputSelector, 'Testheader');
 
+        // Switch to tab "Media"
+        $I->click('.typo3-TCEforms > ' . $this->buildTabSelector(2));
+
         $I->click('Create new');
 
         $I->waitForElement('div[data-title="Media file"] select[name$="[type]"]');
+
+        // Tab "Meta data"
+        $I->click('div[data-foreign-table="tx_html5mediakit_domain_model_media"] ' . $this->buildTabSelector(3));
 
         $I->fillField('div[data-title="Media file"] input[data-formengine-input-name$="[caption]"]', 'The caption');
 
@@ -51,8 +57,19 @@ class ContentCreationCest
 
         $I->seeInField($headerInputSelector, 'Testheader');
 
+        // Switch to tab "Media"
+        $I->click('.typo3-TCEforms > ' . $this->buildTabSelector(2));
+
         $I->click('#data-1-tt_content-1-tx_html5mediakit_media-tx_html5mediakit_domain_model_media-1_label');
         $I->waitForElement('div[data-title="Media file"] select[name$="[type]"]');
         $I->seeInField('div[data-title="Media file"] input[data-formengine-input-name$="[caption]"]', 'The caption');
+    }
+
+    private function buildTabSelector(int $tabNumber): string
+    {
+        return sprintf(
+            'div[role="tabpanel"] > ul.nav-tabs > li.t3js-tabmenu-item:nth-child(%d) > a',
+            $tabNumber
+        );
     }
 }

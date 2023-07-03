@@ -31,9 +31,9 @@ html5mediakit
 
 ----
 
-This extension provides a new content type “Video / Audio”. It allows embedding video and audio files using the corresponding HTML5 elements.
+This extension introduces a new content type called "Video / Audio" providing users with the ability to embed video and audio files using HTML5 elements. It supports multiple formats for video and audio uploads, ensuring compatibility across various browsers.
 
-You can upload video and audio files in multiple formats to support more browsers.
+Additionally, users can enhance the accessibility of their media files by adding some metadata or uploading text WebVTT files to serve as tracks. This feature enables the inclusion of tracks in video and audio content, improving the overall user experience and ensuring better accessibility for all users.
 
 ----
 
