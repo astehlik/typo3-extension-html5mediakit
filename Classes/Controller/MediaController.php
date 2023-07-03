@@ -54,7 +54,7 @@ class MediaController extends ActionController
         $contentObject = $this->getCurrentContentObject();
 
         try {
-            $uid = $contentObject->data['_LOCALIZED_UID'] ?? $contentObject->data['uid'];
+            $uid = (int)($contentObject->data['_LOCALIZED_UID'] ?? $contentObject->data['uid']);
             $media = $this->mediaRepository->findOneByContentElementUid($uid);
         } catch (MediaException $mediaException) {
             return $this->htmlResponse($this->translate('exception.' . $mediaException->getCode()));
@@ -85,7 +85,7 @@ class MediaController extends ActionController
 
     private function getCurrentContentObject(): ContentObjectRenderer
     {
-        return $this->request->getAttribute('currentContentObject');
+        return $this->configurationManager->getContentObject();
     }
 
     private function renderMedia(Media $media): ResponseInterface

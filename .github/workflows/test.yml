@@ -54,13 +54,13 @@ jobs:
         with:
           php_version: "${{ env.MAIN_PHP_VERSION }}"
       - run: |
-          bash .Build/bin/t3_run_tests.sh -s cgl -n -p ${{ env.MAIN_PHP_VERSION }}
+          bash .Build/bin/t3_run_tests.sh -s cgl -n -p 8.1
 
   "php-unit-tests":
     name: "PHP Unit tests"
     strategy:
       matrix:
-        php_version: ["8.1", "8.2"]
+        php_version: ["7.4", "8.2"]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -107,7 +107,7 @@ jobs:
     name: "PHP linting"
     strategy:
       matrix:
-        php_version: ["8.1", "8.2"]
+        php_version: ["7.4", "8.0", "8.1", "8.2"]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -191,4 +191,4 @@ jobs:
       - uses: shivammathur/setup-php@v2
         with:
           php-version: "${{ env.MAIN_PHP_VERSION }}"
-      - run: php .Build/bin/typo3scan scan --target 12 .
+      - run: php .Build/bin/typo3scan scan --target 11 .

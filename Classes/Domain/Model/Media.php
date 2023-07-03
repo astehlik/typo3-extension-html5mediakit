@@ -124,6 +124,10 @@ class Media extends AbstractEntity
 
     public function getTracks(): ObjectStorage
     {
+        if (!$this->tracks instanceof ObjectStorage) {
+            $this->tracks = new ObjectStorage();
+        }
+
         return $this->tracks;
     }
 

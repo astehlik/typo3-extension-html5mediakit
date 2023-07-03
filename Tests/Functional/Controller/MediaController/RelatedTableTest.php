@@ -6,10 +6,8 @@ namespace Sto\Html5mediakit\Tests\Functional\Controller\MediaController;
 
 use Sto\Html5mediakit\Domain\Repository\MediaRepository;
 use Sto\Html5mediakit\Tests\Unit\Controller\MediaControllerMock;
-use TYPO3\CMS\Core\Http\ServerRequest;
+use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 use TYPO3\CMS\Extbase\Http\ForwardResponse;
-use TYPO3\CMS\Extbase\Mvc\ExtbaseRequestParameters;
-use TYPO3\CMS\Extbase\Mvc\Request;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 
 class RelatedTableTest extends AbstractMediaControllerTestCase
@@ -26,13 +24,12 @@ class RelatedTableTest extends AbstractMediaControllerTestCase
             'parent_record' => 23,
         ];
 
-        $baseRequest = (new ServerRequest())
-            ->withAttribute('extbase', new ExtbaseRequestParameters())
-            ->withAttribute('currentContentObject', $contentObject);
+        $configurationManagerMock = $this->createMock(ConfigurationManagerInterface::class);
+        $configurationManagerMock->method('getContentObject')->willReturn($contentObject);
 
         $controller = new MediaControllerMock();
         $controller->injectMediaRepository($container->get(MediaRepository::class));
-        $controller->setRequest(new Request($baseRequest));
+        $controller->injectConfigurationManager($configurationManagerMock);
 
         $response = $controller->renderMediaForRelatedTableAction();
 

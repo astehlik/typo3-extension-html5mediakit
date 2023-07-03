@@ -14,24 +14,24 @@ $additionalColumns = [
             'renderType' => 'selectSingle',
             'items' => [
                 [
-                    'label' => $lllPrefix . 'tx_html5mediakit_track_kind.I.subtitles',
-                    'value' => 'subtitles',
+                    $lllPrefix . 'tx_html5mediakit_track_kind.I.subtitles',
+                    'subtitles',
                 ],
                 [
-                    'label' => $lllPrefix . 'tx_html5mediakit_track_kind.I.captions',
-                    'value' => 'captions',
+                    $lllPrefix . 'tx_html5mediakit_track_kind.I.captions',
+                    'captions',
                 ],
                 [
-                    'label' => $lllPrefix . 'tx_html5mediakit_track_kind.I.descriptions',
-                    'value' => 'descriptions',
+                    $lllPrefix . 'tx_html5mediakit_track_kind.I.descriptions',
+                    'descriptions',
                 ],
                 [
-                    'label' => $lllPrefix . 'tx_html5mediakit_track_kind.I.chapters',
-                    'value' => 'chapters',
+                    $lllPrefix . 'tx_html5mediakit_track_kind.I.chapters',
+                    'chapters',
                 ],
                 [
-                    'label' => $lllPrefix . 'tx_html5mediakit_track_kind.I.metadata',
-                    'value' => 'metadata',
+                    $lllPrefix . 'tx_html5mediakit_track_kind.I.metadata',
+                    'metadata',
                 ],
             ],
             'default' => 'subtitles',

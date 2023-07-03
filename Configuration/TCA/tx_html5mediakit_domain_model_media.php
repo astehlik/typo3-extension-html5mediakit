@@ -4,17 +4,20 @@ declare(strict_types=1);
 
 use Sto\Html5mediakit\Domain\Model\Enumeration\MediaType;
 use TYPO3\CMS\Core\Resource\AbstractFile;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
 $languagePrefix = 'LLL:EXT:html5mediakit/Resources/Private/Language/locallang_db.xlf:';
 $languagePrefixColumn = $languagePrefix . 'tx_html5mediakit_domain_model_media.';
 $languagePrefixCsh = 'LLL:EXT:html5mediakit/Resources/Private/Language/locallang_csh_media.xlf:';
 $lllAddImageFileReference = 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference';
 
+/** @param array|string $allowedFileTypes */
 $buildFileFieldConfig = function (
-    string|array $allowedFileTypes,
+    string $fieldName,
+    $allowedFileTypes,
     int $maxitems = 1,
     string $showitem = '',
-    string $createNewRelationLinkTitle = '',
+    string $createNewRelationLinkTitle = ''
 ) use (
     $languagePrefix
 ) {
@@ -26,9 +29,15 @@ $buildFileFieldConfig = function (
         $createNewRelationLinkTitle = $languagePrefix . 'choose_file';
     }
 
+    if (is_array($allowedFileTypes)) {
+        $allowedFileTypes = implode(',', $allowedFileTypes);
+    }
+
+    if ($allowedFileTypes === 'common-image-types') {
+        $allowedFileTypes = $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'];
+    }
+
     $config = [
-        'type' => 'file',
-        'allowed' => $allowedFileTypes,
         'appearance' => [
             'showPossibleLocalizationRecords' => true,
             'showAllLocalizationLink' => $allowsMultipleFiles,
@@ -61,7 +70,11 @@ $buildFileFieldConfig = function (
         $config['maxitems'] = $maxitems;
     }
 
-    return $config;
+    return ExtensionManagementUtility::getFileFieldTCAConfig(
+        $fieldName,
+        $config,
+        $allowedFileTypes
+    );
 };
 
 return [
@@ -82,7 +95,6 @@ return [
         'languageField' => 'sys_language_uid',
         'transOrigPointerField' => 'l10n_parent',
         'transOrigDiffSourceField' => 'l10n_diffsource',
-        'security' => ['ignorePageTypeRestriction' => true],
     ],
     'columns' => [
         'type' => [
@@ -93,12 +105,12 @@ return [
                 'renderType' => 'selectSingle',
                 'items' => [
                     [
-                        'label' => $languagePrefixColumn . 'type.I.video',
-                        'value' => MediaType::VIDEO,
+                        $languagePrefixColumn . 'type.I.video',
+                        MediaType::VIDEO,
                     ],
                     [
-                        'label' => $languagePrefixColumn . 'type.I.audio',
-                        'value' => MediaType::AUDIO,
+                        $languagePrefixColumn . 'type.I.audio',
+                        MediaType::AUDIO,
                     ],
                 ],
                 'default' => MediaType::VIDEO,
@@ -110,6 +122,7 @@ return [
             'label' => $languagePrefixColumn . 'tracks',
             'description' => $languagePrefixCsh . 'tracks.description',
             'config' => $buildFileFieldConfig(
+                'tracks',
                 ['vtt'],
                 0,
                 'tx_html5mediakit_track_kind, tx_html5mediakit_track_label, tx_html5mediakit_track_srclang',
@@ -141,8 +154,8 @@ return [
                 'renderType' => 'selectSingle',
                 'items' => [
                     [
-                        'label' => '',
-                        'value' => 0,
+                        '',
+                        0,
                     ],
                 ],
                 'foreign_table' => 'tx_html5mediakit_domain_model_media',
@@ -154,12 +167,13 @@ return [
         'mp3' => [
             'label' => $languagePrefixColumn . 'mp3',
             'description' => $languagePrefixCsh . 'mp3.description',
-            'config' => $buildFileFieldConfig(['mp3']),
+            'config' => $buildFileFieldConfig('mp3', ['mp3']),
         ],
         'ogg' => [
             'label' => $languagePrefixColumn . 'ogg',
             'description' => $languagePrefixCsh . 'ogg.description',
             'config' => $buildFileFieldConfig(
+                'ogg',
                 [
                     'ogg',
                     'ogx',
@@ -169,18 +183,21 @@ return [
         'h264' => [
             'label' => $languagePrefixColumn . 'h264',
             'description' => $languagePrefixCsh . 'h264.description',
-            'config' => $buildFileFieldConfig(['mp4']),
+            'config' => $buildFileFieldConfig('h264', ['mp4']),
         ],
         'ogv' => [
             'label' => $languagePrefixColumn . 'ogv',
             'description' => $languagePrefixCsh . 'ogv.description',
-            'config' => $buildFileFieldConfig(['ogv']),
+            'config' => $buildFileFieldConfig('ogv', ['ogv']),
         ],
         'poster' => [
             'label' => $languagePrefixColumn . 'poster',
             'config' => $buildFileFieldConfig(
-                allowedFileTypes: 'common-image-types',
-                createNewRelationLinkTitle: $lllAddImageFileReference
+                'poster',
+                'common-image-types',
+                1,
+                '',
+                $lllAddImageFileReference
             ),
         ],
         'sys_language_uid' => [
@@ -191,7 +208,7 @@ return [
         'web_m' => [
             'label' => $languagePrefixColumn . 'web_m',
             'description' => $languagePrefixCsh . 'web_m.description',
-            'config' => $buildFileFieldConfig(['webm']),
+            'config' => $buildFileFieldConfig('web_m', ['webm']),
         ],
         'content_element' => [
             'config' => ['type' => 'passthrough'],
