@@ -10,8 +10,8 @@ $languagePrefixColumn = $languagePrefix . 'tx_html5mediakit_domain_model_media.'
 $languagePrefixCsh = 'LLL:EXT:html5mediakit/Resources/Private/Language/locallang_csh_media.xlf:';
 $lllAddImageFileReference = 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference';
 
-$buildFileFieldConfig = function (
-    string|array $allowedFileTypes,
+$buildFileFieldConfig = static function (
+    array|string $allowedFileTypes,
     int $maxitems = 1,
     string $showitem = '',
     string $createNewRelationLinkTitle = '',
