@@ -21,6 +21,4 @@ use RuntimeException;
  *
  * @codeCoverageIgnore No code to test.
  */
-class MediaException extends RuntimeException
-{
-}
+class MediaException extends RuntimeException {}

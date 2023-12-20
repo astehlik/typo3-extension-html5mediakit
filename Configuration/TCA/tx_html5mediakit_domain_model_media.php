@@ -12,7 +12,7 @@ $languagePrefixCsh = 'LLL:EXT:html5mediakit/Resources/Private/Language/locallang
 $lllAddImageFileReference = 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference';
 
 /** @param array|string $allowedFileTypes */
-$buildFileFieldConfig = function (
+$buildFileFieldConfig = static function (
     string $fieldName,
     $allowedFileTypes,
     int $maxitems = 1,
