@@ -9,4 +9,11 @@
         <exclude-pattern>Tests/Acceptance/*</exclude-pattern>
         <exclude-pattern>ext_emconf.php</exclude-pattern>
     </rule>
+    <!-- Exceptions for classes with empty body -->
+    <rule ref="PSR2.Classes.ClassDeclaration">
+        <exclude-pattern>Classes/Exception/MediaException.php</exclude-pattern>
+    </rule>
+    <rule ref="Squiz.WhiteSpace.ScopeClosingBrace">
+        <exclude-pattern>Classes/Exception/MediaException.php</exclude-pattern>
+    </rule>
 </ruleset>
