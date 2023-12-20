@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
-$lllPrefix = 'LLL:EXT:html5mediakit/Resources/Private/Language/locallang_db:sys_file_reference.';
+$lllPrefix = 'LLL:EXT:html5mediakit/Resources/Private/Language/locallang_db.xlf:sys_file_reference.';
 
 $additionalColumns = [
     'tx_html5mediakit_track_kind' => [
