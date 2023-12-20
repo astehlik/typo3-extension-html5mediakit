@@ -102,6 +102,13 @@ jobs:
           php_version: ${{ env.MAIN_PHP_VERSION }}
       - run: |
           bash .Build/bin/t3_run_tests.sh -s acceptance -d mariadb -t Backend -p ${{ env.MAIN_PHP_VERSION }}
+      - uses: actions/upload-artifact@v4
+        if: ${{ failure() }}
+        with:
+          name: acceptance-reports
+          path: .Build/Web/typo3temp/var/tests/AcceptanceReports
+          retention-days: 1
+          if-no-files-found: ignore
 
   "php-lint":
     name: "PHP linting"
