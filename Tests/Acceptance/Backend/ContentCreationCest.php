@@ -27,6 +27,10 @@ class ContentCreationCest
 
         $I->switchToIFrame();
         $I->waitForElement('.t3-new-content-element-wizard-inner');
+
+        // Wait for modal initialization.
+        $I->wait(0.2);
+
         $I->click('Video / Audio');
 
         $I->switchToContentFrame();
