@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
-return function (ContainerConfigurator $configurator): void {
+return static function (ContainerConfigurator $configurator): void {
     $configurator->services()
         ->defaults()->autowire()->autoconfigure()->public()
 

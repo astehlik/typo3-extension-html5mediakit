@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<ruleset name="PSRHtml5mediakit">
+<ruleset name="PerCodeStyleT3Ext">
     <description>Based on PSRDefault. Adjust only if REALLY neccessary!</description>
     <rule ref="PSRDefault"/>
     <rule ref="PSR2.Methods.MethodDeclaration.Underscore">
@@ -8,5 +8,12 @@
     <rule ref="Squiz.NamingConventions.ValidVariableName">
         <exclude-pattern>Tests/Acceptance/*</exclude-pattern>
         <exclude-pattern>ext_emconf.php</exclude-pattern>
+    </rule>
+    <!-- Exceptions for classes with empty body -->
+    <rule ref="PSR2.Classes.ClassDeclaration">
+        <exclude-pattern>Classes/Exception/MediaException.php</exclude-pattern>
+    </rule>
+    <rule ref="Squiz.WhiteSpace.ScopeClosingBrace">
+        <exclude-pattern>Classes/Exception/MediaException.php</exclude-pattern>
     </rule>
 </ruleset>
