@@ -54,7 +54,7 @@ jobs:
         with:
           php_version: "${{ env.MAIN_PHP_VERSION }}"
       - run: |
-          bash .Build/bin/t3_run_tests.sh -s cgl -n -p 8.1
+          bash .Build/bin/t3_run_tests.sh -s cgl -n -p 8.2
 
   "php-unit-tests":
     name: "PHP Unit tests"
