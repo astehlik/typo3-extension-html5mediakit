@@ -8,7 +8,7 @@ on:
 
 env:
   TYPO3_EXTENSION_KEY: html5mediakit
-  MAIN_PHP_VERSION: 8.2
+  MAIN_PHP_VERSION: 8.3
 
 jobs:
   "composer-validate":
@@ -62,7 +62,7 @@ jobs:
     name: "PHP Unit tests"
     strategy:
       matrix:
-        php_version: ["8.1", "8.2"]
+        php_version: ["8.1", "8.3"]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -72,7 +72,7 @@ jobs:
       - run: |
           bash .Build/bin/t3_run_tests.sh -s unit -p ${{ matrix.php_version }}
 
-  "php-functional-tests-sqlite-82":
+  "php-functional-tests-sqlite-main":
     name: "Functional tests on SQLite"
     runs-on: ubuntu-latest
     steps:
@@ -109,7 +109,7 @@ jobs:
     name: "PHP linting"
     strategy:
       matrix:
-        php_version: ["8.1", "8.2"]
+        php_version: ["8.1", "8.3"]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
