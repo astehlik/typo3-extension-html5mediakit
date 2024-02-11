@@ -31,7 +31,7 @@ class VideoTest extends AbstractMediaControllerTestCase
         'ogg' => 'ogv',
     ];
 
-    public function testMediaControllerShowsVideo(): void
+    public function testMediaControllerRendersVideo(): void
     {
         $responseBody = $this->loadFixturesAndGetResponseBody('media/video');
 
@@ -51,6 +51,17 @@ class VideoTest extends AbstractMediaControllerTestCase
         $this->assertValidMetaData($this->getSingleElement($videoContent, '.tx-html5mediakit-media-metadata'));
 
         $this->assertVideoContainsTracks($videoElement);
+    }
+
+    public function testMediaControllerRendersVideoWithoutData(): void
+    {
+        $responseBody = $this->loadFixturesAndGetResponseBody('media/video', 2);
+
+        $crawler = new Crawler($responseBody);
+
+        $audioContent = $this->getSingleElement($crawler, 'div.tx-html5mediakit-media-container')->text();
+
+        self::assertSame('No video file is available in any format.', $audioContent);
     }
 
     private function assertFallbacktextContainsFallbackLinks(Crawler $fallbackText): void
@@ -96,14 +107,5 @@ class VideoTest extends AbstractMediaControllerTestCase
             $expectedDefault = $expectedTrack['default'] ? '' : null;
             self::assertSame($expectedDefault, $track->attr('default'));
         }
-    }
-
-    private function getSingleElement(Crawler $crawler, string $selector): Crawler
-    {
-        $elements = $crawler->filter($selector);
-
-        self::assertCount(1, $elements, 'Expected exactly one element matching selector "' . $selector . '"');
-
-        return $elements->first();
     }
 }
