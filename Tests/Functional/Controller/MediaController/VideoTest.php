@@ -78,12 +78,12 @@ class VideoTest extends AbstractMediaControllerTestCase
     {
         self::assertStringContainsString(
             'Testcaption',
-            $this->getSingleElement($metaDataElement, '.tx-html5mediakit-media-caption')->text()
+            $this->getSingleElement($metaDataElement, '.tx-html5mediakit-media-caption')->text(),
         );
 
         self::assertStringContainsString(
             'Testdescription',
-            $this->getSingleElement($metaDataElement, '.tx-html5mediakit-media-description')->text()
+            $this->getSingleElement($metaDataElement, '.tx-html5mediakit-media-description')->text(),
         );
     }
 

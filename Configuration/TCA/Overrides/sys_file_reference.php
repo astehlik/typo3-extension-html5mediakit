@@ -61,5 +61,5 @@ $additionalColumns = [
 
 ExtensionManagementUtility::addTCAcolumns(
     'sys_file_reference',
-    $additionalColumns
+    $additionalColumns,
 );

@@ -65,7 +65,7 @@ abstract class AbstractMediaControllerTestCase extends FunctionalTestCase
             [
                 'setup' => $this->typoscriptSetupFilesDefault,
                 'constants' => $this->typoscriptConstantFiles,
-            ]
+            ],
         );
         $this->setUpFrontendSite(1);
 

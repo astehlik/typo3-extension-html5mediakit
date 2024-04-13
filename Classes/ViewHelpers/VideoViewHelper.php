@@ -20,14 +20,14 @@ class VideoViewHelper extends AbstractTagBasedViewHelper
             'string',
             'Specifies that video controls should be displayed (such as a play/pause button etc).',
             false,
-            'controls'
+            'controls',
         );
 
         $this->registerArgument(
             'video',
             Video::class,
             'The video that is rendered.',
-            true
+            true,
         );
     }
 
