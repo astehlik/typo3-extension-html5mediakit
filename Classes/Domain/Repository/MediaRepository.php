@@ -42,7 +42,7 @@ class MediaRepository extends Repository
             $languageAspect->getId(),
             $languageAspect->getContentId(),
             LanguageAspect::OVERLAYS_OFF,
-            $languageAspect->getFallbackChain()
+            $languageAspect->getFallbackChain(),
         );
         $query->getQuerySettings()->setLanguageAspect($languageAspect);
 
