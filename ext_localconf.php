@@ -28,9 +28,3 @@ if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('rte_ckeditor')
     $GLOBALS['TYPO3_CONF_VARS']['RTE']['Presets']['tx_html5mediakit_description'] =
         'EXT:html5mediakit/Configuration/RTE/Description.yaml';
 }
-
-if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('rtehtmlarea')) {
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
-        '<INCLUDE_TYPOSCRIPT: source="FILE: EXT:html5mediakit/Configuration/TSconfig/Page/RTE.rte_htmlarea.pagets">'
-    );
-}
