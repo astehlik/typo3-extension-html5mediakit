@@ -40,8 +40,8 @@ class BackendHtml5mediakitEnvironment extends BackendEnvironment
             throw new RuntimeException('TYPO3_PATH_ROOT environment variable is not set');
         }
 
-        $rootHtaccess = ORIGINAL_ROOT
-            . '/typo3/sysext/install/Resources/Private/FolderStructureTemplateFiles/root-htaccess';
+        $sysextDir = rtrim(ORIGINAL_ROOT, '/') . '/typo3/sysext';
+        $rootHtaccess = $sysextDir . '/install/Resources/Private/FolderStructureTemplateFiles/root-htaccess';
 
         if (!file_exists($rootHtaccess)) {
             throw new RuntimeException('File not found: ' . $rootHtaccess);
