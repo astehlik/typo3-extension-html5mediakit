@@ -6,7 +6,6 @@ namespace Sto\Html5mediakit\Tests\Unit\ViewHelpers;
 
 use Sto\Html5mediakit\Domain\Model\Video;
 use Sto\Html5mediakit\ViewHelpers\VideoViewHelper;
-use TYPO3\CMS\Core\Resource\FileInterface;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 
@@ -28,7 +27,7 @@ class VideoViewHelperTest extends UnitTestCase
 
     public function testPosterAttributeIsRendered(): void
     {
-        $resourceMock = $this->getMockBuilder(FileInterface::class)->getMockForAbstractClass();
+        $resourceMock = $this->createMock(\TYPO3\CMS\Core\Resource\FileReference::class);
         $resourceMock->method('getPublicUrl')->willReturn('/my/img/src.png');
 
         $posterMock = $this->getMockBuilder(FileReference::class)->getMock();
