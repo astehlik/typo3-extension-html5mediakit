@@ -14,26 +14,24 @@ namespace Sto\Html5mediakit\Domain\Model\Enumeration;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
-use TYPO3\CMS\Core\Type\Enumeration;
-
 /**
  * Enumeration of allowed media types.
  *
  * @codeCoverageIgnore No code to test.
  */
-class MediaType extends Enumeration
+enum MediaType: string
 {
     /**
      * Media type "audio" for MP3 / OGG files.
      *
      * @const
      */
-    public const AUDIO = 'audio';
+    case AUDIO = 'audio';
 
     /**
      * Media type "video" for MP4 / OGV files.
      *
      * @const
      */
-    public const VIDEO = 'video';
+    case VIDEO = 'video';
 }

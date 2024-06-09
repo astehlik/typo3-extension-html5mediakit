@@ -75,8 +75,8 @@ return [
         'typeicon_column' => 'type',
         'typeicon_classes' => [
             'default' => 'mimetypes-media-video',
-            MediaType::VIDEO => 'mimetypes-media-video',
-            MediaType::AUDIO => 'mimetypes-media-audio',
+            MediaType::VIDEO->value => 'mimetypes-media-video',
+            MediaType::AUDIO->value => 'mimetypes-media-audio',
         ],
         'hideTable' => true,
         'languageField' => 'sys_language_uid',
