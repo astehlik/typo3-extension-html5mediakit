@@ -2,7 +2,7 @@ actor: BackendTester
 modules:
   enabled:
     - WebDriver:
-        url: '%typo3TestingAcceptanceBaseUrl%/typo3temp/var/tests/acceptance'
+        url: '%typo3TestingAcceptanceBaseUrl%'
         browser: chrome
         wait: 1
         host: chrome

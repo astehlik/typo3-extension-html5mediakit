@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Sto\Html5mediakit\Tests\Acceptance\Support\Extension;
 
 use Codeception\Event\SuiteEvent;
-use TYPO3\TestingFramework\Core\Acceptance\Extension\BackendEnvironment;
 use RuntimeException;
+use TYPO3\TestingFramework\Core\Acceptance\Extension\BackendEnvironment;
 
 class BackendHtml5mediakitEnvironment extends BackendEnvironment
 {
@@ -40,15 +40,21 @@ class BackendHtml5mediakitEnvironment extends BackendEnvironment
             throw new RuntimeException('TYPO3_PATH_ROOT environment variable is not set');
         }
 
+        $rootHtaccess = ORIGINAL_ROOT
+            . '/typo3/sysext/install/Resources/Private/FolderStructureTemplateFiles/root-htaccess';
+
+        if (!file_exists($rootHtaccess)) {
+            throw new RuntimeException('File not found: ' . $rootHtaccess);
+        }
+
+        copy($rootHtaccess, $typo3RootPath . '/.htaccess');
+
         $putenvCode = PHP_EOL
             . 'putenv(\'TYPO3_PATH_ROOT=' . $typo3RootPath . '\');' . PHP_EOL
             . 'putenv(\'TYPO3_PATH_APP=' . $typo3RootPath . '\');' . PHP_EOL
             . PHP_EOL;
 
-        $indexFiles = [
-            'index.php',
-            'typo3/index.php',
-        ];
+        $indexFiles = ['index.php'];
 
         foreach ($indexFiles as $indexFile) {
             $indexPath = $typo3RootPath . '/' . $indexFile;
