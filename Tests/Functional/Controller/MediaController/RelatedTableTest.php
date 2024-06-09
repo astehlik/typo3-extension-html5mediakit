@@ -21,6 +21,7 @@ class RelatedTableTest extends AbstractMediaControllerTestCase
         $container = $this->getContainer();
 
         $contentObject = new ContentObjectRenderer();
+        // @extensionScannerIgnoreLine
         $contentObject->data = [
             'parent_table' => 'a_dummy_table',
             'parent_record' => 23,

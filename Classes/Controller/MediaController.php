@@ -53,6 +53,7 @@ class MediaController extends ActionController
         $contentObject = $this->getCurrentContentObject();
 
         try {
+            /** @extensionScannerIgnoreLine */
             $uid = $contentObject->data['_LOCALIZED_UID'] ?? $contentObject->data['uid'];
             $media = $this->mediaRepository->findOneByContentElementUid($uid);
         } catch (MediaException $mediaException) {
@@ -67,6 +68,7 @@ class MediaController extends ActionController
         $contentObject = $this->getCurrentContentObject();
 
         try {
+            /** @extensionScannerIgnoreLine */
             $media = $this->mediaRepository->findOneByParentRecord($contentObject->data);
         } catch (MediaException $mediaException) {
             return $this->htmlResponse($this->translate('exception.' . $mediaException->getCode()));
