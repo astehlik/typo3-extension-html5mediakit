@@ -94,14 +94,14 @@ return [
                 'items' => [
                     [
                         'label' => $languagePrefixColumn . 'type.I.video',
-                        'value' => MediaType::VIDEO,
+                        'value' => MediaType::VIDEO->value,
                     ],
                     [
                         'label' => $languagePrefixColumn . 'type.I.audio',
-                        'value' => MediaType::AUDIO,
+                        'value' => MediaType::AUDIO->value,
                     ],
                 ],
-                'default' => MediaType::VIDEO,
+                'default' => MediaType::VIDEO->value,
                 'size' => 1,
                 'maxitems' => 1,
             ],
