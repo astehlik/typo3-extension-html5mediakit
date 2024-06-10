@@ -89,7 +89,7 @@ class MediaTest extends TestCase
 
     public function testGetTypeReturnsExpectedValue(): void
     {
-        $theType = new MediaType(MediaType::AUDIO);
+        $theType = MediaType::AUDIO;
 
         $this->media->setType($theType);
 

@@ -16,6 +16,7 @@ namespace Sto\Html5mediakit\Domain\Repository;
 
 use Sto\Html5mediakit\Domain\Model\Media;
 use Sto\Html5mediakit\Exception\MediaMissingException;
+use TYPO3\CMS\Core\Context\LanguageAspect;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 use InvalidArgumentException;
@@ -36,7 +37,14 @@ class MediaRepository extends Repository
 
         // We do not want to do any language overlay in our query because the content element UID
         // is already the UID of the translated content element.
-        $query->getQuerySettings()->setLanguageOverlayMode(false);
+        $languageAspect = $query->getQuerySettings()->getLanguageAspect();
+        $languageAspect = new LanguageAspect(
+            $languageAspect->getId(),
+            $languageAspect->getContentId(),
+            LanguageAspect::OVERLAYS_OFF,
+            $languageAspect->getFallbackChain(),
+        );
+        $query->getQuerySettings()->setLanguageAspect($languageAspect);
 
         $query->matching($query->equals('contentElement', $contentElementUid));
 

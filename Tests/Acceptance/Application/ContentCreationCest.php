@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Sto\Html5mediakit\Tests\Acceptance\Backend;
+namespace Sto\Html5mediakit\Tests\Acceptance\Application;
 
 use Sto\Html5mediakit\Tests\Acceptance\Support\BackendTester;
 use Sto\Html5mediakit\Tests\Acceptance\Support\Helper\ModalDialog;
@@ -27,8 +27,8 @@ class ContentCreationCest
 
         $modalDialog->canSeeDialog();
         $I->executeJS(
-            'document.querySelector(\'typo3-backend-new-content-element-wizard\').shadowRoot'
-            . '.querySelector(\'button[data-identifier="common_html5mediakit_mediarenderer"]\').click()',
+            'document.querySelector(\'typo3-backend-new-record-wizard\').shadowRoot'
+            . '.querySelector(\'button[data-identifier="default_html5mediakit_mediarenderer"]\').click()',
         );
 
         $I->switchToContentFrame();
