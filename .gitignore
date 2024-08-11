@@ -4,5 +4,6 @@
 /.php-cs-fixer.cache
 /.phpunit.result.cache
 /bin
-/composer.lock
+/codesniffer
 /var
+/composer.lock
