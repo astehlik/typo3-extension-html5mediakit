@@ -11,11 +11,21 @@ use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 
 class VideoViewHelperTest extends UnitTestCase
 {
+    private array $additionalArguments;
+
     private array $arguments;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->arguments = [];
+        $this->additionalArguments = [];
+    }
 
     public function testControlsAttributeIsRendered(): void
     {
-        $this->arguments = ['controls' => 'controls'];
+        $this->additionalArguments = ['controls' => 'controls'];
         $this->assertRenderResult('<video controls="controls">children</video>');
     }
 
@@ -52,6 +62,7 @@ class VideoViewHelperTest extends UnitTestCase
 
         $viewHelper = new VideoViewHelper();
         $viewHelper->setArguments($this->arguments);
+        $viewHelper->handleAdditionalArguments($this->additionalArguments);
         $viewHelper->setRenderChildrenClosure($renderChildrenClosure);
         self::assertSame($expectedResult, $viewHelper->initializeArgumentsAndRender());
     }

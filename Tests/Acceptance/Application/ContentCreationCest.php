@@ -68,7 +68,7 @@ class ContentCreationCest
     private function buildTabSelector(int $tabNumber): string
     {
         return sprintf(
-            'div[role="tabpanel"] > ul.nav-tabs > li.t3js-tabmenu-item:nth-child(%d) > a',
+            'div[role="tabpanel"] > ul.nav-tabs > li.t3js-tabmenu-item:nth-child(%d) > button',
             $tabNumber,
         );
     }

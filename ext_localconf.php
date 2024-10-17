@@ -16,7 +16,8 @@ defined('TYPO3') or die();
     'Html5mediakit',
     'mediarenderer_relatedtable',
     [\Sto\Html5mediakit\Controller\MediaController::class => 'renderMediaForRelatedTable'],
-    []
+    [],
+    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
 
 if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('rte_ckeditor')) {

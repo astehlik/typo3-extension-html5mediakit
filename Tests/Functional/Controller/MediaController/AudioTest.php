@@ -38,7 +38,7 @@ class AudioTest extends AbstractMediaControllerTestCase
     {
         foreach ($this->formats as $extension) {
             /** @noinspection HtmlUnknownTarget */
-            $expectedSource = sprintf('<a href="audio/media.%s">media.%1$s</a>', $extension);
+            $expectedSource = sprintf('<a href="/audio/media.%s">media.%1$s</a>', $extension);
             self::assertStringContainsString($expectedSource, $responseBody);
         }
     }
@@ -47,7 +47,7 @@ class AudioTest extends AbstractMediaControllerTestCase
     {
         foreach ($this->formats as $mimeType => $extension) {
             /** @noinspection HtmlUnknownTarget */
-            $expectedSource = sprintf('<source src="audio/media.%s" type="audio/%s"/>', $extension, $mimeType);
+            $expectedSource = sprintf('<source src="/audio/media.%s" type="audio/%s"/>', $extension, $mimeType);
             self::assertStringContainsString($expectedSource, $responseBody);
         }
     }
