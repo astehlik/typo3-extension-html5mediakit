@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 use Sto\Html5mediakit\Domain\Model\Enumeration\MediaType;
-use TYPO3\CMS\Core\Resource\AbstractFile;
+use TYPO3\CMS\Core\Resource\FileType;
 
 $languagePrefix = 'LLL:EXT:html5mediakit/Resources/Private/Language/locallang_db.xlf:';
 $languagePrefixColumn = $languagePrefix . 'tx_html5mediakit_domain_model_media.';
@@ -46,12 +46,12 @@ $buildFileFieldConfig = static function (
         ],
         'overrideChildTca' => [
             'types' => [
-                AbstractFile::FILETYPE_APPLICATION => ['showitem' => $showitem],
-                AbstractFile::FILETYPE_AUDIO => ['showitem' => $showitem],
-                AbstractFile::FILETYPE_IMAGE => ['showitem' => $showitem],
-                AbstractFile::FILETYPE_TEXT => ['showitem' => $showitem],
-                AbstractFile::FILETYPE_UNKNOWN => ['showitem' => $showitem],
-                AbstractFile::FILETYPE_VIDEO => ['showitem' => $showitem],
+                FileType::APPLICATION->value => ['showitem' => $showitem],
+                FileType::AUDIO->value => ['showitem' => $showitem],
+                FileType::IMAGE->value => ['showitem' => $showitem],
+                FileType::TEXT->value => ['showitem' => $showitem],
+                FileType::UNKNOWN->value => ['showitem' => $showitem],
+                FileType::VIDEO->value => ['showitem' => $showitem],
             ],
         ],
         'security' => ['ignorePageTypeRestriction' => true],
@@ -75,8 +75,8 @@ return [
         'typeicon_column' => 'type',
         'typeicon_classes' => [
             'default' => 'mimetypes-media-video',
-            MediaType::VIDEO => 'mimetypes-media-video',
-            MediaType::AUDIO => 'mimetypes-media-audio',
+            MediaType::VIDEO->value => 'mimetypes-media-video',
+            MediaType::AUDIO->value => 'mimetypes-media-audio',
         ],
         'hideTable' => true,
         'languageField' => 'sys_language_uid',
@@ -94,14 +94,14 @@ return [
                 'items' => [
                     [
                         'label' => $languagePrefixColumn . 'type.I.video',
-                        'value' => MediaType::VIDEO,
+                        'value' => MediaType::VIDEO->value,
                     ],
                     [
                         'label' => $languagePrefixColumn . 'type.I.audio',
-                        'value' => MediaType::AUDIO,
+                        'value' => MediaType::AUDIO->value,
                     ],
                 ],
-                'default' => MediaType::VIDEO,
+                'default' => MediaType::VIDEO->value,
                 'size' => 1,
                 'maxitems' => 1,
             ],
@@ -163,7 +163,7 @@ return [
                 [
                     'ogg',
                     'ogx',
-                ]
+                ],
             ),
         ],
         'h264' => [
@@ -180,7 +180,7 @@ return [
             'label' => $languagePrefixColumn . 'poster',
             'config' => $buildFileFieldConfig(
                 allowedFileTypes: 'common-image-types',
-                createNewRelationLinkTitle: $lllAddImageFileReference
+                createNewRelationLinkTitle: $lllAddImageFileReference,
             ),
         ],
         'sys_language_uid' => [

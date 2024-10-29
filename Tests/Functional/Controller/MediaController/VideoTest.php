@@ -31,7 +31,7 @@ class VideoTest extends AbstractMediaControllerTestCase
         'ogg' => 'ogv',
     ];
 
-    public function testMediaControllerShowsVideo(): void
+    public function testMediaControllerRendersVideo(): void
     {
         $responseBody = $this->loadFixturesAndGetResponseBody('media/video');
 
@@ -53,6 +53,17 @@ class VideoTest extends AbstractMediaControllerTestCase
         $this->assertVideoContainsTracks($videoElement);
     }
 
+    public function testMediaControllerRendersVideoWithoutData(): void
+    {
+        $responseBody = $this->loadFixturesAndGetResponseBody('media/video', 2);
+
+        $crawler = new Crawler($responseBody);
+
+        $audioContent = $this->getSingleElement($crawler, 'div.tx-html5mediakit-media-container')->text();
+
+        self::assertSame('No video file is available in any format.', $audioContent);
+    }
+
     private function assertFallbacktextContainsFallbackLinks(Crawler $fallbackText): void
     {
         foreach ($this->formats as $extension) {
@@ -67,12 +78,12 @@ class VideoTest extends AbstractMediaControllerTestCase
     {
         self::assertStringContainsString(
             'Testcaption',
-            $this->getSingleElement($metaDataElement, '.tx-html5mediakit-media-caption')->text()
+            $this->getSingleElement($metaDataElement, '.tx-html5mediakit-media-caption')->text(),
         );
 
         self::assertStringContainsString(
             'Testdescription',
-            $this->getSingleElement($metaDataElement, '.tx-html5mediakit-media-description')->text()
+            $this->getSingleElement($metaDataElement, '.tx-html5mediakit-media-description')->text(),
         );
     }
 
@@ -96,14 +107,5 @@ class VideoTest extends AbstractMediaControllerTestCase
             $expectedDefault = $expectedTrack['default'] ? '' : null;
             self::assertSame($expectedDefault, $track->attr('default'));
         }
-    }
-
-    private function getSingleElement(Crawler $crawler, string $selector): Crawler
-    {
-        $elements = $crawler->filter($selector);
-
-        self::assertCount(1, $elements, 'Expected exactly one element matching selector "' . $selector . '"');
-
-        return $elements->first();
     }
 }

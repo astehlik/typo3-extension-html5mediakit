@@ -6,17 +6,26 @@ namespace Sto\Html5mediakit\Tests\Unit\ViewHelpers;
 
 use Sto\Html5mediakit\Domain\Model\Video;
 use Sto\Html5mediakit\ViewHelpers\VideoViewHelper;
-use TYPO3\CMS\Core\Resource\FileInterface;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 
 class VideoViewHelperTest extends UnitTestCase
 {
+    private array $additionalArguments;
+
     private array $arguments;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->arguments = [];
+        $this->additionalArguments = [];
+    }
 
     public function testControlsAttributeIsRendered(): void
     {
-        $this->arguments = ['controls' => 'controls'];
+        $this->additionalArguments = ['controls' => 'controls'];
         $this->assertRenderResult('<video controls="controls">children</video>');
     }
 
@@ -28,7 +37,7 @@ class VideoViewHelperTest extends UnitTestCase
 
     public function testPosterAttributeIsRendered(): void
     {
-        $resourceMock = $this->getMockBuilder(FileInterface::class)->getMockForAbstractClass();
+        $resourceMock = $this->createMock(\TYPO3\CMS\Core\Resource\FileReference::class);
         $resourceMock->method('getPublicUrl')->willReturn('/my/img/src.png');
 
         $posterMock = $this->getMockBuilder(FileReference::class)->getMock();
@@ -53,6 +62,7 @@ class VideoViewHelperTest extends UnitTestCase
 
         $viewHelper = new VideoViewHelper();
         $viewHelper->setArguments($this->arguments);
+        $viewHelper->handleAdditionalArguments($this->additionalArguments);
         $viewHelper->setRenderChildrenClosure($renderChildrenClosure);
         self::assertSame($expectedResult, $viewHelper->initializeArgumentsAndRender());
     }

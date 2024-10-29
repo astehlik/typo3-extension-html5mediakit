@@ -16,6 +16,7 @@ namespace Sto\Html5mediakit\Tests\Functional\Controller\MediaController;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
+use Symfony\Component\DomCrawler\Crawler;
 use Symfony\Component\Yaml\Yaml;
 use TYPO3\CMS\Core\Cache\CacheManager;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -41,6 +42,15 @@ abstract class AbstractMediaControllerTestCase extends FunctionalTestCase
         self::FIXTURES_PATH . '/TypoScript/setup.typoscript',
     ];
 
+    protected function getSingleElement(Crawler $crawler, string $selector): Crawler
+    {
+        $elements = $crawler->filter($selector);
+
+        self::assertCount(1, $elements, 'Expected exactly one element matching selector "' . $selector . '"');
+
+        return $elements->first();
+    }
+
     protected function loadFixtures(string $dataSet): void
     {
         $this->importCSVDataSet($this->buildDatasetPath('common'));
@@ -55,7 +65,7 @@ abstract class AbstractMediaControllerTestCase extends FunctionalTestCase
             [
                 'setup' => $this->typoscriptSetupFilesDefault,
                 'constants' => $this->typoscriptConstantFiles,
-            ]
+            ],
         );
         $this->setUpFrontendSite(1);
 

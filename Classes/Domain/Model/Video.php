@@ -23,31 +23,23 @@ class Video extends Media
 {
     /**
      * Reference to the h.264 (.mp4) version of the video.
-     *
-     * @var FileReference
      */
-    protected $h264;
+    protected ?FileReference $h264 = null;
 
     /**
      * Reference to the OGG Theora (.ogv) version of the video.
-     *
-     * @var FileReference
      */
-    protected $ogv;
+    protected ?FileReference $ogv = null;
 
     /**
      * Reference to the WebM version of the video.
-     *
-     * @var FileReference
      */
-    protected $poster;
+    protected ?FileReference $poster = null;
 
     /**
      * Reference to the WebM version of the video.
-     *
-     * @var FileReference
      */
-    protected $webM;
+    protected ?FileReference $webM;
 
     public function getH264(): FileReference
     {
@@ -86,12 +78,12 @@ class Video extends Media
         return $this->webM instanceof FileReference;
     }
 
-    public function getOgv(): FileReference
+    public function getOgv(): ?FileReference
     {
         return $this->ogv;
     }
 
-    public function getPoster(): FileReference
+    public function getPoster(): ?FileReference
     {
         return $this->poster;
     }
@@ -104,7 +96,7 @@ class Video extends Media
         return $this->getHasH264() || $this->getHasOgv() || $this->getHasWebM();
     }
 
-    public function getWebM(): FileReference
+    public function getWebM(): ?FileReference
     {
         return $this->webM;
     }

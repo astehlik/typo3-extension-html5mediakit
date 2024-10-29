@@ -25,7 +25,6 @@ use TYPO3\CMS\Extbase\Http\ForwardResponse;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
-use RuntimeException;
 
 /**
  * Controller for rendering media.
@@ -54,6 +53,7 @@ class MediaController extends ActionController
         $contentObject = $this->getCurrentContentObject();
 
         try {
+            /** @extensionScannerIgnoreLine */
             $uid = $contentObject->data['_LOCALIZED_UID'] ?? $contentObject->data['uid'];
             $media = $this->mediaRepository->findOneByContentElementUid($uid);
         } catch (MediaException $mediaException) {
@@ -68,6 +68,7 @@ class MediaController extends ActionController
         $contentObject = $this->getCurrentContentObject();
 
         try {
+            /** @extensionScannerIgnoreLine */
             $media = $this->mediaRepository->findOneByParentRecord($contentObject->data);
         } catch (MediaException $mediaException) {
             return $this->htmlResponse($this->translate('exception.' . $mediaException->getCode()));
@@ -98,15 +99,13 @@ class MediaController extends ActionController
         $contentObject = $this->getCurrentContentObject();
         $contentObject->lastChanged($media->getTstamp());
 
-        if ($mediaType->equals(MediaType::VIDEO)) {
+        if ($mediaType === MediaType::VIDEO) {
             return (new ForwardResponse('video'))->withArguments(['video' => $media->getUid()]);
         }
 
-        if ($mediaType->equals(MediaType::AUDIO)) {
+        if ($mediaType === MediaType::AUDIO) {
             return (new ForwardResponse('audio'))->withArguments(['audio' => $media->getUid()]);
         }
-
-        throw new RuntimeException('An invalid media type is used.'); // @codeCoverageIgnore
     }
 
     /**

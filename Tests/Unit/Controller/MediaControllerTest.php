@@ -39,6 +39,7 @@ class MediaControllerTest extends TestCase
         $dummyVideo = $this->createMock(Video::class);
         $viewMock = $this->createMock(ViewInterface::class);
         $viewMock->expects(self::once())->method('assign')->with('video', $dummyVideo);
+        $viewMock->expects(self::once())->method('render')->willReturn('');
         $this->mediaController->setView($viewMock);
         $this->mediaController->videoAction($dummyVideo);
     }

@@ -23,17 +23,13 @@ class Audio extends Media
 {
     /**
      * Reference to the MP3 version of the audio.
-     *
-     * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
      */
-    protected $mp3;
+    protected ?FileReference $mp3 = null;
 
     /**
      * Reference to the OGA/OGG Vorbis version of the audio.
-     *
-     * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
      */
-    protected $ogg;
+    protected ?FileReference $ogg = null;
 
     /**
      * Returns true if an audio file of any type is available.
@@ -59,12 +55,12 @@ class Audio extends Media
         return $this->ogg instanceof FileReference;
     }
 
-    public function getMp3(): FileReference
+    public function getMp3(): ?FileReference
     {
         return $this->mp3;
     }
 
-    public function getOgg(): FileReference
+    public function getOgg(): ?FileReference
     {
         return $this->ogg;
     }

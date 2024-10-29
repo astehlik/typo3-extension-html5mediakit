@@ -27,53 +27,33 @@ class Media extends AbstractEntity
 {
     /**
      * Caption for the media file.
-     *
-     * @var string
      */
-    protected $caption;
+    protected string $caption;
 
     /**
      * UID of the content element to which this media element belongs.
-     *
-     * @var int
      */
-    protected $contentElement;
+    protected int $contentElement;
 
     /**
      * The (Richtext) description of the media element.
-     *
-     * @var string
      */
-    protected $description;
+    protected string $description;
 
-    /**
-     * @var int
-     */
-    protected $parentRecord;
+    protected int $parentRecord;
 
-    /**
-     * @var string
-     */
-    protected $parentTable;
+    protected string $parentTable;
 
     /**
      * Reference to the track file.
      *
      * @var ObjectStorage<FileReference>
      */
-    protected $tracks;
+    protected ObjectStorage $tracks;
 
-    /**
-     * @var int
-     */
-    protected $tstamp;
+    protected int $tstamp;
 
-    /**
-     * The type of the media element (can be audio or video).
-     *
-     * @var \Sto\Html5mediakit\Domain\Model\Enumeration\MediaType
-     */
-    protected $type;
+    protected MediaType $type;
 
     public function __construct()
     {
@@ -90,9 +70,6 @@ class Media extends AbstractEntity
         return $this->contentElement;
     }
 
-    /**
-     * @return mixed
-     */
     public function getDescription(): string
     {
         return $this->description;

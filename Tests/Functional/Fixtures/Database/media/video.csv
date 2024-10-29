@@ -1,12 +1,15 @@
 pages,,,
 ,uid,pid,title
 ,1,0,Page with video
+,2,1,Page with empty video
 tt_content,,,,,,,
 ,uid,pid,header,CType,deleted,t3ver_oid,t3ver_wsid
 ,1,1,Video content,html5mediakit_mediarenderer,0,0,0
+,2,2,Video content without data,html5mediakit_mediarenderer,0,0,0
 tx_html5mediakit_domain_model_media,,,,,,,,,,,
 ,uid,pid,content_element,type,caption,description,h264,ogv,web_m,poster,deleted
 ,1,1,1,video,Testcaption,Testdescription,1,1,1,1,0
+,2,2,2,video,,,0,0,0,0,0
 sys_file_reference,,,,,,,,,,
 ,uid,pid,uid_local,uid_foreign,tablenames,fieldname,tx_html5mediakit_track_kind,tx_html5mediakit_track_label,tx_html5mediakit_track_srclang
 ,1,0,3,1,tx_html5mediakit_domain_model_media,h264,,,
