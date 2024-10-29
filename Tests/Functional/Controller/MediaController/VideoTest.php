@@ -10,14 +10,14 @@ class VideoTest extends AbstractMediaControllerTestCase
 {
     private array $expectedTracks = [
         [
-            'src' => 'tracks/subtitles-en.vtt',
+            'src' => '/tracks/subtitles-en.vtt',
             'kind' => 'subtitles',
             'srclang' => 'en',
             'label' => 'English',
             'default' => true,
         ],
         [
-            'src' => 'tracks/subtitles-de.vtt',
+            'src' => '/tracks/subtitles-de.vtt',
             'kind' => 'subtitles',
             'srclang' => 'de',
             'label' => 'German',
@@ -41,7 +41,7 @@ class VideoTest extends AbstractMediaControllerTestCase
 
         $videoElement = $this->getSingleElement($videoContent, 'video');
 
-        self::assertSame('video/poster.png', $videoElement->attr('poster'));
+        self::assertSame('/video/poster.png', $videoElement->attr('poster'));
 
         $this->assertVideoContainsSources($videoElement);
 
@@ -68,7 +68,7 @@ class VideoTest extends AbstractMediaControllerTestCase
     {
         foreach ($this->formats as $extension) {
             /** @noinspection HtmlUnknownTarget */
-            $fallbackLink = $fallbackText->filter(sprintf('a[href="video/media.%s"]', $extension));
+            $fallbackLink = $fallbackText->filter(sprintf('a[href="/video/media.%s"]', $extension));
             self::assertCount(1, $fallbackLink);
             self::assertSame('media.' . $extension, $fallbackLink->text());
         }
@@ -92,7 +92,7 @@ class VideoTest extends AbstractMediaControllerTestCase
         foreach ($this->formats as $mimeType => $extension) {
             $source = $videoElement->filter(sprintf('source[type="video/%s"]', $mimeType));
             self::assertCount(1, $source);
-            self::assertSame('video/media.' . $extension, $source->attr('src'));
+            self::assertSame('/video/media.' . $extension, $source->attr('src'));
         }
     }
 

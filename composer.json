@@ -5,16 +5,15 @@
 	"type": "typo3-cms-extension",
 	"require": {
 		"php": "^8.2",
-		"typo3/cms-core": "~13.1.0",
-		"typo3/cms-extbase": "~13.1.0",
-		"typo3/cms-frontend": "~13.1.0"
+		"typo3/cms-core": "~13.4.0",
+		"typo3/cms-extbase": "~13.4.0",
+		"typo3/cms-frontend": "~13.4.0"
 	},
 	"require-dev": {
 		"de-swebhosting/typo3-extension-buildtools": "dev-TYPO3_13",
 		"typo3/cms-filelist": "*",
-		"typo3/cms-fluid-styled-content": "~13.1.0",
-		"typo3/cms-install": "*",
-		"typo3/testing-framework": "dev-main"
+		"typo3/cms-fluid-styled-content": "*",
+		"typo3/cms-install": "*"
 	},
 	"autoload": {
 		"psr-4": {
@@ -23,8 +22,7 @@
 	},
 	"autoload-dev": {
 		"psr-4": {
-			"Sto\\Html5mediakit\\Tests\\": "Tests",
-			"TYPO3\\JsonResponse\\": ".Build/vendor/typo3/testing-framework/Resources/Core/Functional/Extensions/json_response/Classes"
+			"Sto\\Html5mediakit\\Tests\\": "Tests"
 		}
 	},
 	"config": {

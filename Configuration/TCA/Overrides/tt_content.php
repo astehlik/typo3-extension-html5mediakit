@@ -13,6 +13,7 @@ ExtensionUtility::registerPlugin(
     'mediarenderer',
     $languagePrefix . 'tt_content.CType.I.html5mediakit_mediarenderer',
     'mimetypes-x-content-multimedia',
+    group: 'default',
     pluginDescription: $languagePrefix . 'new_content_element_wizard_html5mediakitmediarenderer_description',
 );
 
