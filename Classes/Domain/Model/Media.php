@@ -15,8 +15,8 @@ namespace Sto\Html5mediakit\Domain\Model;
  *                                                                        */
 
 use Sto\Html5mediakit\Domain\Model\Enumeration\MediaType;
-use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
+use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**

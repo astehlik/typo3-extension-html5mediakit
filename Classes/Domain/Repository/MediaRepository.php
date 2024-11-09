@@ -14,12 +14,12 @@ namespace Sto\Html5mediakit\Domain\Repository;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
+use InvalidArgumentException;
 use Sto\Html5mediakit\Domain\Model\Media;
 use Sto\Html5mediakit\Exception\MediaMissingException;
 use TYPO3\CMS\Core\Context\LanguageAspect;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
-use InvalidArgumentException;
 
 /**
  * Repository for retrieving media files from the database.
