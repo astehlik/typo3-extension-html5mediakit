@@ -17,8 +17,8 @@ ExtensionUtility::registerPlugin(
     pluginDescription: $languagePrefix . 'new_content_element_wizard_html5mediakitmediarenderer_description',
 );
 
-$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['html5mediakit_mediarenderer'] =
-    'mimetypes-x-content-multimedia';
+$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['html5mediakit_mediarenderer']
+    = 'mimetypes-x-content-multimedia';
 
 $columns = [
     'tx_html5mediakit_media' => [
