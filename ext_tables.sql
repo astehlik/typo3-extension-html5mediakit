@@ -23,13 +23,13 @@ CREATE TABLE tx_html5mediakit_domain_model_media (
 	parent_table varchar(255) DEFAULT '' NOT NULL,
 
 	type varchar(100) DEFAULT '' NOT NULL,
-	tracks tinyint(3) unsigned DEFAULT '0' NOT NULL,
+	tracks int unsigned DEFAULT '0' NOT NULL,
 	caption varchar(255) DEFAULT '' NOT NULL,
 	description text NOT NULL,
-	mp3 tinyint(3) unsigned DEFAULT '0' NOT NULL,
-	ogg tinyint(3) unsigned DEFAULT '0' NOT NULL,
-	h264 tinyint(3) unsigned DEFAULT '0' NOT NULL,
-	ogv tinyint(3) unsigned DEFAULT '0' NOT NULL,
-	poster tinyint(3) unsigned DEFAULT '0' NOT NULL,
-	web_m tinyint(3) unsigned DEFAULT '0' NOT NULL
+	mp3 int unsigned DEFAULT '0' NOT NULL,
+	ogg int unsigned DEFAULT '0' NOT NULL,
+	h264 int unsigned DEFAULT '0' NOT NULL,
+	ogv int unsigned DEFAULT '0' NOT NULL,
+	poster int unsigned DEFAULT '0' NOT NULL,
+	web_m int unsigned DEFAULT '0' NOT NULL,
 );
