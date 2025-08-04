@@ -28,7 +28,7 @@ class ContentCreationCest
         $modalDialog->canSeeDialog();
         $I->executeJS(
             'document.querySelector(\'typo3-backend-new-content-element-wizard\').shadowRoot'
-            . '.querySelector(\'button[data-identifier="common_html5mediakit_mediarenderer"]\').click()'
+            . '.querySelector(\'button[data-identifier="common_html5mediakit_mediarenderer"]\').click()',
         );
 
         $I->switchToContentFrame();
@@ -69,7 +69,7 @@ class ContentCreationCest
     {
         return sprintf(
             'div[role="tabpanel"] > ul.nav-tabs > li.t3js-tabmenu-item:nth-child(%d) > a',
-            $tabNumber
+            $tabNumber,
         );
     }
 }

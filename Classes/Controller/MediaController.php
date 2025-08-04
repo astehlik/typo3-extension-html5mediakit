@@ -15,6 +15,7 @@ namespace Sto\Html5mediakit\Controller;
  *                                                                        */
 
 use Psr\Http\Message\ResponseInterface;
+use RuntimeException;
 use Sto\Html5mediakit\Domain\Model\Audio;
 use Sto\Html5mediakit\Domain\Model\Enumeration\MediaType;
 use Sto\Html5mediakit\Domain\Model\Media;
@@ -25,7 +26,6 @@ use TYPO3\CMS\Extbase\Http\ForwardResponse;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
-use RuntimeException;
 
 /**
  * Controller for rendering media.
