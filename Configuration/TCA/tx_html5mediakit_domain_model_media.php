@@ -163,7 +163,7 @@ return [
                 [
                     'ogg',
                     'ogx',
-                ]
+                ],
             ),
         ],
         'h264' => [
@@ -180,7 +180,7 @@ return [
             'label' => $languagePrefixColumn . 'poster',
             'config' => $buildFileFieldConfig(
                 allowedFileTypes: 'common-image-types',
-                createNewRelationLinkTitle: $lllAddImageFileReference
+                createNewRelationLinkTitle: $lllAddImageFileReference,
             ),
         ],
         'sys_language_uid' => [

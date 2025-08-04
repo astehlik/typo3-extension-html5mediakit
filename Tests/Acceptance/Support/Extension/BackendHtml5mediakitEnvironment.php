@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Sto\Html5mediakit\Tests\Acceptance\Support\Extension;
 
 use Codeception\Event\SuiteEvent;
-use TYPO3\TestingFramework\Core\Acceptance\Extension\BackendEnvironment;
 use RuntimeException;
+use TYPO3\TestingFramework\Core\Acceptance\Extension\BackendEnvironment;
 
 class BackendHtml5mediakitEnvironment extends BackendEnvironment
 {

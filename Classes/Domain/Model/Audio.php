@@ -24,14 +24,14 @@ class Audio extends Media
     /**
      * Reference to the MP3 version of the audio.
      *
-     * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
+     * @var FileReference
      */
     protected $mp3;
 
     /**
      * Reference to the OGA/OGG Vorbis version of the audio.
      *
-     * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
+     * @var FileReference
      */
     protected $ogg;
 
