@@ -24,14 +24,14 @@ enum MediaType: string
     /**
      * Media type "audio" for MP3 / OGG files.
      *
-     * @const
+     * @var
      */
     case AUDIO = 'audio';
 
     /**
      * Media type "video" for MP4 / OGV files.
      *
-     * @const
+     * @var
      */
     case VIDEO = 'video';
 }
