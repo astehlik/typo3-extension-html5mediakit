@@ -56,9 +56,7 @@ class VideoViewHelperTest extends UnitTestCase
     {
         $this->arguments['video'] = $video ?: new Video();
 
-        $renderChildrenClosure = static function () {
-            return 'children';
-        };
+        $renderChildrenClosure = static fn() => 'children';
 
         $viewHelper = new VideoViewHelper();
         $viewHelper->setArguments($this->arguments);
