@@ -10,21 +10,21 @@ class TranslationTest extends AbstractMediaControllerTestCase
     {
         $responseBody = $this->loadFixturesAndGetResponseBody('translation', 10, 1);
 
-        self::assertStringNotContainsString('caption connected default', $responseBody);
-        self::assertStringContainsString('caption connected de', $responseBody);
+        $this->assertStringNotContainsString('caption connected default', $responseBody);
+        $this->assertStringContainsString('caption connected de', $responseBody);
 
-        self::assertStringNotContainsString('audio/media.mp3', $responseBody);
-        self::assertStringContainsString('audio/media.ogg', $responseBody);
+        $this->assertStringNotContainsString('audio/media.mp3', $responseBody);
+        $this->assertStringContainsString('audio/media.ogg', $responseBody);
     }
 
     public function testCopyModeUsesExpectedMedia(): void
     {
         $responseBody = $this->loadFixturesAndGetResponseBody('translation', 20, 1);
 
-        self::assertStringNotContainsString('caption copy default', $responseBody);
-        self::assertStringContainsString('caption copy de', $responseBody);
+        $this->assertStringNotContainsString('caption copy default', $responseBody);
+        $this->assertStringContainsString('caption copy de', $responseBody);
 
-        self::assertStringNotContainsString('video/media.mp4', $responseBody);
-        self::assertStringContainsString('video/media.ogv', $responseBody);
+        $this->assertStringNotContainsString('video/media.mp4', $responseBody);
+        $this->assertStringContainsString('video/media.ogv', $responseBody);
     }
 }

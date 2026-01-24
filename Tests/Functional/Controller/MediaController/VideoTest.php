@@ -41,7 +41,7 @@ class VideoTest extends AbstractMediaControllerTestCase
 
         $videoElement = $this->getSingleElement($videoContent, 'video');
 
-        self::assertSame('/video/poster.png', $videoElement->attr('poster'));
+        $this->assertSame('/video/poster.png', $videoElement->attr('poster'));
 
         $this->assertVideoContainsSources($videoElement);
 
@@ -61,7 +61,7 @@ class VideoTest extends AbstractMediaControllerTestCase
 
         $audioContent = $this->getSingleElement($crawler, 'div.tx-html5mediakit-media-container')->text();
 
-        self::assertSame('No video file is available in any format.', $audioContent);
+        $this->assertSame('No video file is available in any format.', $audioContent);
     }
 
     private function assertFallbacktextContainsFallbackLinks(Crawler $fallbackText): void
@@ -69,19 +69,19 @@ class VideoTest extends AbstractMediaControllerTestCase
         foreach ($this->formats as $extension) {
             /** @noinspection HtmlUnknownTarget */
             $fallbackLink = $fallbackText->filter(sprintf('a[href="/video/media.%s"]', $extension));
-            self::assertCount(1, $fallbackLink);
-            self::assertSame('media.' . $extension, $fallbackLink->text());
+            $this->assertCount(1, $fallbackLink);
+            $this->assertSame('media.' . $extension, $fallbackLink->text());
         }
     }
 
     private function assertValidMetaData(Crawler $metaDataElement): void
     {
-        self::assertStringContainsString(
+        $this->assertStringContainsString(
             'Testcaption',
             $this->getSingleElement($metaDataElement, '.tx-html5mediakit-media-caption')->text(),
         );
 
-        self::assertStringContainsString(
+        $this->assertStringContainsString(
             'Testdescription',
             $this->getSingleElement($metaDataElement, '.tx-html5mediakit-media-description')->text(),
         );
@@ -91,8 +91,8 @@ class VideoTest extends AbstractMediaControllerTestCase
     {
         foreach ($this->formats as $mimeType => $extension) {
             $source = $videoElement->filter(sprintf('source[type="video/%s"]', $mimeType));
-            self::assertCount(1, $source);
-            self::assertSame('/video/media.' . $extension, $source->attr('src'));
+            $this->assertCount(1, $source);
+            $this->assertSame('/video/media.' . $extension, $source->attr('src'));
         }
     }
 
@@ -100,12 +100,12 @@ class VideoTest extends AbstractMediaControllerTestCase
     {
         foreach ($this->expectedTracks as $expectedTrack) {
             $track = $this->getSingleElement($videoElement, sprintf('track[src="%s"]', $expectedTrack['src']));
-            self::assertSame($expectedTrack['kind'], $track->attr('kind'));
-            self::assertSame($expectedTrack['srclang'], $track->attr('srclang'));
-            self::assertSame($expectedTrack['label'], $track->attr('label'));
+            $this->assertSame($expectedTrack['kind'], $track->attr('kind'));
+            $this->assertSame($expectedTrack['srclang'], $track->attr('srclang'));
+            $this->assertSame($expectedTrack['label'], $track->attr('label'));
 
             $expectedDefault = $expectedTrack['default'] ? '' : null;
-            self::assertSame($expectedDefault, $track->attr('default'));
+            $this->assertSame($expectedDefault, $track->attr('default'));
         }
     }
 }

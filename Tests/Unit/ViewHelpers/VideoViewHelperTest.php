@@ -63,6 +63,6 @@ class VideoViewHelperTest extends UnitTestCase
         $viewHelper->handleAdditionalArguments($this->additionalArguments);
         $viewHelper->setRenderChildrenClosure($renderChildrenClosure);
         $viewHelper->initialize();
-        self::assertSame($expectedResult, $viewHelper->render());
+        $this->assertSame($expectedResult, $viewHelper->render());
     }
 }

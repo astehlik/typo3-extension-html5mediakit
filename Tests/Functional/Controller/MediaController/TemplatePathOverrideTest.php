@@ -13,8 +13,8 @@ class TemplatePathOverrideTest extends AbstractMediaControllerTestCase
     {
         $responseBody = $this->loadFixturesAndGetResponseBody('media/video');
 
-        self::assertStringContainsString('OverwrittenLayout', $responseBody);
-        self::assertStringContainsString('OverwrittenTemplate', $responseBody);
-        self::assertStringContainsString('AnAdditionalPartial', $responseBody);
+        $this->assertStringContainsString('OverwrittenLayout', $responseBody);
+        $this->assertStringContainsString('OverwrittenTemplate', $responseBody);
+        $this->assertStringContainsString('AnAdditionalPartial', $responseBody);
     }
 }

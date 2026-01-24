@@ -19,8 +19,8 @@ class AudioTest extends AbstractMediaControllerTestCase
 
         $this->assertResponseContainsSources($responseBody);
         $this->assertResponseContainsFallbackLinks($responseBody);
-        self::assertStringContainsString('Testcaption', $responseBody);
-        self::assertStringContainsString('Testdescription', $responseBody);
+        $this->assertStringContainsString('Testcaption', $responseBody);
+        $this->assertStringContainsString('Testdescription', $responseBody);
     }
 
     public function testMediaControllerRendersAudioWithoutData(): void
@@ -31,7 +31,7 @@ class AudioTest extends AbstractMediaControllerTestCase
 
         $audioContent = $this->getSingleElement($crawler, 'div.tx-html5mediakit-media-container')->text();
 
-        self::assertSame('No audio file is available in any format.', $audioContent);
+        $this->assertSame('No audio file is available in any format.', $audioContent);
     }
 
     private function assertResponseContainsFallbackLinks(string $responseBody): void
@@ -39,7 +39,7 @@ class AudioTest extends AbstractMediaControllerTestCase
         foreach ($this->formats as $extension) {
             /** @noinspection HtmlUnknownTarget */
             $expectedSource = sprintf('<a href="/audio/media.%s">media.%1$s</a>', $extension);
-            self::assertStringContainsString($expectedSource, $responseBody);
+            $this->assertStringContainsString($expectedSource, $responseBody);
         }
     }
 
@@ -48,7 +48,7 @@ class AudioTest extends AbstractMediaControllerTestCase
         foreach ($this->formats as $mimeType => $extension) {
             /** @noinspection HtmlUnknownTarget */
             $expectedSource = sprintf('<source src="/audio/media.%s" type="audio/%s"/>', $extension, $mimeType);
-            self::assertStringContainsString($expectedSource, $responseBody);
+            $this->assertStringContainsString($expectedSource, $responseBody);
         }
     }
 }

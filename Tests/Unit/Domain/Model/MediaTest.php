@@ -33,42 +33,42 @@ class MediaTest extends TestCase
     {
         $this->media->setContentElement(343);
 
-        self::assertSame(343, $this->media->getContentElement());
+        $this->assertSame(343, $this->media->getContentElement());
     }
 
     public function testGetHasMetadataReturnsFalseIfNoTeaserOrDescriptionPresent(): void
     {
         $this->media->setCaption('');
         $this->media->setDescription('');
-        self::assertFalse($this->media->getHasMetadata());
+        $this->assertFalse($this->media->getHasMetadata());
     }
 
     public function testGetHasMetadataReturnsTrueIfCaptionPresent(): void
     {
         $this->media->setCaption('not empty');
         $this->media->setDescription('');
-        self::assertTrue($this->media->getHasMetadata());
+        $this->assertTrue($this->media->getHasMetadata());
     }
 
     public function testGetHasMetadataReturnsTrueIfDescriptionPresent(): void
     {
         $this->media->setCaption('');
         $this->media->setDescription('not empty');
-        self::assertTrue($this->media->getHasMetadata());
+        $this->assertTrue($this->media->getHasMetadata());
     }
 
     public function testGetParentRecordReturnsExpectedValue(): void
     {
         $this->media->setParentRecord(6176);
 
-        self::assertSame(6176, $this->media->getParentRecord());
+        $this->assertSame(6176, $this->media->getParentRecord());
     }
 
     public function testGetParentTableReturnsExpectedValue(): void
     {
         $this->media->setParentTable('the_table');
 
-        self::assertSame('the_table', $this->media->getParentTable());
+        $this->assertSame('the_table', $this->media->getParentTable());
     }
 
     public function testGetTracksReturnsExpectedValue(): void
@@ -77,14 +77,14 @@ class MediaTest extends TestCase
 
         $this->media->setTracks($theStorage);
 
-        self::assertSame($theStorage, $this->media->getTracks());
+        $this->assertSame($theStorage, $this->media->getTracks());
     }
 
     public function testGetTstampReturnsExpectedValue(): void
     {
         $this->media->setTstamp(388384);
 
-        self::assertSame(388384, $this->media->getTstamp());
+        $this->assertSame(388384, $this->media->getTstamp());
     }
 
     public function testGetTypeReturnsExpectedValue(): void
@@ -93,6 +93,6 @@ class MediaTest extends TestCase
 
         $this->media->setType($theType);
 
-        self::assertSame($theType, $this->media->getType());
+        $this->assertSame($theType, $this->media->getType());
     }
 }

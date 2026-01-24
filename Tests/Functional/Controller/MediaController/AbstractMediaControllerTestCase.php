@@ -46,7 +46,7 @@ abstract class AbstractMediaControllerTestCase extends FunctionalTestCase
     {
         $elements = $crawler->filter($selector);
 
-        self::assertCount(1, $elements, 'Expected exactly one element matching selector "' . $selector . '"');
+        $this->assertCount(1, $elements, 'Expected exactly one element matching selector "' . $selector . '"');
 
         return $elements->first();
     }

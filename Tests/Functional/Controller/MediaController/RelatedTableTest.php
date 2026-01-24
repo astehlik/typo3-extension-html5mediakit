@@ -18,7 +18,7 @@ class RelatedTableTest extends AbstractMediaControllerTestCase
 {
     public function testMediaControllerShowsVideo(): void
     {
-        self::markTestSkipped('Test needs rework, ideally with a test Extension');
+        $this->markTestSkipped('Test needs rework, ideally with a test Extension');
 
         // @phpstan-ignore deadCode.unreachable
         $this->loadFixtures('media/parent');
@@ -45,7 +45,7 @@ class RelatedTableTest extends AbstractMediaControllerTestCase
 
         $response = $controller->renderMediaForRelatedTableAction();
 
-        self::assertInstanceOf(ForwardResponse::class, $response);
-        self::assertSame(['video' => 1], $response->getArguments());
+        $this->assertInstanceOf(ForwardResponse::class, $response);
+        $this->assertSame(['video' => 1], $response->getArguments());
     }
 }
