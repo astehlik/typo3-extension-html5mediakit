@@ -19,7 +19,7 @@ use PHPUnit\Framework\TestCase;
 use Sto\Html5mediakit\Domain\Model\Video;
 use TYPO3\CMS\Core\Http\ResponseFactory;
 use TYPO3\CMS\Core\Http\StreamFactory;
-use TYPO3Fluid\Fluid\View\ViewInterface;
+use TYPO3\CMS\Core\View\ViewInterface;
 
 class MediaControllerTest extends TestCase
 {
