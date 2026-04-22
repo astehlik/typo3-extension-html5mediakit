@@ -83,6 +83,8 @@ return [
         'transOrigPointerField' => 'l10n_parent',
         'transOrigDiffSourceField' => 'l10n_diffsource',
         'security' => ['ignorePageTypeRestriction' => true],
+        'origUid' => 't3_origuid',
+        'versioningWS' => true,
     ],
     'columns' => [
         'type' => [

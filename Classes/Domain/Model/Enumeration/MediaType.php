@@ -23,15 +23,11 @@ enum MediaType: string
 {
     /**
      * Media type "audio" for MP3 / OGG files.
-     *
-     * @var
      */
     case AUDIO = 'audio';
 
     /**
      * Media type "video" for MP4 / OGV files.
-     *
-     * @var
      */
     case VIDEO = 'video';
 }

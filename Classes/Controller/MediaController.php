@@ -99,13 +99,10 @@ class MediaController extends ActionController
         $contentObject = $this->getCurrentContentObject();
         $contentObject->lastChanged($media->getTstamp());
 
-        if ($mediaType === MediaType::VIDEO) {
-            return (new ForwardResponse('video'))->withArguments(['video' => $media->getUid()]);
-        }
-
-        if ($mediaType === MediaType::AUDIO) {
-            return (new ForwardResponse('audio'))->withArguments(['audio' => $media->getUid()]);
-        }
+        return match ($mediaType) {
+            MediaType::VIDEO => (new ForwardResponse('video'))->withArguments(['video' => $media->getUid()]),
+            MediaType::AUDIO => (new ForwardResponse('audio'))->withArguments(['audio' => $media->getUid()]),
+        };
     }
 
     /**
